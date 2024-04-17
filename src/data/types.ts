@@ -6,5 +6,4 @@ export type Asset = {
     key: AssetKey;
     symbol: string;
     color: string;
-    api: string;
 };
