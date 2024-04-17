@@ -1,37 +1,25 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 
-import { assets } from "data/assets";
 import { AssetKey, Currency } from "data/types";
-import axios from "axios";
+import { ExchangeContext } from "contexts/ExchangeContext";
 
 export const useTicker = (
     initialAssetKey: AssetKey,
     initalCurrency: Currency
 ) => {
+    const { data } = useContext(ExchangeContext);
+
     const [assetKey, setAssetKey] = useState<AssetKey>(initialAssetKey);
     const [currency, setCurrency] = useState<Currency>(initalCurrency);
     const [price, setPrice] = useState(0);
-    const [refreshRate, setRefreshRate] = useState(2000);
 
     useEffect(() => {
-        const fetchPrice = async () => {
-            const endpoint = assets[assetKey].api;
+        const asset = data.find(
+            (item: any) => item.symbol === assetKey + currency
+        );
 
-            axios.get(endpoint).then((res) => {
-                const rate = assetKey + currency;
-
-                const asset = res.data.find(
-                    (item: any) => item.symbol === rate
-                );
-
-                setPrice(asset.lastPrice);
-            });
-        };
-
-        const interval = setInterval(() => fetchPrice(), refreshRate);
-
-        return () => clearInterval(interval);
-    }, [assetKey, currency, refreshRate]);
+        setPrice(asset?.lastPrice ?? 0);
+    }, [data]);
 
     return {
         price,
@@ -39,6 +27,5 @@ export const useTicker = (
         currency,
         setAssetKey,
         setCurrency,
-        setRefreshRate,
     };
 };
