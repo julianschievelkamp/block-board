@@ -6,13 +6,13 @@ export const assets: { [key in AssetKey]: Asset } = {
         key: "BTC",
         symbol: "₿",
         color: "darkorange",
-        api: "https://blockchain.info/ticker",
+        api: "https://api4.binance.com/api/v3/ticker/24hr",
     },
     ETH: {
         label: "Ethereum",
         key: "ETH",
         symbol: "Ξ",
         color: "darkgrey",
-        api: "https://blockchain.info/ticker",
+        api: "https://api4.binance.com/api/v3/ticker/24hr",
     },
 };
