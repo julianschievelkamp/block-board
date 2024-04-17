@@ -1,15 +1,22 @@
 import React from "react";
 
+import Text from "components/elements/text";
+
+import { assets } from "data/assets";
+
 import { StyledCard } from "./styles";
 
+
 export interface CardProps {
-    asset: {};
+    assetKey: keyof typeof assets;
 }
 
-const Card = ({ }: CardProps) => {
+const Card = ({ assetKey }: CardProps) => {
+    const asset = assets[assetKey];
+
     return (
-        <StyledCard>
-            
+        <StyledCard asset={asset}>
+            <Text color="white">{asset.label}</Text>
         </StyledCard>
     );
 };

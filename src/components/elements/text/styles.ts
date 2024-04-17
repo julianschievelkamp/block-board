@@ -7,7 +7,7 @@ export const StyledText = styled.p<TextProps>`
     font-weight: ${({ bold }) => (bold ? "bold" : "normal")};
     font-size: ${({ fontSize }) => fontSize};
     margin: ${({ margin }) => margin};
-    color: ${({ color, theme }) => color ?? theme.text};
+    color: ${({ color }) => color};
     transition: ${transition.fast};
     line-height: 1.5;
 `;

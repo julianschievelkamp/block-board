@@ -1,29 +1,4 @@
 import { css } from "styled-components";
-import { Theme } from "types";
-
-export const lightTheme: Theme = {
-    primary: "#FFFFFF",
-    secondary: "#FFFFFF",
-    body: "#fafafa",
-    menu: "#FFFFFF",
-    text: "#363537",
-    icon: "#000000",
-    border: "#e5e5e5",
-    hover: "#fafafa",
-    inputScheme: "light",
-};
-
-export const darkTheme: Theme = {
-    primary: "#181818",
-    secondary: "#121212",
-    body: "#000000",
-    menu: "#000000",
-    text: "#FAFAFA",
-    icon: "#FFFFFF",
-    border: "#2d2d2d",
-    hover: "#1d1d1d",
-    inputScheme: "dark",
-};
 
 export const queries = {
     xs: `screen and (min-width: 350px)`,
