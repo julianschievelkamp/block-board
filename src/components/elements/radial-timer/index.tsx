@@ -3,7 +3,7 @@ import { Ring, StyledSVG } from "./styles";
 
 export interface RadialTimerProps {
     trigger: any[];
-    ms: number;
+    duration: number;
     color?: string;
     className?: string;
     size?: string;
@@ -11,7 +11,7 @@ export interface RadialTimerProps {
 
 const RadialTimer = ({
     trigger,
-    ms,
+    duration,
     color = "white",
     className,
     size = "1.5rem",
@@ -31,7 +31,7 @@ const RadialTimer = ({
             viewBox="0 0 36 36"
             className={className}
             $size={size}
-            $ms={ms}
+            $duration={duration}
         >
             <Ring
                 d="M18 3
@@ -39,7 +39,7 @@ const RadialTimer = ({
         a 15 15 0 0 1 0 -30"
                 fill="none"
                 stroke={color}
-                animation={animation}
+                data-animation={animation}
             />
         </StyledSVG>
     );
