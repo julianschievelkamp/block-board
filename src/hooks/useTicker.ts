@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 import { AssetKey, Currency } from "data/types";
-import axios from "axios";
 
 export const useTicker = (
     initialAssetKey: AssetKey,
@@ -10,6 +10,20 @@ export const useTicker = (
     const [assetKey, setAssetKey] = useState<AssetKey>(initialAssetKey);
     const [currency, setCurrency] = useState<Currency>(initalCurrency);
     const [price, setPrice] = useState(0);
+    const [priceChange, setPriceChange] = useState(0);
+
+    const updatePrice = (value: number) => {
+        let change = 0;
+
+        if (value > price) {
+            setPriceChange(1);
+        } else if (value < price) {
+            setPriceChange(-1);
+        }
+
+        setPrice(value);
+        setPriceChange(change);
+    };
 
     useEffect(() => {
         const fetchPrice = async () => {
@@ -18,10 +32,9 @@ export const useTicker = (
             }`;
 
             while (true) {
-                axios.get(endpoint).then((res) => {
-                    setPrice(res.data.ask ?? 0);
-                });
-
+                await axios
+                    .get(endpoint)
+                    .then((res) => updatePrice(res.data.ask));
                 await new Promise((res) => setTimeout(res, 5000));
             }
         };
@@ -31,6 +44,7 @@ export const useTicker = (
 
     return {
         price,
+        priceChange,
         assetKey,
         currency,
         setAssetKey,
