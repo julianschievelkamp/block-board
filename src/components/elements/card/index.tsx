@@ -19,6 +19,7 @@ const Card = ({ initialAssetKey, initialCurrency }: CardProps) => {
         initialAssetKey,
         initialCurrency
     );
+
     const asset = assets[assetKey];
 
     return (

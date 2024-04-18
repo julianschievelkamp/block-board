@@ -1,5 +1,5 @@
 export type AssetKey = "BTC" | "ETH";
-export type Currency = "EUR" | "USD";
+export type Currency = "USD" | "EUR";
 
 export type Asset = {
     label: string;
