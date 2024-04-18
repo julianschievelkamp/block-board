@@ -1,13 +1,13 @@
 import React from "react";
 
 import Div from "components/layout/div";
-import Card from "components/elements/card";
+import Ticker from "components/widgets/ticker";
 
 const App = () => {
     return (
         <Div display="flex">
-            <Card initialAssetKey="BTC" initialCurrency="USD" />
-            <Card initialAssetKey="ETH" initialCurrency="USD" />
+            <Ticker initialAssetKey="BTC" initialCurrency="USD" />
+            <Ticker initialAssetKey="ETH" initialCurrency="USD" />
         </Div>
     );
 };

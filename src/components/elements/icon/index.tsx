@@ -6,7 +6,7 @@ import { StyledIcon } from "./styles";
 
 export interface IconProps {
     name: keyof typeof icons;
-    color: string;
+    color?: string;
     size?: string;
     margin?: string;
     onClick?: () => void;
@@ -15,7 +15,7 @@ export interface IconProps {
 
 const Icon = ({
     name,
-    color = "black",
+    color = "white",
     onClick,
     className,
     size = "2rem",
