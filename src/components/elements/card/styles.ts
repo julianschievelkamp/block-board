@@ -10,7 +10,12 @@ export const StyledCard = styled.div<{ asset: Asset }>`
     border: 1px solid ${({ asset }) => asset.color};
     background-color: ${({ asset }) => asset.color};
     transition: ${transition.fast};
-    box-shadow: ${shadow.soft};
+    box-shadow: ${shadow.hard};
     padding: 1rem;
     margin: 0.5rem;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: ${shadow.soft};
+    }
 `;

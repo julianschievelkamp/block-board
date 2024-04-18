@@ -9,42 +9,36 @@ export const useTicker = (
 ) => {
     const [assetKey, setAssetKey] = useState<AssetKey>(initialAssetKey);
     const [currency, setCurrency] = useState<Currency>(initalCurrency);
-    const [price, setPrice] = useState(0);
-    const [priceChange, setPriceChange] = useState(0);
-
-    const updatePrice = (value: number) => {
-        let change = 0;
-
-        if (value > price) {
-            setPriceChange(1);
-        } else if (value < price) {
-            setPriceChange(-1);
-        }
-
-        setPrice(value);
-        setPriceChange(change);
-    };
+    const [realTimeData, setRealTimeData] = useState<any>({});
 
     useEffect(() => {
-        const fetchPrice = async () => {
+        let isFetching = true;
+
+        const fetchData = async () => {
             const endpoint = `https://api.gemini.com/v2/ticker/${
                 assetKey + currency
             }`;
 
-            while (true) {
-                await axios
-                    .get(endpoint)
-                    .then((res) => updatePrice(res.data.ask));
+            while (isFetching) {
+                await axios.get(endpoint).then((res) => {
+                    console.log(res.data);
+
+                    setRealTimeData(res.data);
+                });
+
                 await new Promise((res) => setTimeout(res, 5000));
             }
         };
 
-        fetchPrice();
+        fetchData();
+
+        return () => {
+            isFetching = false;
+        };
     }, [assetKey, currency]);
 
     return {
-        price,
-        priceChange,
+        realTimeData,
         assetKey,
         currency,
         setAssetKey,
