@@ -1,15 +1,13 @@
 import styled, { keyframes } from "styled-components";
 
-const priceColors = ["red", "white", "green"];
-
-const signalColor = keyframes`
-    0% { color: green }
+const signalColor = (color: string) => keyframes`
+    0% { color: ${color} }
     100% { color: white }
 `;
 
 export const StyledPrice = styled.div<{ color: string }>`
     div[data-animation="1"] {
-        animation-name: ${signalColor};
+        animation-name: ${({ color }) => signalColor(color)};
         animation-duration: 1s;
         animation-fill-mode: forwards;
     }

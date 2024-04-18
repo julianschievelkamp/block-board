@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+
 import Text from "components/elements/text";
+
 import { formatPrice } from "utils/helpers";
 import { Currency } from "data/types";
 import { StyledPrice, TextContainer } from "./styles";
@@ -10,10 +12,14 @@ export interface PriceProps {
 }
 
 const Price = ({ value, currency }: PriceProps) => {
-    const [lastPrice, setLastPrice] = useState(0);
     const [animation, setAnimation] = useState(0);
+    const [lastPrice, setLastPrice] = useState(0);
+    const [priceColor, setPriceColor] = useState("green");
 
     useEffect(() => {
+        setPriceColor(value < lastPrice ? "red" : "green");
+        setLastPrice(value);
+
         setAnimation(0);
 
         setTimeout(() => {
@@ -22,7 +28,7 @@ const Price = ({ value, currency }: PriceProps) => {
     }, [value]);
 
     return (
-        <StyledPrice color="blue">
+        <StyledPrice color={priceColor}>
             <TextContainer data-animation={animation}>
                 <Text fontSize="3rem">{formatPrice(value, currency)}</Text>
             </TextContainer>
