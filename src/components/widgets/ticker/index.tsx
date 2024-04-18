@@ -26,14 +26,16 @@ const Ticker = ({ initialAssetKey, initialCurrency }: TickerProps) => {
                 display="flex"
                 alignItems="center"
                 justifyContent="space-between"
+                margin="0 0 0.5rem 0"
             >
-                <Text color="white" fontSize="1.5rem">
-                    {asset.label}
+                <Text color="white" fontSize="1rem">
+                    {asset.label.toUpperCase()}
                 </Text>
                 <Div
-                    width="2rem"
-                    height="2rem"
+                    width="1.5rem"
+                    height="1.5rem"
                     onClick={() =>
+                        // TODO: remove (testing)
                         setCurrency(currency === "USD" ? "EUR" : "USD")
                     }
                 >

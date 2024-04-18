@@ -7,6 +7,7 @@ export const StyledText = styled.p<{
     $textAlign?: "left" | "center" | "right";
     $margin?: string;
     $fontSize?: string;
+    $lineHeight?: string;
 }>`
     text-align: ${({ $textAlign }) => $textAlign};
     font-weight: ${({ bold }) => (bold ? "bold" : "normal")};
@@ -14,5 +15,5 @@ export const StyledText = styled.p<{
     margin: ${({ $margin }) => $margin};
     color: ${({ color }) => color};
     transition: ${transition.fast};
-    line-height: 1.5;
+    line-height: ${({ $lineHeight }) => $lineHeight};
 `;

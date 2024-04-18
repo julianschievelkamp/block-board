@@ -5,7 +5,6 @@ export interface RadialTimerProps {
     trigger: any[];
     ms: number;
     color?: string;
-    offset?: number;
     className?: string;
     size?: string;
 }
@@ -14,9 +13,8 @@ const RadialTimer = ({
     trigger,
     ms,
     color = "white",
-    offset,
     className,
-    size = "2rem",
+    size = "1.5rem",
 }: RadialTimerProps) => {
     const [animation, setAnimation] = useState(0);
 
@@ -41,7 +39,6 @@ const RadialTimer = ({
         a 15 15 0 0 1 0 -30"
                 fill="none"
                 stroke={color}
-                strokeDashoffset={offset}
                 animation={animation}
             />
         </StyledSVG>

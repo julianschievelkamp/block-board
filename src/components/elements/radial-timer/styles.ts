@@ -14,7 +14,7 @@ export const StyledSVG = styled.svg<{ $size: string; $ms: number }>`
 
     path[animation="1"] {
         animation-name: ${timer};
-        animation-duration: ${({ $ms }) => `${$ms}ms`};
+        animation-duration: ${({ $ms }) => `${$ms - 50}ms`};
         animation-timing-function: linear;
     }
 `;
