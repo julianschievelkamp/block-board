@@ -10,6 +10,7 @@ export const useTicker = (
     const [assetKey, setAssetKey] = useState<AssetKey>(initialAssetKey);
     const [currency, setCurrency] = useState<Currency>(initalCurrency);
     const [realTimeData, setRealTimeData] = useState<any>({});
+    const [refreshRate, setRefreshRate] = useState(5000);
 
     useEffect(() => {
         let isFetching = true;
@@ -26,7 +27,7 @@ export const useTicker = (
                     setRealTimeData(res.data);
                 });
 
-                await new Promise((res) => setTimeout(res, 5000));
+                await new Promise((res) => setTimeout(res, refreshRate));
             }
         };
 
@@ -35,13 +36,15 @@ export const useTicker = (
         return () => {
             isFetching = false;
         };
-    }, [assetKey, currency]);
+    }, [assetKey, currency, refreshRate]);
 
     return {
         realTimeData,
         assetKey,
-        currency,
         setAssetKey,
+        currency,
         setCurrency,
+        refreshRate,
+        setRefreshRate,
     };
 };

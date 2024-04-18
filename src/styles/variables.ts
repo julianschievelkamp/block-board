@@ -1,13 +1,13 @@
 import { css } from "styled-components";
 
 export const queries = {
-    xs: `screen and (min-width: 350px)`,
-    sm: `screen and (min-width: 576px)`,
-    md: `screen and (min-width: 768px)`,
-    lg: `screen and (min-width: 992px)`,
-    xl: `screen and (min-width: 1200px)`,
-    xxl: `screen and (min-width: 1400px)`,
-    hover: `(hover: hover)`,
+    xs: "screen and (min-width: 350px)",
+    sm: "screen and (min-width: 576px)",
+    md: "screen and (min-width: 768px)",
+    lg: "screen and (min-width: 992px)",
+    xl: "screen and (min-width: 1200px)",
+    xxl: "screen and (min-width: 1400px)",
+    hover: "(hover: hover)",
 };
 
 export const borderRadius = {
@@ -21,8 +21,8 @@ export const transition = {
 };
 
 export const shadow = {
-    soft: "0 0 8px 0 rgba(0, 0, 0, 0.1)",
-    hard: "2px 2px 3px 0 rgba(0, 0, 0, 0.2)",
+    soft: "3px 3px 8px 0 rgba(0, 0, 0, 0.2)",
+    hard: "2px 2px 2px 0 rgba(0, 0, 0, 0.2)",
     drop: "2px 2px 3px rgba(0, 0, 0, 0.2)",
 };
 

@@ -1,7 +1,7 @@
 export const clampNumber = (num: number, min: number, max: number): number =>
     Math.min(Math.max(num, min), max);
 
-export const formatCurrency = (value: number, currency: string): string => {
+export const formatPrice = (value: number, currency: string): string => {
     return new Intl.NumberFormat("de-DE", {
         style: "currency",
         currency: currency,

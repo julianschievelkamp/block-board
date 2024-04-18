@@ -1,8 +1,9 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const StyledDiv = styled.div<{
     width?: string;
     height?: string;
+    onClick?: () => void;
     $position?: string;
     $display?: string;
     $flexDirection?: string;
@@ -31,4 +32,10 @@ export const StyledDiv = styled.div<{
     right: ${({ $right }) => $right};
     bottom: ${({ $bottom }) => $bottom};
     max-width: 100%;
+
+    ${({ onClick }) =>
+        onClick &&
+        css`
+            cursor: pointer;
+        `}
 `;

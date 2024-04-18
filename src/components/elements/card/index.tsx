@@ -4,7 +4,7 @@ import Div from "components/layout/div";
 import { assets } from "data/assets";
 import { useTicker } from "hooks/useTicker";
 import { Currency } from "data/types";
-import { formatCurrency } from "utils/helpers";
+import { formatPrice } from "utils/helpers";
 
 import { StyledCard, StyledIcon, StyledRadialProgress } from "./styles";
 
@@ -31,20 +31,19 @@ const Card = ({ initialAssetKey, initialCurrency }: CardProps) => {
                 <Text color="white" fontSize="1.5rem">
                     {asset.label}
                 </Text>
-                <Div width="2rem" height="2rem">
+                <Div
+                    width="2rem"
+                    height="2rem"
+                    onClick={() =>
+                        setCurrency(currency === "USD" ? "EUR" : "USD")
+                    }
+                >
                     <StyledRadialProgress color="white" length={75} />
-                    <StyledIcon
-                        size="1rem"
-                        color="white"
-                        name="info"
-                        onClick={() =>
-                            setCurrency(currency === "USD" ? "EUR" : "USD")
-                        }
-                    />
+                    <StyledIcon size="1rem" color="white" name="info" />
                 </Div>
             </Div>
             <Text color="white" fontSize="3rem">
-                {formatCurrency(realTimeData.ask, currency)}
+                {formatPrice(realTimeData.ask, currency)}
             </Text>
         </StyledCard>
     );

@@ -6,7 +6,6 @@ import Icon from "components/elements/icon";
 import { Asset } from "data/types";
 
 export const StyledCard = styled.div<{ $asset: Asset }>`
-    display: inline-block;
     position: relative;
     border-radius: ${borderRadius.edged};
     border: 1px solid ${({ $asset }) => $asset.color};
