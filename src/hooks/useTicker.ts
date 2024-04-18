@@ -21,7 +21,7 @@ export const useTicker = (
 
             while (isFetching) {
                 await axios.get(endpoint).then((res) => {
-                    console.log(res.data);
+                    // console.log(res.data);
 
                     setRealTimeData(res.data);
                 });

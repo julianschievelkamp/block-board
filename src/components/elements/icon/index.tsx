@@ -16,18 +16,18 @@ export interface IconProps {
 const Icon = ({
     name,
     color = "black",
-    size = "2rem",
-    margin,
     onClick,
     className,
+    size = "2rem",
+    margin,
 }: IconProps) => {
     const Icon = icons[name];
 
     return (
         <StyledIcon
             color={color}
-            size={size}
-            margin={margin}
+            $size={size}
+            $margin={margin}
             onClick={onClick}
             className={className}
         >

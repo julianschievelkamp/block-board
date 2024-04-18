@@ -4,34 +4,31 @@ import { StyledText } from "./styles";
 
 export interface TextProps {
     children?: React.ReactNode;
-    textAlign?: "left" | "center" | "right";
     bold?: boolean;
+    className?: string;
+    color?: string;
+    textAlign?: "left" | "center" | "right";
     margin?: string;
     fontSize?: string;
-    color?: string;
-    className?: string;
-    id?: string;
 }
 
 const Text = ({
     children,
-    textAlign,
     bold,
+    className,
+    color,
+    textAlign,
     margin = "0",
     fontSize = "1rem",
-    color,
-    className,
-    id,
 }: TextProps) => {
     return (
         <StyledText
-            textAlign={textAlign}
             bold={bold}
-            margin={margin}
-            fontSize={fontSize}
-            color={color}
             className={className}
-            id={id}
+            color={color}
+            $textAlign={textAlign}
+            $margin={margin}
+            $fontSize={fontSize}
         >
             {children}
         </StyledText>
