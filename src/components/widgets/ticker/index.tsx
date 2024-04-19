@@ -33,13 +33,13 @@ const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
                 </Text>
 
                 <Div display="flex">
-                    <Button
+                    {/* <Button
                         onClick={() =>
                             setCurrency(currency === "USD" ? "EUR" : "USD")
                         }
                     >
                         {currency}
-                    </Button>
+                    </Button> */}
                     <Div width="1.5rem" height="1.5rem" margin="0 0 0 0.25rem">
                         <StyledRadialTimer
                             trigger={[realTimeData, currency]}

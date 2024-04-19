@@ -12,7 +12,7 @@ export const StyledCard = styled.div<{ $bgColor: string }>`
     margin: 0.5rem;
 
     &:hover {
-        transform: translateY(-2px);
+        transform: translateY(-3px);
         box-shadow: ${shadow.soft};
     }
 `;

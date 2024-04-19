@@ -1,10 +1,11 @@
+import { Theme } from "data/types";
 import { icons } from "./icons";
 
 import { StyledIcon } from "./styles";
 
 export interface IconProps {
     name: keyof typeof icons;
-    color?: string;
+    themeColor?: keyof Theme;
     size?: string;
     margin?: string;
     onClick?: () => void;
@@ -13,7 +14,7 @@ export interface IconProps {
 
 const Icon = ({
     name,
-    color = "white",
+    themeColor = "icon",
     onClick,
     className,
     size = "2rem",
@@ -23,7 +24,7 @@ const Icon = ({
 
     return (
         <StyledIcon
-            color={color}
+            $themeColor={themeColor}
             $size={size}
             $margin={margin}
             onClick={onClick}

@@ -12,6 +12,6 @@ export const StyledText = styled.p<{
     font-weight: ${({ bold }) => (bold ? "bold" : "normal")};
     font-size: ${({ $fontSize }) => $fontSize};
     margin: ${({ $margin }) => $margin};
-    color: ${({ color }) => color};
+    color: ${({ color, theme }) => color ?? theme.text};
     line-height: ${({ $lineHeight }) => $lineHeight};
 `;

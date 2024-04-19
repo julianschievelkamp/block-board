@@ -1,3 +1,4 @@
+import { Theme } from "data/types";
 import styled, { css } from "styled-components";
 
 import { transition } from "styles/variables";
@@ -5,6 +6,7 @@ import { transition } from "styles/variables";
 export const StyledIcon = styled.div<{
     $size?: string;
     $margin?: string;
+    $themeColor?: keyof Theme;
     onClick?: () => void | undefined;
 }>`
     display: flex;
@@ -18,7 +20,7 @@ export const StyledIcon = styled.div<{
 
     svg {
         transition: ${transition.fast};
-        fill: ${({ color }) => color};
+        fill: ${({ theme, $themeColor }) => theme[$themeColor!]};
         width: ${({ $size }) => $size};
         height: ${({ $size }) => $size};
     }

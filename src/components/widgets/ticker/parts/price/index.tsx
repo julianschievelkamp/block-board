@@ -29,7 +29,7 @@ const Price = ({ value, currency }: PriceProps) => {
                 setAnimation(1);
             }, 50);
         }
-    }, [value]);
+    }, [value, lastPrice]);
 
     return (
         <StyledPrice color={priceColor}>
