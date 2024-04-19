@@ -7,30 +7,34 @@ import { Currency } from "data/types";
 import { StyledPrice, TextContainer } from "./styles";
 
 export interface PriceProps {
-    value: number;
+    value: number | undefined;
     currency: Currency;
 }
 
 const Price = ({ value, currency }: PriceProps) => {
     const [animation, setAnimation] = useState(0);
     const [lastPrice, setLastPrice] = useState(0);
-    const [priceColor, setPriceColor] = useState("green");
+    const [priceColor, setPriceColor] = useState("white");
 
     useEffect(() => {
-        setPriceColor(value < lastPrice ? "red" : "green");
-        setLastPrice(value);
+        if (value) {
+            if (lastPrice > 0) {
+                setPriceColor(value < lastPrice ? "red" : "green");
+            }
 
-        setAnimation(0);
+            setLastPrice(value);
 
-        setTimeout(() => {
-            setAnimation(1);
-        }, 50);
+            setAnimation(0);
+            setTimeout(() => {
+                setAnimation(1);
+            }, 50);
+        }
     }, [value]);
 
     return (
         <StyledPrice color={priceColor}>
             <TextContainer data-animation={animation}>
-                <Text fontSize="3rem">{formatPrice(value, currency)}</Text>
+                <Text fontSize="3rem">{formatPrice(value ?? 0, currency)}</Text>
             </TextContainer>
         </StyledPrice>
     );

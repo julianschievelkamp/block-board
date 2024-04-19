@@ -3,21 +3,20 @@ import Div from "components/elements/div";
 
 import { assets } from "data/assets";
 import { useTicker } from "hooks/useTicker";
-import { Currency } from "data/types";
-import { formatPrice } from "utils/helpers";
+import { AssetKey, Currency } from "data/types";
 
 import { StyledIcon, StyledRadialTimer } from "./styles";
 import Card from "components/elements/card";
 import Price from "./parts/price";
 
 export interface TickerProps {
-    initialAssetKey: keyof typeof assets;
+    assetKey: AssetKey;
     initialCurrency: Currency;
 }
 
-const Ticker = ({ initialAssetKey, initialCurrency }: TickerProps) => {
-    const { realTimeData, assetKey, currency, setCurrency, refreshRate } =
-        useTicker(initialAssetKey, initialCurrency);
+const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
+    const { realTimeData, currency, setCurrency, refreshRate, setRefreshRate } =
+        useTicker(assetKey, initialCurrency);
 
     const asset = assets[assetKey];
 
@@ -40,13 +39,25 @@ const Ticker = ({ initialAssetKey, initialCurrency }: TickerProps) => {
                     <StyledIcon size="1rem" name="info" />
                 </Div>
             </Div>
-            <Price value={realTimeData.ask} currency={currency} />
 
-            {/* <button
-                onClick={() => setCurrency(currency === "USD" ? "EUR" : "USD")}
-            >
-                Toggle Currency
-            </button> */}
+            <Price value={realTimeData?.ask} currency={currency} />
+
+            <Div>
+                <button
+                    onClick={() =>
+                        setCurrency(currency === "USD" ? "EUR" : "USD")
+                    }
+                >
+                    Toggle Currency
+                </button>
+                <button
+                    onClick={() =>
+                        setRefreshRate(refreshRate === 5000 ? 10000 : 5000)
+                    }
+                >
+                    Toggle RefreshRate
+                </button>
+            </Div>
         </Card>
     );
 };

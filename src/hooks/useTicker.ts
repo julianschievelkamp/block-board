@@ -1,15 +1,13 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-import { AssetKey, Currency } from "data/types";
+import { AssetKey, Currency, RealTimeData } from "data/types";
 
-export const useTicker = (
-    initialAssetKey: AssetKey,
-    initalCurrency: Currency
-) => {
-    const [assetKey, setAssetKey] = useState<AssetKey>(initialAssetKey);
+export const useTicker = (assetKey: AssetKey, initalCurrency: Currency) => {
     const [currency, setCurrency] = useState<Currency>(initalCurrency);
-    const [realTimeData, setRealTimeData] = useState<any>({});
+    const [realTimeData, setRealTimeData] = useState<
+        RealTimeData | undefined
+    >();
     const [refreshRate, setRefreshRate] = useState(5000);
 
     useEffect(() => {
@@ -40,8 +38,6 @@ export const useTicker = (
 
     return {
         realTimeData,
-        assetKey,
-        setAssetKey,
         currency,
         setCurrency,
         refreshRate,

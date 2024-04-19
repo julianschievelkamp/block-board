@@ -20,7 +20,6 @@ const RadialTimer = ({
 
     useEffect(() => {
         setAnimation(0);
-
         setTimeout(() => {
             setAnimation(1);
         }, 50);

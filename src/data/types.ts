@@ -7,3 +7,14 @@ export type Asset = {
     symbol: string;
     color: string;
 };
+
+export type RealTimeData = {
+    ask: number;
+    bid: number;
+    changes: number[];
+    close: number;
+    high: number;
+    low: number;
+    open: number;
+    symbol: string;
+};
