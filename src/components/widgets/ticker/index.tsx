@@ -8,6 +8,7 @@ import { AssetKey, Currency } from "data/types";
 import { StyledCard, StyledIcon, StyledRadialTimer } from "./styles";
 import Price from "./parts/price";
 import Button from "components/elements/button";
+import { useMemo } from "react";
 
 export interface TickerProps {
     assetKey: AssetKey;
@@ -41,11 +42,15 @@ const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
                         {currency}
                     </Button> */}
                     <Div width="1.5rem" height="1.5rem" margin="0 0 0 0.25rem">
-                        <StyledRadialTimer
-                            trigger={[realTimeData, currency]}
-                            duration={refreshRate}
-                        />
-                        <StyledIcon size="1rem" name="info" />
+                        {useMemo(() => {
+                            return (
+                                <StyledRadialTimer
+                                    trigger={[realTimeData, currency]}
+                                    duration={refreshRate}
+                                />
+                            );
+                        }, [realTimeData, currency, refreshRate])}
+                        <StyledIcon size="1rem" name="info" color="white" />
                     </Div>
                 </Div>
             </Div>

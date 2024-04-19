@@ -10,7 +10,6 @@ export const StyledApp = styled.div`
 
     @media ${queries.xxl} {
         height: 100vh;
-        min-height: 50rem;
     }
 `;
 
@@ -18,10 +17,10 @@ export const Dashboard = styled.div`
     position: relative;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     height: 100%;
     padding: 0.5rem;
     padding-top: 6.25rem;
-    max-width: 2250px;
 
     @media ${queries.lg} {
         padding: 1rem;

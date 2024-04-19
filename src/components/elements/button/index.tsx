@@ -27,8 +27,8 @@ const Button = ({
     return (
         <StyledButton
             onClick={onClick}
-            iconName={iconName}
-            iconPosition={iconPosition}
+            $iconName={iconName}
+            $iconPosition={iconPosition}
             disabled={disabled}
             className={className}
         >

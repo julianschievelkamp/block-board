@@ -1,12 +1,12 @@
 import styled, { css } from "styled-components";
 
 import { shadow, borderRadius, transition, queries } from "styles/variables";
+import { icons } from "../icon/icons";
 
-import { ButtonProps } from ".";
-
-export const StyledButton = styled.button<
-    Pick<ButtonProps, "iconName" | "iconPosition" | "disabled">
->`
+export const StyledButton = styled.button<{
+    $iconName?: keyof typeof icons;
+    $iconPosition?: "left" | "right";
+}>`
     background: ${({ theme }) => theme.secondary};
     color: ${({ theme }) => theme.text};
     border: 1px solid ${({ theme }) => theme.border};
@@ -18,8 +18,8 @@ export const StyledButton = styled.button<
     overflow: hidden;
     outline: none;
     display: flex;
-    flex-flow: ${({ iconName, iconPosition }) =>
-        iconName && iconPosition === "right" ? "row-reverse" : "row"};
+    flex-flow: ${({ $iconName, $iconPosition }) =>
+        $iconName && $iconPosition === "right" ? "row-reverse" : "row"};
     align-items: center;
 
     ${({ disabled }) =>

@@ -6,13 +6,9 @@ const signalColor = (color: string) => keyframes`
 `;
 
 export const StyledPrice = styled.div<{ color: string }>`
-    div[data-animation="1"] {
+    p[data-animation="1"] {
         animation-name: ${({ color }) => signalColor(color)};
         animation-duration: 1s;
         animation-fill-mode: forwards;
     }
-`;
-
-export const TextContainer = styled.div`
-    color: white;
 `;

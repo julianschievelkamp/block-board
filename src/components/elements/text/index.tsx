@@ -22,16 +22,18 @@ const Text = ({
     margin = "0",
     fontSize = "1rem",
     lineHeight = "1",
+    ...rest
 }: TextProps) => {
     return (
         <StyledText
-            bold={bold}
             className={className}
             color={color}
+            $bold={bold}
             $textAlign={textAlign}
             $margin={margin}
             $fontSize={fontSize}
             $lineHeight={lineHeight}
+            {...rest}
         >
             {children}
         </StyledText>

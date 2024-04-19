@@ -20,7 +20,7 @@ export const StyledIcon = styled.div<{
 
     svg {
         transition: ${transition.fast};
-        fill: ${({ theme, $themeColor }) => theme[$themeColor!]};
+        fill: ${({ theme, color }) => color ?? theme.icon};
         width: ${({ $size }) => $size};
         height: ${({ $size }) => $size};
     }

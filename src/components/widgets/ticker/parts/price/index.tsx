@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import Text from "components/elements/text";
 
 import { formatPrice } from "utils/helpers";
 import { Currency } from "data/types";
-import { StyledPrice, TextContainer } from "./styles";
+import { StyledPrice } from "./styles";
 
 export interface PriceProps {
     value: number | undefined;
@@ -14,7 +14,7 @@ export interface PriceProps {
 const Price = ({ value, currency }: PriceProps) => {
     const [animation, setAnimation] = useState(0);
     const [lastPrice, setLastPrice] = useState(0);
-    const [priceColor, setPriceColor] = useState("white");
+    const [priceColor, setPriceColor] = useState("");
 
     useEffect(() => {
         if (value) {
@@ -29,13 +29,13 @@ const Price = ({ value, currency }: PriceProps) => {
                 setAnimation(1);
             }, 50);
         }
-    }, [value, lastPrice]);
+    }, [value]);
 
     return (
         <StyledPrice color={priceColor}>
-            <TextContainer data-animation={animation}>
-                <Text fontSize="3rem">{formatPrice(value ?? 0, currency)}</Text>
-            </TextContainer>
+            <Text fontSize="3rem" data-animation={animation} color="white">
+                {formatPrice(value ?? 0, currency)}
+            </Text>
         </StyledPrice>
     );
 };
