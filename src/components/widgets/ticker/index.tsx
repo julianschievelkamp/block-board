@@ -5,10 +5,8 @@ import { assets } from "data/assets";
 import { useTicker } from "hooks/useTicker";
 import { AssetKey, Currency } from "data/types";
 
-import { StyledIcon, StyledRadialTimer } from "./styles";
-import Card from "components/elements/card";
+import { StyledCard, StyledIcon, StyledRadialTimer } from "./styles";
 import Price from "./parts/price";
-import Toggle from "components/elements/button";
 import Button from "components/elements/button";
 
 export interface TickerProps {
@@ -17,13 +15,13 @@ export interface TickerProps {
 }
 
 const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
-    const { realTimeData, currency, setCurrency, refreshRate, setRefreshRate } =
+    const { realTimeData, currency, setCurrency, refreshRate, isLoading } =
         useTicker(assetKey, initialCurrency);
 
     const asset = assets[assetKey];
 
     return (
-        <Card bgColor={asset.color}>
+        <StyledCard bgColor={asset.color} isLoading={isLoading}>
             <Div
                 display="flex"
                 alignItems="center"
@@ -53,17 +51,7 @@ const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
             </Div>
 
             <Price value={realTimeData?.ask} currency={currency} />
-
-            {/* <Div>
-                <button
-                    onClick={() =>
-                        setRefreshRate(refreshRate === 5000 ? 10000 : 5000)
-                    }
-                >
-                    Toggle RefreshRate
-                </button>
-            </Div> */}
-        </Card>
+        </StyledCard>
     );
 };
 

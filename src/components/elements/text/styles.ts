@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { transition } from "styles/variables";
 
 export const StyledText = styled.p<{
     bold?: boolean;
@@ -14,6 +13,5 @@ export const StyledText = styled.p<{
     font-size: ${({ $fontSize }) => $fontSize};
     margin: ${({ $margin }) => $margin};
     color: ${({ color }) => color};
-    transition: ${transition.fast};
     line-height: ${({ $lineHeight }) => $lineHeight};
 `;

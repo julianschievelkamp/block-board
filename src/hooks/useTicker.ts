@@ -4,6 +4,7 @@ import axios from "axios";
 import { AssetKey, Currency, RealTimeData } from "data/types";
 
 export const useTicker = (assetKey: AssetKey, initalCurrency: Currency) => {
+    const [isLoading, setIsLoading] = useState(true);
     const [currency, setCurrency] = useState<Currency>(initalCurrency);
     const [realTimeData, setRealTimeData] = useState<
         RealTimeData | undefined
@@ -23,6 +24,7 @@ export const useTicker = (assetKey: AssetKey, initalCurrency: Currency) => {
                     // console.log(res.data);
 
                     setRealTimeData(res.data);
+                    setIsLoading(false);
                 });
 
                 await new Promise((res) => setTimeout(res, refreshRate));
@@ -42,5 +44,6 @@ export const useTicker = (assetKey: AssetKey, initalCurrency: Currency) => {
         setCurrency,
         refreshRate,
         setRefreshRate,
+        isLoading,
     };
 };

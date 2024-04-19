@@ -1,5 +1,4 @@
 import styled, { keyframes } from "styled-components";
-import { transition } from "styles/variables";
 
 const timer = keyframes`
     0% { stroke-dasharray: 100, 100 }
@@ -9,7 +8,6 @@ const timer = keyframes`
 export const StyledSVG = styled.svg<{ $size: string; $duration: number }>`
     width: ${({ $size }) => $size};
     height: ${({ $size }) => $size};
-    transition: ${transition.fast};
 
     path[data-animation="1"] {
         animation-name: ${timer};
@@ -20,7 +18,6 @@ export const StyledSVG = styled.svg<{ $size: string; $duration: number }>`
 `;
 
 export const Ring = styled.path`
-    transition: ${transition.fast};
     stroke-dasharray: 100, 100;
     stroke-width: 1;
 `;

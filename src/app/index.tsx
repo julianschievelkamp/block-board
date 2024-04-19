@@ -7,7 +7,7 @@ const App = () => {
     return (
         <Div display="flex" margin="0.5rem">
             <Ticker assetKey="BTC" initialCurrency="USD" />
-            {/* <Ticker assetKey="ETH" initialCurrency="USD" /> */}
+            <Ticker assetKey="ETH" initialCurrency="USD" />
         </Div>
     );
 };
