@@ -8,6 +8,8 @@ import { AssetKey, Currency } from "data/types";
 import { StyledIcon, StyledRadialTimer } from "./styles";
 import Card from "components/elements/card";
 import Price from "./parts/price";
+import Toggle from "components/elements/button";
+import Button from "components/elements/button";
 
 export interface TickerProps {
     assetKey: AssetKey;
@@ -31,25 +33,28 @@ const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
                 <Text color="white" fontSize="1rem">
                     {`${asset.symbol} ${asset.label.toUpperCase()}`}
                 </Text>
-                <Div width="1.5rem" height="1.5rem">
-                    <StyledRadialTimer
-                        trigger={[realTimeData, currency]}
-                        duration={refreshRate}
-                    />
-                    <StyledIcon size="1rem" name="info" />
+
+                <Div display="flex">
+                    <Button
+                        onClick={() =>
+                            setCurrency(currency === "USD" ? "EUR" : "USD")
+                        }
+                    >
+                        {currency}
+                    </Button>
+                    <Div width="1.5rem" height="1.5rem" margin="0 0 0 0.25rem">
+                        <StyledRadialTimer
+                            trigger={[realTimeData, currency]}
+                            duration={refreshRate}
+                        />
+                        <StyledIcon size="1rem" name="info" />
+                    </Div>
                 </Div>
             </Div>
 
             <Price value={realTimeData?.ask} currency={currency} />
 
-            <Div>
-                <button
-                    onClick={() =>
-                        setCurrency(currency === "USD" ? "EUR" : "USD")
-                    }
-                >
-                    Toggle Currency
-                </button>
+            {/* <Div>
                 <button
                     onClick={() =>
                         setRefreshRate(refreshRate === 5000 ? 10000 : 5000)
@@ -57,7 +62,7 @@ const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
                 >
                     Toggle RefreshRate
                 </button>
-            </Div>
+            </Div> */}
         </Card>
     );
 };

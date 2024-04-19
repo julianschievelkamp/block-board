@@ -10,7 +10,6 @@ export const StyledSVG = styled.svg<{ $size: string; $duration: number }>`
     width: ${({ $size }) => $size};
     height: ${({ $size }) => $size};
     transition: ${transition.fast};
-    opacity: 0.5;
 
     path[data-animation="1"] {
         animation-name: ${timer};
@@ -23,5 +22,5 @@ export const StyledSVG = styled.svg<{ $size: string; $duration: number }>`
 export const Ring = styled.path`
     transition: ${transition.fast};
     stroke-dasharray: 100, 100;
-    stroke-width: 2;
+    stroke-width: 1;
 `;
