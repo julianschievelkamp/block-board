@@ -5,7 +5,6 @@ import { icons } from "../icon/icons";
 
 export const StyledButton = styled.button<{
     $iconName?: keyof typeof icons;
-    $iconPosition?: "left" | "right";
 }>`
     background: ${({ theme }) => theme.secondary};
     color: ${({ theme }) => theme.text};
@@ -18,8 +17,6 @@ export const StyledButton = styled.button<{
     overflow: hidden;
     outline: none;
     display: flex;
-    flex-flow: ${({ $iconName, $iconPosition }) =>
-        $iconName && $iconPosition === "right" ? "row-reverse" : "row"};
     align-items: center;
 
     ${({ disabled }) =>

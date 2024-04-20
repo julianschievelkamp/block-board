@@ -19,7 +19,7 @@ const Price = ({ value, currency }: PriceProps) => {
     useEffect(() => {
         if (value) {
             if (lastPrice > 0) {
-                setPriceColor(value < lastPrice ? "red" : "green");
+                setPriceColor(value > lastPrice ? "green" : "red");
             }
 
             setLastPrice(value);

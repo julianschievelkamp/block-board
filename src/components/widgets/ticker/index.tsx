@@ -7,8 +7,6 @@ import { AssetKey, Currency } from "data/types";
 
 import { StyledCard, StyledIcon, StyledRadialTimer } from "./styles";
 import Price from "./parts/price";
-import Button from "components/elements/button";
-import { useMemo } from "react";
 
 export interface TickerProps {
     assetKey: AssetKey;
@@ -16,8 +14,10 @@ export interface TickerProps {
 }
 
 const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
-    const { realTimeData, currency, setCurrency, refreshRate, isLoading } =
-        useTicker(assetKey, initialCurrency);
+    const { realTimeData, currency, refreshRate, isLoading } = useTicker(
+        assetKey,
+        initialCurrency
+    );
 
     const asset = assets[assetKey];
 
@@ -34,22 +34,18 @@ const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
                 </Text>
 
                 <Div display="flex">
-                    {/* <Button
+                    {/* <button
                         onClick={() =>
                             setCurrency(currency === "USD" ? "EUR" : "USD")
                         }
                     >
                         {currency}
-                    </Button> */}
+                    </button> */}
                     <Div width="1.5rem" height="1.5rem" margin="0 0 0 0.25rem">
-                        {useMemo(() => {
-                            return (
-                                <StyledRadialTimer
-                                    trigger={[realTimeData, currency]}
-                                    duration={refreshRate}
-                                />
-                            );
-                        }, [realTimeData, currency, refreshRate])}
+                        <StyledRadialTimer
+                            trigger={[realTimeData, currency]}
+                            duration={refreshRate}
+                        />
                         <StyledIcon size="1rem" name="info" color="white" />
                     </Div>
                 </Div>

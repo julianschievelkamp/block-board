@@ -1,5 +1,5 @@
 import Ticker from "components/widgets/ticker";
-import { useDarkMode } from "hooks/useDarkMode";
+import { useDarkMode } from "hooks/general/useDarkMode";
 import { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "styles/variables";
 import GlobalStyle from "styles/global";

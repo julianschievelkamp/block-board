@@ -1,7 +1,7 @@
 import Text from "components/elements/text";
 import Icon from "components/elements/icon";
 
-import { useMediaQuery } from "hooks/useMediaQuery";
+import { useMediaQuery } from "hooks/general/useMediaQuery";
 import { queries } from "styles/variables";
 
 import { ButtonContainer, LogoContainer, StyledMenu } from "./styles";
@@ -18,14 +18,13 @@ const Menu = ({ theme, toggleTheme }: MenuProps) => {
     const isXs = useMediaQuery(queries.xs);
     const isMd = useMediaQuery(queries.md);
     const isLg = useMediaQuery(queries.lg);
-
-    const lightTheme = theme === "light";
+    const isLightTheme = theme === "light";
 
     return (
         <StyledMenu>
             {isXs && (
                 <LogoContainer>
-                    <Icon name="graph" />
+                    <Icon name="graph" size="1.5rem" />
                     <Text bold margin="0 1rem 0 0.5rem">
                         {lang.title}
                     </Text>
@@ -37,9 +36,9 @@ const Menu = ({ theme, toggleTheme }: MenuProps) => {
             <ButtonContainer>
                 <Button
                     onClick={() => toggleTheme()}
-                    iconName={lightTheme ? "darkMode" : "lightMode"}
+                    iconName={isLightTheme ? "dark" : "light"}
                 >
-                    {isMd && (lightTheme ? "Dark Theme" : "Light Theme")}
+                    {isMd && (isLightTheme ? lang.darkTheme : lang.lightTheme)}
                 </Button>
             </ButtonContainer>
         </StyledMenu>

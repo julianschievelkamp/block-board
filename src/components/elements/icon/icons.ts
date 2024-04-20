@@ -1,6 +1,6 @@
 import { ReactComponent as Chart } from "assets/icons/chart.svg";
-import { ReactComponent as DarkMode } from "assets/icons/darkmode.svg";
-import { ReactComponent as LightMode } from "assets/icons/lightmode.svg";
+import { ReactComponent as Dark } from "assets/icons/darkmode.svg";
+import { ReactComponent as Light } from "assets/icons/lightmode.svg";
 import { ReactComponent as Expand } from "assets/icons/expand.svg";
 import { ReactComponent as Restart } from "assets/icons/restart.svg";
 import { ReactComponent as BarChart } from "assets/icons/barchart.svg";
@@ -18,8 +18,8 @@ import { ReactComponent as Graph } from "assets/icons/graph.svg";
 
 export const icons = {
     chart: Chart,
-    darkMode: DarkMode,
-    lightMode: LightMode,
+    dark: Dark,
+    light: Light,
     expand: Expand,
     restart: Restart,
     barChart: BarChart,

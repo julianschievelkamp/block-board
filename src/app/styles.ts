@@ -25,7 +25,7 @@ export const Dashboard = styled.div`
     @media ${queries.lg} {
         padding: 1rem;
         padding-top: 1rem;
-        padding-left: 21rem;
+        padding-left: 19rem;
     }
 
     @media ${queries.xxl} {

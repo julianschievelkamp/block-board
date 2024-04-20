@@ -28,7 +28,7 @@ export const StyledMenu = styled.div`
         justify-content: flex-start;
         align-items: flex-start;
         border-bottom: 0px;
-        width: 20rem;
+        width: 18rem;
         height: 100%;
         padding: 2rem;
 

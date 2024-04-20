@@ -11,7 +11,6 @@ export interface ButtonProps {
     onClick: () => void;
     children?: React.ReactNode;
     iconName?: keyof typeof icons;
-    iconPosition?: "left" | "right";
     disabled?: boolean;
     className?: string;
 }
@@ -20,7 +19,6 @@ const Button = ({
     onClick,
     children,
     iconName,
-    iconPosition = "left",
     disabled,
     className,
 }: ButtonProps) => {
@@ -28,7 +26,6 @@ const Button = ({
         <StyledButton
             onClick={onClick}
             $iconName={iconName}
-            $iconPosition={iconPosition}
             disabled={disabled}
             className={className}
         >
@@ -36,7 +33,7 @@ const Button = ({
                 <Icon name={iconName} size="1.5rem" margin="0.5rem 0" />
             )}
             {children && (
-                <Text margin="0.5rem 1rem" bold>
+                <Text margin="0 0 0 0.5rem" bold>
                     {children}
                 </Text>
             )}
