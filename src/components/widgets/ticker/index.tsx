@@ -37,7 +37,6 @@ const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
                 display="flex"
                 alignItems="center"
                 justifyContent="space-between"
-                margin="0 0 1rem 0"
             >
                 <Text
                     color={asset.color}
@@ -82,19 +81,26 @@ const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
 
             <Price value={realTimeData?.ask} currency={currency} />
 
-            <Div margin="0.25rem 0 0 0">
-                <Text textAlign="right" fontSize="0.75rem" color="darkgrey">
-                    {`Last Updated: ${new Date(
-                        lastUpdate
-                    ).toLocaleTimeString()}`}
-                </Text>
-                <Text
-                    textAlign="right"
-                    fontSize="0.75rem"
-                    color={isError ? "red" : "darkgrey"}
-                >
-                    {isError ? lang.error : lang.api}
-                </Text>
+            <Div
+                display="flex"
+                justifyContent="space-between"
+                alignItems="center"
+            >
+                <Div></Div>
+                <Div>
+                    <Text textAlign="right" fontSize="0.75rem" color="darkgrey">
+                        {lang.lastUpdate(
+                            new Date(lastUpdate).toLocaleTimeString()
+                        )}
+                    </Text>
+                    <Text
+                        textAlign="right"
+                        fontSize="0.75rem"
+                        color={isError ? "red" : "darkgrey"}
+                    >
+                        {isError ? lang.error : lang.api}
+                    </Text>
+                </Div>
             </Div>
         </Widget>
     );
