@@ -1,11 +1,12 @@
 import Text from "components/elements/text";
 import Div from "components/elements/div";
+import Widget from "components/elements/widget";
 
 import { assets } from "data/assets";
 import { useTicker } from "hooks/useTicker";
 import { AssetKey, Currency } from "data/types";
 
-import { StyledCard, StyledIcon, StyledRadialTimer } from "./styles";
+import { StyledIcon, StyledRadialTimer } from "./styles";
 import Price from "./parts/price";
 
 export interface TickerProps {
@@ -22,7 +23,7 @@ const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
     const asset = assets[assetKey];
 
     return (
-        <StyledCard bgColor={asset.color} isLoading={isLoading}>
+        <Widget bgColor={asset.color} isLoading={isLoading}>
             <Div
                 display="flex"
                 alignItems="center"
@@ -52,7 +53,7 @@ const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
             </Div>
 
             <Price value={realTimeData?.ask} currency={currency} />
-        </StyledCard>
+        </Widget>
     );
 };
 
