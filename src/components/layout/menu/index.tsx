@@ -25,7 +25,7 @@ const Menu = ({ theme, toggleTheme }: MenuProps) => {
             {isXs && (
                 <LogoContainer>
                     <Icon name="graph" size="1.5rem" />
-                    <Text bold margin="0 1rem 0 0.5rem">
+                    <Text bold margin="0 1rem">
                         {lang.title}
                     </Text>
                 </LogoContainer>

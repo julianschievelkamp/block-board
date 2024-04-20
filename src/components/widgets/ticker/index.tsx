@@ -8,6 +8,7 @@ import { AssetKey, Currency } from "data/types";
 
 import { StyledIcon, StyledRadialTimer } from "./styles";
 import Price from "./parts/price";
+import Switch from "components/elements/switch";
 
 export interface TickerProps {
     assetKey: AssetKey;
@@ -26,20 +27,21 @@ const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
                 display="flex"
                 alignItems="center"
                 justifyContent="space-between"
-                margin="0 0 0.5rem 0"
+                margin="0 0 1rem 0"
             >
                 <Text color="white" fontSize="1rem">
                     {`${asset.symbol} ${asset.label.toUpperCase()}`}
                 </Text>
 
-                <Div display="flex">
-                    <button
-                        onClick={() =>
-                            setCurrency(currency === "USD" ? "EUR" : "USD")
+                <Div display="flex" alignItems="center">
+                    <Switch
+                        options={["USD", "EUR"]}
+                        currentOption={currency}
+                        setCurrentOption={(option: string) =>
+                            setCurrency(option as Currency)
                         }
-                    >
-                        {currency}
-                    </button>
+                        color={asset.color}
+                    />
                     <Div width="1.5rem" height="1.5rem" margin="0 0 0 0.25rem">
                         <StyledRadialTimer
                             trigger={[realTimeData, currency]}

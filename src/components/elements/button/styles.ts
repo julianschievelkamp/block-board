@@ -11,7 +11,7 @@ export const StyledButton = styled.button<{
     border: 1px solid ${({ theme }) => theme.border};
     transition: ${transition.fast};
     border-radius: ${borderRadius.edged};
-    padding: 0.5rem 1rem;
+    padding: 0.5rem;
     cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
     opacity: ${({ disabled }) => (disabled ? "0.5" : "1")};
     overflow: hidden;

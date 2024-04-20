@@ -29,11 +29,9 @@ const Button = ({
             disabled={disabled}
             className={className}
         >
-            {iconName && (
-                <Icon name={iconName} size="1.5rem" margin="0.5rem 0" />
-            )}
+            {iconName && <Icon name={iconName} size="1.5rem" margin="0.5rem" />}
             {children && (
-                <Text margin="0 0 0 0.5rem" bold>
+                <Text bold margin="0.5rem">
                     {children}
                 </Text>
             )}
