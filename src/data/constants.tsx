@@ -4,4 +4,5 @@ export const lang = {
     darkTheme: "Dark Theme",
     lightTheme: "Light Theme",
     error: "Service unavailable",
+    api: "Source: api.gemini.com",
 };

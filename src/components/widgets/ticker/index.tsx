@@ -44,6 +44,7 @@ const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
                     fontSize="1rem"
                     margin="0 2rem 0 0"
                     lineHeight="1"
+                    bold
                 >
                     {`${asset.symbol} ${asset.label.toUpperCase()}`}
                 </Text>
@@ -87,11 +88,13 @@ const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
                         lastUpdate
                     ).toLocaleTimeString()}`}
                 </Text>
-                {isError && (
-                    <Text textAlign="right" fontSize="0.75rem" color="red">
-                        {lang.error}
-                    </Text>
-                )}
+                <Text
+                    textAlign="right"
+                    fontSize="0.75rem"
+                    color={isError ? "red" : "darkgrey"}
+                >
+                    {isError ? lang.error : lang.api}
+                </Text>
             </Div>
         </Widget>
     );

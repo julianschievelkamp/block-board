@@ -7,25 +7,24 @@ export const StyledApp = styled.div`
     background: ${({ theme }) => theme.body};
     transition: ${transition.fast};
     overflow: hidden;
-
-    @media ${queries.xxl} {
-        height: 100vh;
-    }
 `;
 
 export const Dashboard = styled.div`
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+    display: grid;
     padding: 0.5rem;
     padding-top: 6.25rem;
 
+    @media ${queries.md} {
+        grid-template-columns: 1fr 1fr;
+    }
+
     @media ${queries.lg} {
-        flex-direction: row;
-        align-items: flex-start;
         padding: 1rem;
         padding-top: 1rem;
         padding-left: 19rem;
+    }
+
+    @media ${queries.xxl} {
+        grid-template-columns: 1fr 1fr 1fr;
     }
 `;
