@@ -5,45 +5,50 @@ import { AssetKey, Currency, RealTimeData } from "data/types";
 
 export const useTicker = (assetKey: AssetKey, initalCurrency: Currency) => {
     const [isLoading, setIsLoading] = useState(true);
+    const [isFetching, setIsFetching] = useState(true);
     const [currency, setCurrency] = useState<Currency>(initalCurrency);
     const [realTimeData, setRealTimeData] = useState<
         RealTimeData | undefined
     >();
-    const [refreshRate, setRefreshRate] = useState(5000);
+
+    const refreshRate = 5000;
 
     useEffect(() => {
-        let isFetching = true;
+        let isMounted = true;
 
-        const fetchData = async () => {
-            const endpoint = `https://api.gemini.com/v2/ticker/${
-                assetKey + currency
-            }`;
+        if (isFetching) {
+            const fetchData = async () => {
+                const endpoint = `https://api.gemini.com/v2/ticker/${
+                    assetKey + currency
+                }`;
 
-            while (isFetching) {
-                await axios.get(endpoint).then((res) => {
-                    // console.log(res.data);
+                while (isMounted) {
+                    await axios.get(endpoint).then((res) => {
+                        // console.log(res.data);
 
-                    setRealTimeData(res.data);
-                    setIsLoading(false);
-                });
+                        setRealTimeData(res.data);
+                        setIsLoading(false);
+                    });
 
-                await new Promise((res) => setTimeout(res, refreshRate));
-            }
-        };
+                    await new Promise((res) => setTimeout(res, refreshRate));
+                }
+            };
 
-        fetchData();
+            fetchData();
+        }
 
         return () => {
-            isFetching = false;
+            isMounted = false;
         };
-    }, [assetKey, currency, refreshRate]);
+    }, [assetKey, currency, isFetching]);
 
     return {
         realTimeData,
         currency,
         setCurrency,
         refreshRate,
-        setRefreshRate,
         isLoading,
+        isFetching,
+        setIsFetching,
     };
 };

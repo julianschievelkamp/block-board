@@ -16,8 +16,15 @@ export interface TickerProps {
 }
 
 const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
-    const { realTimeData, currency, setCurrency, refreshRate, isLoading } =
-        useTicker(assetKey, initialCurrency);
+    const {
+        realTimeData,
+        currency,
+        setCurrency,
+        refreshRate,
+        isLoading,
+        isFetching,
+        setIsFetching,
+    } = useTicker(assetKey, initialCurrency);
 
     const asset = assets[assetKey];
 
@@ -41,13 +48,24 @@ const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
                             setCurrency(option as Currency)
                         }
                         color={asset.color}
+                        disabled={!isFetching}
                     />
-                    <Div width="1.5rem" height="1.5rem" margin="0 0 0 0.25rem">
+                    <Div
+                        width="1.5rem"
+                        height="1.5rem"
+                        margin="0 0 0 0.25rem"
+                        onClick={() => setIsFetching(!isFetching)}
+                    >
                         <StyledRadialTimer
                             trigger={[realTimeData, currency]}
+                            isActive={isFetching}
                             duration={refreshRate}
                         />
-                        <StyledIcon size="1rem" name="info" color="white" />
+                        <StyledIcon
+                            size="0.75rem"
+                            name={isFetching ? "stop" : "play"}
+                            color="white"
+                        />
                     </Div>
                 </Div>
             </Div>

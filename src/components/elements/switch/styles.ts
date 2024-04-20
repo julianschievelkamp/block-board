@@ -1,14 +1,15 @@
 import styled from "styled-components";
 import { borderRadius, transition } from "styles/variables";
 
-export const StyledSwitch = styled.div`
+export const StyledSwitch = styled.div<{ disabled: boolean }>`
     position: relative;
     display: flex;
     align-items: center;
     border-radius: ${borderRadius.round};
     border: 1px solid white;
-    cursor: pointer;
-    height: 1rem;
+    height: 1.25rem;
+    opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
+    cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
 `;
 
 export const Option = styled.div`

@@ -4,6 +4,7 @@ import { Ring, StyledSVG } from "./styles";
 export interface RadialTimerProps {
     trigger: any[];
     duration: number;
+    isActive?: boolean;
     color?: string;
     className?: string;
     size?: string;
@@ -13,6 +14,7 @@ const RadialTimer = ({
     trigger,
     duration,
     color = "white",
+    isActive = true,
     className,
     size = "1.5rem",
 }: RadialTimerProps) => {
@@ -20,11 +22,14 @@ const RadialTimer = ({
 
     useEffect(() => {
         setAnimation(0);
-        setTimeout(() => {
-            setAnimation(1);
-        }, 50);
+
+        if (isActive) {
+            setTimeout(() => {
+                setAnimation(1);
+            }, 50);
+        }
         // eslint-disable-next-line
-    }, [...trigger]);
+    }, [...trigger, isActive]);
 
     return (
         <StyledSVG

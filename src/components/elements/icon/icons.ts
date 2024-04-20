@@ -15,6 +15,9 @@ import { ReactComponent as Close } from "assets/icons/close.svg";
 import { ReactComponent as Data } from "assets/icons/data.svg";
 import { ReactComponent as ArrowRight } from "assets/icons/arrow-right.svg";
 import { ReactComponent as Graph } from "assets/icons/graph.svg";
+import { ReactComponent as Play } from "assets/icons/play.svg";
+import { ReactComponent as Pause } from "assets/icons/pause.svg";
+import { ReactComponent as Stop } from "assets/icons/stop.svg";
 
 export const icons = {
     chart: Chart,
@@ -34,4 +37,7 @@ export const icons = {
     data: Data,
     arrowRight: ArrowRight,
     graph: Graph,
+    play: Play,
+    pause: Pause,
+    stop: Stop,
 };

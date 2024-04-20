@@ -7,6 +7,7 @@ export interface SwitchProps {
     currentOption: string;
     setCurrentOption: (option: string) => void;
     color: string;
+    disabled?: boolean;
 }
 
 const Switch = ({
@@ -14,6 +15,7 @@ const Switch = ({
     currentOption,
     setCurrentOption,
     color,
+    disabled = false,
 }: SwitchProps) => {
     const currentIndex = options.indexOf(currentOption);
     const indicatorWidth = 100 / options.length;
@@ -22,8 +24,10 @@ const Switch = ({
     return (
         <StyledSwitch
             onClick={() =>
+                !disabled &&
                 setCurrentOption(options[currentIndex === 0 ? 1 : 0])
             }
+            disabled={disabled}
         >
             <Indicator width={indicatorWidth} $offset={offset} />
 
