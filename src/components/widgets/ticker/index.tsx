@@ -9,6 +9,8 @@ import { AssetKey, Currency } from "data/types";
 import { StyledIcon, StyledRadialTimer } from "./styles";
 import Price from "./parts/price";
 import Switch from "components/elements/switch";
+import { lang } from "data/constants";
+import { formatDate } from "utils/helpers";
 
 export interface TickerProps {
     assetKey: AssetKey;
@@ -24,6 +26,8 @@ const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
         isLoading,
         isFetching,
         setIsFetching,
+        isError,
+        lastUpdate,
     } = useTicker(assetKey, initialCurrency);
 
     const asset = assets[assetKey];
@@ -36,7 +40,12 @@ const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
                 justifyContent="space-between"
                 margin="0 0 1rem 0"
             >
-                <Text color={asset.color} fontSize="1rem">
+                <Text
+                    color={asset.color}
+                    fontSize="1rem"
+                    margin="0 2rem 0 0"
+                    lineHeight="1"
+                >
                     {`${asset.symbol} ${asset.label.toUpperCase()}`}
                 </Text>
 
@@ -48,7 +57,7 @@ const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
                             setCurrency(option as Currency)
                         }
                         color={asset.color}
-                        disabled={!isFetching}
+                        disabled={isError || !isFetching}
                     />
                     <Div
                         width="1.5rem"
@@ -72,6 +81,19 @@ const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
             </Div>
 
             <Price value={realTimeData?.ask} currency={currency} />
+
+            <Div margin="0.25rem 0 0 0">
+                <Text textAlign="right" fontSize="0.75rem" color="darkgrey">
+                    {`Last Updated: ${new Date(
+                        lastUpdate
+                    ).toLocaleTimeString()}`}
+                </Text>
+                {isError && (
+                    <Text textAlign="right" fontSize="0.75rem" color="red">
+                        {lang.error}
+                    </Text>
+                )}
+            </Div>
         </Widget>
     );
 };

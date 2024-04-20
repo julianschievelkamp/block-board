@@ -31,7 +31,11 @@ const Menu = ({ theme, toggleTheme }: MenuProps) => {
                 </LogoContainer>
             )}
 
-            {isLg && <Text margin="1.5rem 0">{lang.intro}</Text>}
+            {isLg && (
+                <Text margin="1rem 0" fontSize="0.75rem">
+                    {lang.intro}
+                </Text>
+            )}
 
             <ButtonContainer>
                 <Button

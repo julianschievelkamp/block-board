@@ -21,7 +21,7 @@ const Text = ({
     textAlign,
     margin = "0",
     fontSize = "1rem",
-    lineHeight = "1",
+    lineHeight = "1.5",
     ...rest
 }: TextProps) => {
     return (
