@@ -50,7 +50,8 @@ export const useTicker = (assetKey: AssetKey, initalCurrency: Currency) => {
         return () => {
             isMounted = false;
         };
-    }, [assetKey, currency, isFetching]);
+        // eslint-disable-next-line
+    }, [currency, isFetching]);
 
     return {
         realTimeData,
