@@ -1,10 +1,13 @@
-import Ticker from "components/widgets/ticker";
-import { useDarkMode } from "hooks/general/useDarkMode";
 import { ThemeProvider } from "styled-components";
+
+import Menu from "components/layout/menu";
+import Ticker from "components/widgets/ticker";
+
+import { useDarkMode } from "hooks/general/useDarkMode";
 import { darkTheme, lightTheme } from "styles/variables";
 import GlobalStyle from "styles/global";
+
 import { Dashboard, StyledApp } from "./styles";
-import Menu from "components/layout/menu";
 
 const App = () => {
     const { theme, toggleTheme, isLoading } = useDarkMode();

@@ -29,6 +29,7 @@ const Price = ({ value, currency }: PriceProps) => {
                 setAnimation(1);
             }, 50);
         }
+        // eslint-disable-next-line
     }, [value]);
 
     return (

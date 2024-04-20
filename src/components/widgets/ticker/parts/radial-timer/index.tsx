@@ -23,6 +23,7 @@ const RadialTimer = ({
         setTimeout(() => {
             setAnimation(1);
         }, 50);
+        // eslint-disable-next-line
     }, [...trigger]);
 
     return (
