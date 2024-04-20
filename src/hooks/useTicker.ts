@@ -24,8 +24,6 @@ export const useTicker = (assetKey: AssetKey, initalCurrency: Currency) => {
 
                 while (isMounted) {
                     await axios.get(endpoint).then((res) => {
-                        // console.log(res.data);
-
                         setRealTimeData(res.data);
                         setIsLoading(false);
                     });
