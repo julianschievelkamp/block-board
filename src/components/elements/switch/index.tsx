@@ -28,14 +28,15 @@ const Switch = ({
                 setCurrentOption(options[currentIndex === 0 ? 1 : 0])
             }
             disabled={disabled}
+            color={color}
         >
-            <Indicator width={indicatorWidth} $offset={offset} />
+            <Indicator width={indicatorWidth} $offset={offset} color={color} />
 
             {options.map((option, index) => {
                 return (
                     <Option key={option}>
                         <Text
-                            color={index === currentIndex ? color : "white"}
+                            color={index === currentIndex ? "white" : color}
                             fontSize="0.5rem"
                         >
                             {option}

@@ -29,14 +29,14 @@ const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
     const asset = assets[assetKey];
 
     return (
-        <Widget bgColor={asset.color} isLoading={isLoading}>
+        <Widget isLoading={isLoading}>
             <Div
                 display="flex"
                 alignItems="center"
                 justifyContent="space-between"
                 margin="0 0 1rem 0"
             >
-                <Text color="white" fontSize="1rem">
+                <Text color={asset.color} fontSize="1rem">
                     {`${asset.symbol} ${asset.label.toUpperCase()}`}
                 </Text>
 
@@ -60,11 +60,12 @@ const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
                             trigger={[realTimeData, currency]}
                             isActive={isFetching}
                             duration={refreshRate}
+                            color={asset.color}
                         />
                         <StyledIcon
                             size="0.75rem"
                             name={isFetching ? "stop" : "play"}
-                            color="white"
+                            color={asset.color}
                         />
                     </Div>
                 </Div>

@@ -6,7 +6,7 @@ export const StyledSwitch = styled.div<{ disabled: boolean }>`
     display: flex;
     align-items: center;
     border-radius: ${borderRadius.round};
-    border: 1px solid white;
+    border: 1px solid ${({ color }) => color};
     height: 1.25rem;
     opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
     cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
@@ -19,7 +19,7 @@ export const Option = styled.div`
 
 export const Indicator = styled.div<{ $offset: number; width: number }>`
     position: absolute;
-    background-color: white;
+    background-color: ${({ color }) => color};
     left: ${({ $offset }) => `${$offset}%`};
     width: ${({ width }) => `${width}%`};
     height: 100%;

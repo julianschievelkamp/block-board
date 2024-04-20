@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import { queries, scrollStyles, shadow, transition } from "styles/variables";
+import { queries, scrollStyles, transition } from "styles/variables";
 
 export const StyledMenu = styled.div`
     border-bottom: ${({ theme }) => `1px solid ${theme.border}`};
-    box-shadow: ${shadow.soft};
     background: ${({ theme }) => theme.menu};
     transition: ${transition.fast};
     padding: 1rem;

@@ -34,7 +34,7 @@ const Price = ({ value, currency }: PriceProps) => {
 
     return (
         <StyledPrice color={priceColor}>
-            <Text fontSize="3rem" data-animation={animation} color="white">
+            <Text fontSize="3rem" data-animation={animation}>
                 {formatPrice(value ?? 0, currency)}
             </Text>
         </StyledPrice>
