@@ -12,6 +12,7 @@ export const StyledWidget = styled.div<{
     transition: ${transition.fast};
     padding: 1rem;
     margin: 0.5rem;
+    overflow: hidden;
 
     @media ${queries.hover} {
         &:hover {

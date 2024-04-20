@@ -17,18 +17,15 @@ export const Dashboard = styled.div`
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     height: 100%;
     padding: 0.5rem;
     padding-top: 6.25rem;
 
     @media ${queries.lg} {
+        flex-direction: row;
+        align-items: flex-start;
         padding: 1rem;
         padding-top: 1rem;
         padding-left: 19rem;
-    }
-
-    @media ${queries.xxl} {
-        flex-direction: row;
     }
 `;

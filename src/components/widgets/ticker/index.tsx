@@ -10,7 +10,6 @@ import { StyledIcon, StyledRadialTimer } from "./styles";
 import Price from "./parts/price";
 import Switch from "components/elements/switch";
 import { lang } from "data/constants";
-import { formatDate } from "utils/helpers";
 
 export interface TickerProps {
     assetKey: AssetKey;
