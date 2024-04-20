@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import RadialTimer from "components/elements/radial-timer";
+import RadialTimer from "./parts/radial-timer";
 import Icon from "components/elements/icon";
 
 export const StyledRadialTimer = styled(RadialTimer)`

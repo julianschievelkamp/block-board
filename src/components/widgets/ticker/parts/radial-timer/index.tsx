@@ -23,7 +23,7 @@ const RadialTimer = ({
         setTimeout(() => {
             setAnimation(1);
         }, 50);
-    }, [trigger]);
+    }, [...trigger]);
 
     return (
         <StyledSVG

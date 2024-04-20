@@ -15,10 +15,8 @@ export interface TickerProps {
 }
 
 const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
-    const { realTimeData, currency, refreshRate, isLoading } = useTicker(
-        assetKey,
-        initialCurrency
-    );
+    const { realTimeData, currency, setCurrency, refreshRate, isLoading } =
+        useTicker(assetKey, initialCurrency);
 
     const asset = assets[assetKey];
 
@@ -35,13 +33,13 @@ const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
                 </Text>
 
                 <Div display="flex">
-                    {/* <button
+                    <button
                         onClick={() =>
                             setCurrency(currency === "USD" ? "EUR" : "USD")
                         }
                     >
                         {currency}
-                    </button> */}
+                    </button>
                     <Div width="1.5rem" height="1.5rem" margin="0 0 0 0.25rem">
                         <StyledRadialTimer
                             trigger={[realTimeData, currency]}
