@@ -53,10 +53,10 @@ export const ButtonContainer = styled.div`
     }
 
     button {
-        margin-left: 0.5rem;
+        margin-left: 1rem;
 
         @media ${queries.lg} {
-            margin: 0.25rem 0;
+            margin: 0.5rem 0;
         }
     }
 `;

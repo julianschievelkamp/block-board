@@ -93,18 +93,28 @@ const Ticker = ({ assetKey }: TickerProps) => {
             <Div
                 display="flex"
                 justifyContent="space-between"
-                alignItems="center"
+                alignItems="flex-end"
             >
-                <LineChart data={realTimeData?.changes} />
+                <Div display="flex" alignItems="center">
+                    <LineChart data={realTimeData?.changes} />
+                    <Text
+                        color="green"
+                        fontSize="0.75rem"
+                        margin="0 0 0 0.5rem"
+                    >
+                        + 0,00 %
+                    </Text>
+                </Div>
+
                 <Div>
-                    <Text textAlign="right" fontSize="0.75rem" color="darkgrey">
+                    <Text textAlign="right" fontSize="0.5rem" color="darkgrey">
                         {lang.lastUpdate(
                             new Date(lastUpdate).toLocaleTimeString()
                         )}
                     </Text>
                     <Text
                         textAlign="right"
-                        fontSize="0.75rem"
+                        fontSize="0.5rem"
                         color={isError ? "red" : "darkgrey"}
                     >
                         {isError ? lang.error : lang.api}
