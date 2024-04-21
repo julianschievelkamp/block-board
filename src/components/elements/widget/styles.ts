@@ -9,7 +9,7 @@ export const StyledWidget = styled.div<{
     border-radius: ${borderRadius.edged};
     border: 1px solid ${({ theme }) => theme.border};
     background-color: ${({ theme }) => theme.secondary};
-    transition: ${transition.fast};
+    transition: ${transition.fast}, opacity ${transition.slow};
     padding: 1rem;
     margin: 0.5rem;
     overflow: hidden;
