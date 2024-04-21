@@ -41,7 +41,7 @@ const LineChart = ({ data }: LineChartProps) => {
         ) => {
             ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
-            ctx.lineWidth = 4;
+            ctx.lineWidth = 8;
             ctx.strokeStyle =
                 vertices[0].y > vertices[vertices.length - 1].y
                     ? "green"
