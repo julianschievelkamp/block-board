@@ -25,7 +25,6 @@ const Price = ({ value, currency }: PriceProps) => {
 
             setLastPrice(value);
 
-            setAnimation(0);
             setTimeout(() => {
                 setAnimation(1);
             }, 50);
@@ -34,7 +33,10 @@ const Price = ({ value, currency }: PriceProps) => {
     }, [value]);
 
     return (
-        <StyledPrice $signalColor={signalColor}>
+        <StyledPrice
+            $signalColor={signalColor}
+            onAnimationEnd={() => setAnimation(0)}
+        >
             <Text
                 fontSize="3rem"
                 lineHeight="1"
