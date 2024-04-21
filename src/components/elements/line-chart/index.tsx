@@ -63,7 +63,7 @@ const LineChart = ({ data }: LineChartProps) => {
         }
     }, [data]);
 
-    return <StyledCanvas height="64" width="256" ref={ref} />;
+    return <StyledCanvas height="128" width="512" ref={ref} />;
 };
 
 export default LineChart;
