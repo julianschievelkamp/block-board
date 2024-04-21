@@ -19,6 +19,11 @@ export type RealTimeData = {
     symbol: string;
 };
 
+export type Vertex = {
+    x: number;
+    y: number;
+};
+
 export type Theme = {
     primary: string;
     secondary: string;

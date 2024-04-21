@@ -87,7 +87,7 @@ const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
                 justifyContent="space-between"
                 alignItems="center"
             >
-                <Div>
+                <Div display="flex" alignItems="center">
                     <LineChart data={realTimeData?.changes} />
                 </Div>
                 <Div>
