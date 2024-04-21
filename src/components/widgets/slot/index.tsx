@@ -1,5 +1,3 @@
-import React from "react";
-
 import Widget from "components/elements/widget";
 import Icon from "components/elements/icon";
 import Div from "components/elements/div";
@@ -16,7 +14,7 @@ const Slot = ({}: SlotProps) => {
                 height="100%"
                 onClick={() => {}}
             >
-                <Icon name="add" size="4rem" color="lightgrey" />
+                <Icon name="add" size="4rem" color="darkgrey" />
             </Div>
         </Widget>
     );
