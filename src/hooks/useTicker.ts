@@ -3,12 +3,12 @@ import axios from "axios";
 
 import { AssetKey, Currency, RealTimeData } from "data/types";
 
-export const useTicker = (assetKey: AssetKey, initalCurrency: Currency) => {
+export const useTicker = (assetKey: AssetKey) => {
     const refreshRate = 5000;
     const [isLoading, setIsLoading] = useState(true);
     const [isFetching, setIsFetching] = useState(true);
     const [isError, setIsError] = useState(false);
-    const [currency, setCurrency] = useState<Currency>(initalCurrency);
+    const [currency, setCurrency] = useState<Currency>("USD");
     const [realTimeData, setRealTimeData] = useState<
         RealTimeData | undefined
     >();

@@ -4,6 +4,7 @@ import Widget from "components/elements/widget";
 import Switch from "components/elements/switch";
 import LineChart from "components/elements/line-chart";
 import RadialTimer from "components/elements/radial-timer";
+import Icon from "components/elements/icon";
 
 import { assets } from "data/assets";
 import { useTicker } from "hooks/useTicker";
@@ -12,14 +13,17 @@ import { AssetKey, Currency } from "data/types";
 import { lang } from "data/constants";
 
 import Price from "./price";
-import Icon from "components/elements/icon";
+import { Controls, HoverControls } from "./styles";
+import { useState } from "react";
+import { useStore } from "state/store";
 
 export interface TickerProps {
     assetKey: AssetKey;
-    initialCurrency: Currency;
 }
 
-const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
+const Ticker = ({ assetKey }: TickerProps) => {
+    const { removeWidget } = useStore();
+    const [isHover, setIsHover] = useState(false);
     const {
         realTimeData,
         currency,
@@ -30,12 +34,16 @@ const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
         setIsFetching,
         isError,
         lastUpdate,
-    } = useTicker(assetKey, initialCurrency);
+    } = useTicker(assetKey);
 
     const asset = assets[assetKey];
 
     return (
-        <Widget isLoading={isLoading}>
+        <Widget
+            isLoading={isLoading}
+            onMouseEnter={() => setIsHover(true)}
+            onMouseLeave={() => setIsHover(false)}
+        >
             <Div
                 display="flex"
                 alignItems="center"
@@ -45,13 +53,22 @@ const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
                     {`${asset.symbol} ${asset.label.toUpperCase()}`}
                 </Text>
 
-                <Div display="flex" alignItems="center">
-                    <Icon
-                        onClick={() => {}}
-                        name="notifications"
-                        size="1.25rem"
-                        color={asset.color}
-                    />
+                <Controls>
+                    <HoverControls $isHover={isHover}>
+                        <Icon
+                            onClick={() => removeWidget(asset.key)}
+                            name="delete"
+                            size="1rem"
+                            color={asset.color}
+                        />
+                        <Icon
+                            onClick={() => {}}
+                            name="notifications"
+                            size="1rem"
+                            color={asset.color}
+                        />
+                    </HoverControls>
+
                     <Switch
                         options={["USD", "EUR"]}
                         currentOption={currency}
@@ -68,7 +85,7 @@ const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
                         duration={refreshRate}
                         color={asset.color}
                     />
-                </Div>
+                </Controls>
             </Div>
 
             <Price value={realTimeData?.ask} currency={currency} />

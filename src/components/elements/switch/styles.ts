@@ -11,7 +11,6 @@ export const StyledSwitch = styled.div<{ disabled: boolean }>`
     opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
     cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
     transition: ${transition.fast};
-    margin: 0 0.25rem;
 `;
 
 export const Option = styled.div`

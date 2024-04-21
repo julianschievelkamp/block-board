@@ -9,9 +9,11 @@ import GlobalStyle from "styles/global";
 
 import { Dashboard, StyledApp } from "./styles";
 import Slot from "components/widgets/slot";
+import { useStore } from "state/store";
 
 const App = () => {
     const { theme, toggleTheme, isLoading } = useDarkMode();
+    const { widgets } = useStore();
 
     if (isLoading) return <></>;
 
@@ -21,8 +23,9 @@ const App = () => {
 
             <StyledApp>
                 <Dashboard>
-                    <Ticker assetKey="BTC" initialCurrency="USD" />
-                    <Ticker assetKey="ETH" initialCurrency="USD" />
+                    {widgets.map((assetKey) => {
+                        return <Ticker assetKey={assetKey} />;
+                    })}
                     <Slot />
                 </Dashboard>
 

@@ -11,6 +11,6 @@ export const assets: { [key in AssetKey]: Asset } = {
         label: "Ethereum",
         key: "ETH",
         symbol: "Ξ",
-        color: "darkgrey",
+        color: "silver",
     },
 };

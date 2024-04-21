@@ -3,9 +3,7 @@ import Icon from "components/elements/icon";
 import Div from "components/elements/div";
 import { useEffect, useState } from "react";
 
-export interface SlotProps {}
-
-const Slot = ({}: SlotProps) => {
+const Slot = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
