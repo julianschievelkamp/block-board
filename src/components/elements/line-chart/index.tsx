@@ -15,7 +15,7 @@ const LineChart = ({ data }: LineChartProps) => {
         const getVertices = (ctx: CanvasRenderingContext2D, data: number[]) => {
             let vertices: Vertex[] = [];
 
-            const margin = 1;
+            const margin = 4;
             const xPixelRange = ctx.canvas.width - margin * 2;
             const yPixelRange = ctx.canvas.height - margin * 2;
             const yMin = getMinValue(data);
