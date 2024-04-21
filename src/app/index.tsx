@@ -8,6 +8,7 @@ import { darkTheme, lightTheme } from "styles/variables";
 import GlobalStyle from "styles/global";
 
 import { Dashboard, StyledApp } from "./styles";
+import Slot from "components/widgets/slot";
 
 const App = () => {
     const { theme, toggleTheme, isLoading } = useDarkMode();
@@ -22,6 +23,7 @@ const App = () => {
                 <Dashboard>
                     <Ticker assetKey="BTC" initialCurrency="USD" />
                     <Ticker assetKey="ETH" initialCurrency="USD" />
+                    <Slot />
                 </Dashboard>
 
                 <Menu theme={theme} toggleTheme={toggleTheme} />

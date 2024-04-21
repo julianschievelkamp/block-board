@@ -11,6 +11,7 @@ export const StyledApp = styled.div`
 
 export const Dashboard = styled.div`
     display: grid;
+    grid-auto-rows: 1fr;
     padding: 0.5rem;
     padding-top: 6.25rem;
 
