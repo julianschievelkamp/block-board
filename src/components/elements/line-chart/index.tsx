@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 
 import { Vertex } from "data/types";
 import { clampNumber, getMaxValue, getMinValue } from "utils/helpers";
+import { StyledCanvas } from "./styles";
 
 export interface LineChartProps {
     data: number[] | undefined;
@@ -40,7 +41,7 @@ const LineChart = ({ data }: LineChartProps) => {
         ) => {
             ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
-            ctx.lineWidth = 2;
+            ctx.lineWidth = 4;
             ctx.strokeStyle =
                 vertices[0].y > vertices[vertices.length - 1].y
                     ? "green"
@@ -62,7 +63,7 @@ const LineChart = ({ data }: LineChartProps) => {
         }
     }, [data]);
 
-    return <canvas height="36" width="144" ref={ref} />;
+    return <StyledCanvas height="64" width="256" ref={ref} />;
 };
 
 export default LineChart;
