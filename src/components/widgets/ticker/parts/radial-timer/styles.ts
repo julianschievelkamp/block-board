@@ -5,7 +5,7 @@ const timer = keyframes`
     100% { stroke-dasharray: 0, 100 }
 `;
 
-export const StyledSVG = styled.svg<{ $size: string; $duration: number }>`
+export const StyledSvg = styled.svg<{ $size: string; $duration: number }>`
     width: ${({ $size }) => $size};
     height: ${({ $size }) => $size};
 

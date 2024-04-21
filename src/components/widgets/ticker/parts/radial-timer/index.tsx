@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Ring, StyledSVG } from "./styles";
+import { Ring, StyledSvg } from "./styles";
 
 export interface RadialTimerProps {
     trigger: any[];
@@ -32,7 +32,7 @@ const RadialTimer = ({
     }, [...trigger, isActive]);
 
     return (
-        <StyledSVG
+        <StyledSvg
             viewBox="0 0 36 36"
             className={className}
             $size={size}
@@ -46,7 +46,7 @@ const RadialTimer = ({
                 stroke={color}
                 data-animation={animation}
             />
-        </StyledSVG>
+        </StyledSvg>
     );
 };
 

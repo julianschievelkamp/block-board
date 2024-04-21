@@ -10,6 +10,7 @@ import { StyledIcon, StyledRadialTimer } from "./styles";
 import Price from "./parts/price";
 import Switch from "components/elements/switch";
 import { lang } from "data/constants";
+import LineChart from "components/elements/line-chart";
 
 export interface TickerProps {
     assetKey: AssetKey;
@@ -86,7 +87,9 @@ const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
                 justifyContent="space-between"
                 alignItems="center"
             >
-                <Div></Div>
+                <Div>
+                    <LineChart data={realTimeData?.changes} />
+                </Div>
                 <Div>
                     <Text textAlign="right" fontSize="0.75rem" color="darkgrey">
                         {lang.lastUpdate(
