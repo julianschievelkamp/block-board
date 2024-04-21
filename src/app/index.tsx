@@ -24,7 +24,7 @@ const App = () => {
             <StyledApp>
                 <Dashboard>
                     {widgets.map((assetKey) => {
-                        return <Ticker assetKey={assetKey} />;
+                        return <Ticker key={assetKey} assetKey={assetKey} />;
                     })}
                     <Slot />
                 </Dashboard>
