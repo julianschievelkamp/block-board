@@ -12,6 +12,7 @@ import { AssetKey, Currency } from "data/types";
 import { lang } from "data/constants";
 
 import Price from "./price";
+import Icon from "components/elements/icon";
 
 export interface TickerProps {
     assetKey: AssetKey;
@@ -40,17 +41,17 @@ const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
                 alignItems="center"
                 justifyContent="space-between"
             >
-                <Text
-                    color={asset.color}
-                    fontSize="1rem"
-                    margin="0 2rem 0 0"
-                    lineHeight="1"
-                    bold
-                >
+                <Text color={asset.color} fontSize="1rem" lineHeight="1" bold>
                     {`${asset.symbol} ${asset.label.toUpperCase()}`}
                 </Text>
 
                 <Div display="flex" alignItems="center">
+                    <Icon
+                        onClick={() => {}}
+                        name="notifications"
+                        size="1.25rem"
+                        color={asset.color}
+                    />
                     <Switch
                         options={["USD", "EUR"]}
                         currentOption={currency}
