@@ -7,7 +7,7 @@ import { useTicker } from "hooks/useTicker";
 import { AssetKey, Currency } from "data/types";
 
 import { StyledIcon, StyledRadialTimer } from "./styles";
-import Price from "./parts/price";
+import Price from "./price";
 import Switch from "components/elements/switch";
 import { lang } from "data/constants";
 import LineChart from "components/elements/line-chart";

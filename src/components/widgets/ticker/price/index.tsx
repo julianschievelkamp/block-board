@@ -14,12 +14,12 @@ export interface PriceProps {
 const Price = ({ value, currency }: PriceProps) => {
     const [animation, setAnimation] = useState(0);
     const [lastPrice, setLastPrice] = useState(0);
-    const [priceColor, setPriceColor] = useState("");
+    const [signalColor, setSignalColor] = useState("");
 
     useEffect(() => {
         if (value) {
             if (lastPrice > 0) {
-                setPriceColor(value > lastPrice ? "green" : "red");
+                setSignalColor(value > lastPrice ? "green" : "red");
             }
 
             setLastPrice(value);
@@ -33,7 +33,7 @@ const Price = ({ value, currency }: PriceProps) => {
     }, [value]);
 
     return (
-        <StyledPrice color={priceColor}>
+        <StyledPrice $signalColor={signalColor}>
             <Text
                 fontSize="3rem"
                 lineHeight="1"
