@@ -1,8 +1,7 @@
 import { useEffect, useRef } from "react";
+
 import { Vertex } from "data/types";
 import { clampNumber, getMaxValue, getMinValue } from "utils/helpers";
-
-import { Canvas } from "./styles";
 
 export interface LineChartProps {
     data: number[] | undefined;
@@ -63,7 +62,7 @@ const LineChart = ({ data }: LineChartProps) => {
         }
     }, [data]);
 
-    return <Canvas height="36" width="144" ref={ref} />;
+    return <canvas height="36" width="144" ref={ref} />;
 };
 
 export default LineChart;

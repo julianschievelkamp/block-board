@@ -4,6 +4,7 @@ import Text from "components/elements/text";
 
 import { formatPrice } from "utils/helpers";
 import { Currency } from "data/types";
+
 import { StyledPrice } from "./styles";
 
 export interface PriceProps {

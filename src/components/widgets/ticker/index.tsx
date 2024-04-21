@@ -1,16 +1,17 @@
 import Text from "components/elements/text";
 import Div from "components/elements/div";
 import Widget from "components/elements/widget";
+import Switch from "components/elements/switch";
+import LineChart from "components/elements/line-chart";
+import RadialTimer from "components/elements/radial-timer";
 
 import { assets } from "data/assets";
 import { useTicker } from "hooks/useTicker";
 import { AssetKey, Currency } from "data/types";
 
-import { StyledIcon, StyledRadialTimer } from "./styles";
-import Price from "./price";
-import Switch from "components/elements/switch";
 import { lang } from "data/constants";
-import LineChart from "components/elements/line-chart";
+
+import Price from "./price";
 
 export interface TickerProps {
     assetKey: AssetKey;
@@ -59,24 +60,13 @@ const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
                         color={asset.color}
                         disabled={isError || !isFetching}
                     />
-                    <Div
-                        width="1.5rem"
-                        height="1.5rem"
-                        margin="0 0 0 0.25rem"
-                        onClick={() => setIsFetching(!isFetching)}
-                    >
-                        <StyledRadialTimer
-                            trigger={[realTimeData, currency]}
-                            isActive={isFetching}
-                            duration={refreshRate}
-                            color={asset.color}
-                        />
-                        <StyledIcon
-                            size="0.75rem"
-                            name={isFetching ? "stop" : "play"}
-                            color={asset.color}
-                        />
-                    </Div>
+                    <RadialTimer
+                        trigger={[realTimeData, currency]}
+                        isActive={isFetching}
+                        setIsActive={() => setIsFetching(!isFetching)}
+                        duration={refreshRate}
+                        color={asset.color}
+                    />
                 </Div>
             </Div>
 
@@ -87,9 +77,7 @@ const Ticker = ({ assetKey, initialCurrency }: TickerProps) => {
                 justifyContent="space-between"
                 alignItems="center"
             >
-                <Div display="flex" alignItems="center">
-                    <LineChart data={realTimeData?.changes} />
-                </Div>
+                <LineChart data={realTimeData?.changes} />
                 <Div>
                     <Text textAlign="right" fontSize="0.75rem" color="darkgrey">
                         {lang.lastUpdate(

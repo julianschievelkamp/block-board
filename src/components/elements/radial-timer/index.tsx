@@ -1,24 +1,30 @@
 import { useEffect, useState } from "react";
-import { Ring, StyledSvg } from "./styles";
+
+import { StyledIcon, StyledSvg } from "./styles";
+
+import Div from "components/elements/div";
 
 export interface RadialTimerProps {
     trigger: any[];
-    duration: number;
-    isActive?: boolean;
+    setIsActive: () => void;
+    isActive: boolean;
+    duration?: number;
     color?: string;
-    className?: string;
     size?: string;
+    className?: string;
 }
 
 const RadialTimer = ({
     trigger,
-    duration,
+    isActive,
+    setIsActive,
+    duration = 5000,
     color = "white",
-    isActive = true,
-    className,
     size = "1.5rem",
+    className,
 }: RadialTimerProps) => {
     const [animation, setAnimation] = useState(0);
+    const animationDelay = 50;
 
     useEffect(() => {
         setAnimation(0);
@@ -26,27 +32,41 @@ const RadialTimer = ({
         if (isActive) {
             setTimeout(() => {
                 setAnimation(1);
-            }, 50);
+            }, animationDelay);
         }
         // eslint-disable-next-line
     }, [...trigger, isActive]);
 
     return (
-        <StyledSvg
-            viewBox="0 0 36 36"
+        <Div
+            width={size}
+            height={size}
+            onClick={setIsActive}
             className={className}
-            $size={size}
-            $duration={duration}
         >
-            <Ring
-                d="M18 3
+            <StyledSvg
+                viewBox="0 0 36 36"
+                $size={size}
+                $duration={duration}
+                $animationDelay={animationDelay}
+            >
+                <path
+                    d="M18 3
         a 15 15 0 0 1 0 30
         a 15 15 0 0 1 0 -30"
-                fill="none"
-                stroke={color}
-                data-animation={animation}
+                    fill="none"
+                    stroke={color}
+                    strokeDasharray="100, 100"
+                    strokeWidth={1}
+                    data-animation={animation}
+                />
+            </StyledSvg>
+            <StyledIcon
+                size={size}
+                name={isActive ? "stop" : "play"}
+                color={color}
             />
-        </StyledSvg>
+        </Div>
     );
 };
 
