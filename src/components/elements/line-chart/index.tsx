@@ -15,21 +15,20 @@ const LineChart = ({ data }: LineChartProps) => {
         const getVertices = (ctx: CanvasRenderingContext2D, data: number[]) => {
             let vertices: Vertex[] = [];
 
+            const margin = 1;
+            const xPixelRange = ctx.canvas.width - margin * 2;
+            const yPixelRange = ctx.canvas.height - margin * 2;
             const yMin = getMinValue(data);
             const yMax = getMaxValue(data);
 
             const xRange =
-                ctx.canvas.width / clampNumber(data.length - 1, 1, data.length);
-            const yRange =
-                ctx.canvas.height / clampNumber(yMax - yMin, 1, yMax);
+                xPixelRange / clampNumber(data.length - 1, 1, data.length);
+            const yRange = yPixelRange / clampNumber(yMax - yMin, 1, yMax);
 
             for (let i = 0; i < data.length; i++) {
-                const xCoord = xRange * i;
-                const yCoord = yRange * (data[i] - yMin);
-
                 vertices.push({
-                    x: xCoord,
-                    y: yCoord,
+                    x: xRange * i + margin,
+                    y: yRange * (data[i] - yMin) + margin,
                 });
             }
 
