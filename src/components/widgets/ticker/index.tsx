@@ -98,7 +98,12 @@ const Ticker = ({ assetKey }: TickerProps) => {
                 <Div display="flex" alignItems="center">
                     <LineChart data={realTimeData?.changes} />
                     <Text
-                        color="green"
+                        color={
+                            realTimeData &&
+                            (realTimeData.open < realTimeData.close
+                                ? "green"
+                                : "red")
+                        }
                         fontSize="0.75rem"
                         margin="0 0 0 0.5rem"
                     >

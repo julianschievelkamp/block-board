@@ -28,7 +28,7 @@ const LineChart = ({ data }: LineChartProps) => {
             for (let i = 0; i < data.length; i++) {
                 vertices.push({
                     x: xRange * i + margin,
-                    y: yRange * (data[i] - yMin) + margin,
+                    y: ctx.canvas.height - (yRange * (data[i] - yMin) + margin),
                 });
             }
 
