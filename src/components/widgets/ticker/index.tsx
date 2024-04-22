@@ -95,21 +95,7 @@ const Ticker = ({ assetKey }: TickerProps) => {
                 justifyContent="space-between"
                 alignItems="flex-end"
             >
-                <Div display="flex" alignItems="center">
-                    <LineChart data={realTimeData?.changes.reverse()} />
-                    <Text
-                        color={
-                            realTimeData &&
-                            (realTimeData.open < realTimeData.close
-                                ? "green"
-                                : "red")
-                        }
-                        fontSize="0.75rem"
-                        margin="0 0 0 0.5rem"
-                    >
-                        + 0,00 %
-                    </Text>
-                </Div>
+                <LineChart data={realTimeData?.changes.reverse()} />
 
                 <Div>
                     <Text textAlign="right" fontSize="0.5rem" color="darkgrey">

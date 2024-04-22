@@ -1,14 +1,26 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+
+import Div from "components/elements/div";
+import Text from "components/elements/text";
 
 import { Vertex } from "data/types";
-import { clampNumber, getMaxValue, getMinValue } from "utils/helpers";
-import { StyledCanvas } from "./styles";
+import {
+    clampNumber,
+    formatChange,
+    getMaxValue,
+    getMinValue,
+} from "utils/helpers";
+
+import { Canvas } from "./styles";
 
 export interface LineChartProps {
     data: number[] | undefined;
 }
 
 const LineChart = ({ data }: LineChartProps) => {
+    const [change, setChange] = useState(0);
+    const [color, setColor] = useState("");
+
     const ref = useRef(null);
 
     useEffect(() => {
@@ -37,15 +49,13 @@ const LineChart = ({ data }: LineChartProps) => {
 
         const drawLine = (
             ctx: CanvasRenderingContext2D,
-            vertices: Vertex[]
+            vertices: Vertex[],
+            color: string
         ) => {
             ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
             ctx.lineWidth = 8;
-            ctx.strokeStyle =
-                vertices[0].y > vertices[vertices.length - 1].y
-                    ? "green"
-                    : "red";
+            ctx.strokeStyle = color;
 
             for (let i = 1; i < vertices.length; i++) {
                 ctx.beginPath();
@@ -59,11 +69,24 @@ const LineChart = ({ data }: LineChartProps) => {
             const canvas: HTMLCanvasElement = ref.current!;
             const ctx: CanvasRenderingContext2D = canvas.getContext("2d")!;
 
-            drawLine(ctx, getVertices(ctx, data));
+            const vertices = getVertices(ctx, data);
+            const color = data[0] < data[data.length - 1] ? "green" : "red";
+
+            // TODO: set change
+            setChange(0.5);
+            setColor(color);
+            drawLine(ctx, vertices, color);
         }
     }, [data]);
 
-    return <StyledCanvas height="128" width="512" ref={ref} />;
+    return (
+        <Div display="flex" alignItems="center">
+            <Canvas height="128" width="512" ref={ref} />
+            <Text color={color} fontSize="0.75rem" margin="0 0 0 0.5rem">
+                {formatChange(change)}
+            </Text>
+        </Div>
+    );
 };
 
 export default LineChart;

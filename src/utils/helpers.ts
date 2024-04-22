@@ -5,6 +5,12 @@ export const formatPrice = (value: number, currency: string): string => {
     }).format(value);
 };
 
+export const formatChange = (value: number): string => {
+    return new Intl.NumberFormat("de-DE", {
+        style: "percent",
+    }).format(value);
+};
+
 export const clampNumber = (num: number, min: number, max: number): number =>
     Math.min(Math.max(num, min), max);
 
