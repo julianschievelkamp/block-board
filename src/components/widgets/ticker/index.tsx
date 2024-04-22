@@ -96,7 +96,7 @@ const Ticker = ({ assetKey }: TickerProps) => {
                 alignItems="flex-end"
             >
                 <Div display="flex" alignItems="center">
-                    <LineChart data={realTimeData?.changes} />
+                    <LineChart data={realTimeData?.changes.reverse()} />
                     <Text
                         color={
                             realTimeData &&
