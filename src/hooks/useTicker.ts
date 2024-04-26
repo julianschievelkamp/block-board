@@ -2,13 +2,19 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 import { AssetKey, Currency, RealTimeData } from "data/types";
+import { getRandomInteger } from "utils/helpers";
+import { useStore } from "state/store";
 
 export const useTicker = (assetKey: AssetKey) => {
-    const refreshRate = 5000;
+    const { primaryCurrency } = useStore();
+
+    const [refreshRate, setRefreshRate] = useState(
+        getRandomInteger(5000, 6000)
+    );
     const [isLoading, setIsLoading] = useState(true);
     const [isFetching, setIsFetching] = useState(true);
     const [isError, setIsError] = useState(false);
-    const [currency, setCurrency] = useState<Currency>("USD");
+    const [currency, setCurrency] = useState<Currency>(primaryCurrency);
     const [realTimeData, setRealTimeData] = useState<
         RealTimeData | undefined
     >();

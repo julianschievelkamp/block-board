@@ -12,6 +12,10 @@ export const formatChange = (value: number): string => {
     }).format(value);
 };
 
+export const getRandomInteger = (min: number, max: number) => {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
 export const clampNumber = (num: number, min: number, max: number): number =>
     Math.min(Math.max(num, min), max);
 
