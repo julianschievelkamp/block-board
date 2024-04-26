@@ -13,7 +13,6 @@ export const Dashboard = styled.div`
     display: grid;
     grid-auto-rows: 1fr;
     padding: 0.5rem;
-    padding-top: 6.25rem;
 
     @media ${queries.md} {
         grid-template-columns: 1fr 1fr;
@@ -21,7 +20,6 @@ export const Dashboard = styled.div`
 
     @media ${queries.lg} {
         padding: 1rem;
-        padding-top: 1rem;
         padding-left: 19rem;
     }
 

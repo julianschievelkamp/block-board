@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { queries, scrollStyles, transition } from "styles/variables";
 
 export const StyledMenu = styled.div`
-    border-bottom: ${({ theme }) => `1px solid ${theme.border}`};
+    border-top: ${({ theme }) => `1px solid ${theme.border}`};
     background: ${({ theme }) => theme.menu};
     transition: ${transition.fast};
     padding: 1rem;
@@ -10,7 +10,7 @@ export const StyledMenu = styled.div`
     align-items: center;
     justify-content: center;
     position: fixed;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 100%;
     z-index: 99;
@@ -21,7 +21,7 @@ export const StyledMenu = styled.div`
     }
 
     @media ${queries.lg} {
-        border-bottom: none;
+        border-top: none;
         border-right: ${({ theme }) => `1px solid ${theme.border}`};
         flex-direction: column;
         justify-content: flex-start;
