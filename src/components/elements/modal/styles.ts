@@ -14,18 +14,17 @@ export const ModalContainer = styled.div<{ $isOpen: boolean }>`
     visibility: ${({ $isOpen }) => ($isOpen ? "visible" : "hidden")};
     z-index: 9;
     pointer-events: none;
-    margin-top: 2.875rem;
 
     @media ${queries.lg} {
         margin-left: 9rem;
-        margin-top: 0;
+        margin-bottom: 0;
     }
 `;
 
 export const Window = styled.div<{ $isOpen: boolean }>`
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: calc(50% - 2.875rem);
     transform: translate(-50%, -50%);
     border-radius: ${borderRadius.edged};
     padding: 1rem;
@@ -36,6 +35,10 @@ export const Window = styled.div<{ $isOpen: boolean }>`
     transition: ${transition.fast};
     box-shadow: ${shadow.soft};
     pointer-events: ${({ $isOpen }) => ($isOpen ? "all" : "none")};
+
+    @media ${queries.lg} {
+        top: 50%;
+    }
 `;
 
 export const StyledIcon = styled(Icon)`
