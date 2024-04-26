@@ -9,7 +9,7 @@ export const useTicker = (assetKey: AssetKey) => {
     const { primaryCurrency } = useStore();
 
     const [refreshRate, setRefreshRate] = useState(
-        getRandomInteger(5000, 6000)
+        getRandomInteger(4500, 5500)
     );
     const [isLoading, setIsLoading] = useState(true);
     const [isFetching, setIsFetching] = useState(true);

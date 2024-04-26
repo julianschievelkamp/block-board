@@ -13,4 +13,10 @@ export const assets: { [key in AssetKey]: Asset } = {
         symbol: "Ξ",
         color: "silver",
     },
+    DOGE: {
+        label: "Doge",
+        key: "DOGE",
+        symbol: "Ɖ",
+        color: "goldenrod",
+    },
 };

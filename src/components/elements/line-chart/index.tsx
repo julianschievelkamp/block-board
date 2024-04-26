@@ -11,13 +11,14 @@ import {
     getMinValue,
 } from "utils/helpers";
 
-import { Canvas } from "./styles";
+import { Canvas, Container } from "./styles";
 
 export interface LineChartProps {
     data: number[] | undefined;
+    isError: boolean;
 }
 
-const LineChart = ({ data }: LineChartProps) => {
+const LineChart = ({ data, isError }: LineChartProps) => {
     const [change, setChange] = useState(0);
     const [color, setColor] = useState("");
 
@@ -33,9 +34,8 @@ const LineChart = ({ data }: LineChartProps) => {
             const yMin = getMinValue(data);
             const yMax = getMaxValue(data);
 
-            const xRange =
-                xPixelRange / clampNumber(data.length - 1, 1, data.length);
-            const yRange = yPixelRange / clampNumber(yMax - yMin, 1, yMax);
+            const xRange = xPixelRange / (data.length - 1);
+            const yRange = yPixelRange / (yMax - yMin);
 
             for (let i = 0; i < data.length; i++) {
                 vertices.push({
@@ -79,12 +79,12 @@ const LineChart = ({ data }: LineChartProps) => {
     }, [data]);
 
     return (
-        <Div display="flex" alignItems="center">
+        <Container display="flex" alignItems="center" opacity={isError ? 0 : 1}>
             <Canvas height="128" width="512" ref={ref} />
             <Text color={color} fontSize="0.75rem" margin="0 0 0 0.5rem">
                 {`${formatChange(change)} %`}
             </Text>
-        </Div>
+        </Container>
     );
 };
 

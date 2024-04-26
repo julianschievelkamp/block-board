@@ -72,11 +72,11 @@ const Ticker = ({ assetKey }: TickerProps) => {
                     <Switch
                         options={[primaryCurrency, secondaryCurrency]}
                         currentOption={currency}
-                        setCurrentOption={(option: string) =>
-                            setCurrency(option as Currency)
-                        }
+                        setCurrentOption={(option: string) => {
+                            setCurrency(option as Currency);
+                            setIsFetching(true);
+                        }}
                         color={asset.color}
-                        disabled={isError || !isFetching}
                     />
                     <RadialTimer
                         trigger={[realTimeData, currency]}
@@ -88,14 +88,21 @@ const Ticker = ({ assetKey }: TickerProps) => {
                 </Controls>
             </Div>
 
-            <Price value={realTimeData?.ask} currency={currency} />
+            <Price
+                value={realTimeData?.ask}
+                currency={currency}
+                isError={isError}
+            />
 
             <Div
                 display="flex"
                 justifyContent="space-between"
                 alignItems="flex-end"
             >
-                <LineChart data={realTimeData?.changes.reverse()} />
+                <LineChart
+                    data={realTimeData?.changes.reverse()}
+                    isError={isError}
+                />
 
                 <Div>
                     <Text textAlign="right" fontSize="0.5rem" color="darkgrey">

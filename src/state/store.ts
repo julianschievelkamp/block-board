@@ -16,7 +16,7 @@ interface Actions {
 export const useStore = create<State & Actions>((set) => ({
     primaryCurrency: "USD",
     secondaryCurrency: "EUR",
-    widgets: ["BTC", "ETH"],
+    widgets: ["BTC", "ETH", "DOGE"],
 
     addWidget: (widget) =>
         set((state) => ({

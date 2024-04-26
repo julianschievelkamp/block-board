@@ -1,4 +1,4 @@
-export type AssetKey = "BTC" | "ETH";
+export type AssetKey = "BTC" | "ETH" | "DOGE";
 export type Currency = "USD" | "EUR";
 
 export type Asset = {
