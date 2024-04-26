@@ -8,7 +8,10 @@ import { darkTheme, lightTheme } from "styles/variables";
 import GlobalStyle from "styles/global";
 
 import { Dashboard, StyledApp } from "./styles";
-import { useStore } from "state/store";
+import { useStore } from "state/useStore";
+import AddModal from "components/layout/modals/add-modal";
+import Background from "components/layout/modals/background";
+import AlertsModal from "components/layout/modals/alerts-modal";
 
 const App = () => {
     const { theme, toggleTheme, isLoading } = useDarkMode();
@@ -26,6 +29,10 @@ const App = () => {
                         return <Ticker key={assetKey} assetKey={assetKey} />;
                     })}
                 </Dashboard>
+
+                <Background />
+                <AddModal />
+                <AlertsModal />
 
                 <Menu theme={theme} toggleTheme={toggleTheme} />
             </StyledApp>

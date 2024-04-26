@@ -3,7 +3,7 @@ import axios from "axios";
 
 import { AssetKey, Currency, RealTimeData } from "data/types";
 import { getRandomInteger } from "utils/helpers";
-import { useStore } from "state/store";
+import { useStore } from "state/useStore";
 
 export const useTicker = (assetKey: AssetKey) => {
     const { primaryCurrency } = useStore();

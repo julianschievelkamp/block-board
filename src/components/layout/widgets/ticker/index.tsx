@@ -15,7 +15,7 @@ import { lang } from "data/constants";
 import Price from "./price";
 import { Controls, HoverControls } from "./styles";
 import { useState } from "react";
-import { useStore } from "state/store";
+import { useStore } from "state/useStore";
 
 export interface TickerProps {
     assetKey: AssetKey;

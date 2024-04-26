@@ -1,5 +1,6 @@
 export type AssetKey = "BTC" | "ETH" | "DOGE";
 export type Currency = "USD" | "EUR";
+export type Modal = "add" | "alerts";
 
 export type Asset = {
     label: string;

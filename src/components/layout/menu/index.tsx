@@ -8,6 +8,7 @@ import { ButtonContainer, LogoContainer, StyledMenu } from "./styles";
 
 import { lang } from "data/constants";
 import Button from "components/elements/button";
+import { useStore } from "state/useStore";
 
 export interface MenuProps {
     theme: string;
@@ -15,6 +16,8 @@ export interface MenuProps {
 }
 
 const Menu = ({ theme, toggleTheme }: MenuProps) => {
+    const { setModalOpen } = useStore();
+
     const isXs = useMediaQuery(queries.xs);
     const isMd = useMediaQuery(queries.md);
     const isLg = useMediaQuery(queries.lg);
@@ -38,10 +41,13 @@ const Menu = ({ theme, toggleTheme }: MenuProps) => {
             )}
 
             <ButtonContainer>
-                <Button onClick={() => {}} iconName="add">
+                <Button onClick={() => setModalOpen("add")} iconName="add">
                     {isMd && lang.addWidget}
                 </Button>
-                <Button onClick={() => {}} iconName="notifications">
+                <Button
+                    onClick={() => setModalOpen("alerts")}
+                    iconName="notifications"
+                >
                     {isMd && lang.priceAlerts}
                 </Button>
                 <Button
