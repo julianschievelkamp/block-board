@@ -1,6 +1,6 @@
 import Text from "components/elements/text";
 import Div from "components/elements/div";
-import Widget from "components/elements/widget";
+import Widget from "components/elements/card";
 import Switch from "components/elements/switch";
 import LineChart from "components/elements/line-chart";
 import RadialTimer from "components/elements/radial-timer";
@@ -22,7 +22,7 @@ export interface TickerProps {
 }
 
 const Ticker = ({ assetKey }: TickerProps) => {
-    const { removeWidget } = useStore();
+    const { primaryCurrency, secondaryCurrency, removeWidget } = useStore();
     const [isHover, setIsHover] = useState(false);
     const {
         realTimeData,
@@ -70,7 +70,7 @@ const Ticker = ({ assetKey }: TickerProps) => {
                     </HoverControls>
 
                     <Switch
-                        options={["USD", "EUR"]}
+                        options={[primaryCurrency, secondaryCurrency]}
                         currentOption={currency}
                         setCurrentOption={(option: string) =>
                             setCurrency(option as Currency)

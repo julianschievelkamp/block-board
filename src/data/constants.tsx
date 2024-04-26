@@ -4,6 +4,7 @@ export const lang = {
     darkTheme: "Dark Theme",
     lightTheme: "Light Theme",
     priceAlerts: "Price Alerts",
+    addWidget: "Add Widget",
     lastUpdate: (time: string) => `Last Update: ${time}`,
     error: "Service unavailable",
     api: "Source: api.gemini.com",

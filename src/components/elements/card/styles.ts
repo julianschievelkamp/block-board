@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { borderRadius, queries, shadow, transition } from "styles/variables";
 
-export const StyledWidget = styled.div<{
+export const StyledCard = styled.div<{
     $isLoading: boolean;
 }>`
     position: relative;

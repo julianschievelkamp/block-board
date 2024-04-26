@@ -38,6 +38,9 @@ const Menu = ({ theme, toggleTheme }: MenuProps) => {
             )}
 
             <ButtonContainer>
+                <Button onClick={() => {}} iconName="add">
+                    {isMd && lang.addWidget}
+                </Button>
                 <Button onClick={() => {}} iconName="notifications">
                     {isMd && lang.priceAlerts}
                 </Button>

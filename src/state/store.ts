@@ -1,8 +1,10 @@
 import { create } from "zustand";
 
-import { AssetKey } from "data/types";
+import { AssetKey, Currency } from "data/types";
 
 interface State {
+    primaryCurrency: Currency;
+    secondaryCurrency: Currency;
     widgets: AssetKey[];
 }
 
@@ -12,6 +14,8 @@ interface Actions {
 }
 
 export const useStore = create<State & Actions>((set) => ({
+    primaryCurrency: "USD",
+    secondaryCurrency: "EUR",
     widgets: ["BTC", "ETH"],
 
     addWidget: (widget) =>

@@ -72,8 +72,7 @@ const LineChart = ({ data }: LineChartProps) => {
             const vertices = getVertices(ctx, data);
             const color = data[0] < data[data.length - 1] ? "green" : "red";
 
-            // TODO: set change
-            setChange(0.5);
+            setChange(((data[data.length - 1] - data[0]) / data[0]) * 100);
             setColor(color);
             drawLine(ctx, vertices, color);
         }
@@ -83,7 +82,7 @@ const LineChart = ({ data }: LineChartProps) => {
         <Div display="flex" alignItems="center">
             <Canvas height="128" width="512" ref={ref} />
             <Text color={color} fontSize="0.75rem" margin="0 0 0 0.5rem">
-                {formatChange(change)}
+                {`${formatChange(change)} %`}
             </Text>
         </Div>
     );

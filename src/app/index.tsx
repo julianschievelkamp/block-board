@@ -8,7 +8,6 @@ import { darkTheme, lightTheme } from "styles/variables";
 import GlobalStyle from "styles/global";
 
 import { Dashboard, StyledApp } from "./styles";
-import Slot from "components/widgets/slot";
 import { useStore } from "state/store";
 
 const App = () => {
@@ -26,7 +25,6 @@ const App = () => {
                     {widgets.map((assetKey) => {
                         return <Ticker key={assetKey} assetKey={assetKey} />;
                     })}
-                    <Slot />
                 </Dashboard>
 
                 <Menu theme={theme} toggleTheme={toggleTheme} />

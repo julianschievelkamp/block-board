@@ -1,7 +1,7 @@
 import React from "react";
-import { StyledWidget } from "./styles";
+import { StyledCard } from "./styles";
 
-export interface WidgetProps {
+export interface CardProps {
     children: React.ReactNode;
     onMouseEnter?: () => void;
     onMouseLeave?: () => void;
@@ -9,23 +9,23 @@ export interface WidgetProps {
     className?: string;
 }
 
-const Widget = ({
+const Card = ({
     children,
     isLoading = false,
     onMouseEnter,
     onMouseLeave,
     className,
-}: WidgetProps) => {
+}: CardProps) => {
     return (
-        <StyledWidget
+        <StyledCard
             $isLoading={isLoading}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
             className={className}
         >
             {children}
-        </StyledWidget>
+        </StyledCard>
     );
 };
 
-export default Widget;
+export default Card;
