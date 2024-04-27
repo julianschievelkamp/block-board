@@ -1,18 +1,14 @@
 import Text from "components/elements/text";
-
-import { useStore } from "state/useStore";
 import Modal from "components/elements/modal";
 
-const AddModal = () => {
-    const modalOpen = useStore((state) => state.modalOpen);
-    const setModalOpen = useStore((state) => state.setModalOpen);
+export interface AddModalProps {
+    onClose: () => void;
+    isOpen: boolean;
+}
 
+const AddModal = ({ isOpen, onClose }: AddModalProps) => {
     return (
-        <Modal
-            title="Add Widget"
-            isOpen={modalOpen === "add"}
-            onClose={() => setModalOpen(null)}
-        >
+        <Modal title="Add Widget" isOpen={isOpen} onClose={onClose}>
             <Text>Text</Text>
         </Modal>
     );

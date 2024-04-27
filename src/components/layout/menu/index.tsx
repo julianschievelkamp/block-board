@@ -8,16 +8,15 @@ import { ButtonContainer, LogoContainer, StyledMenu } from "./styles";
 
 import { lang } from "data/constants";
 import Button from "components/elements/button";
-import { useStore } from "state/useStore";
+import { Modal } from "data/types";
 
 export interface MenuProps {
     theme: string;
     toggleTheme: () => void;
+    setModalOpen: (modal: Modal | null) => void;
 }
 
-const Menu = ({ theme, toggleTheme }: MenuProps) => {
-    const { setModalOpen } = useStore();
-
+const Menu = ({ theme, toggleTheme, setModalOpen }: MenuProps) => {
     const isXs = useMediaQuery(queries.xs);
     const isMd = useMediaQuery(queries.md);
     const isLg = useMediaQuery(queries.lg);

@@ -10,12 +10,11 @@ export interface ModalProps {
     children: React.ReactNode;
     onClose: () => void;
     isOpen: boolean;
-    className?: string;
 }
 
-const Modal = ({ title, children, isOpen, onClose, className }: ModalProps) => {
+const Modal = ({ title, children, isOpen, onClose }: ModalProps) => {
     return (
-        <ModalContainer $isOpen={isOpen} className={className}>
+        <ModalContainer $isOpen={isOpen}>
             <Window $isOpen={isOpen}>
                 <Text bold margin="0 0 1rem 0">
                     {title}

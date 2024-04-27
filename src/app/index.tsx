@@ -2,6 +2,7 @@ import { ThemeProvider } from "styled-components";
 
 import Menu from "components/layout/menu";
 import Ticker from "components/layout/widgets/ticker";
+import ModalBackground from "components/layout/modals/modal-background";
 
 import { useDarkMode } from "hooks/general/useDarkMode";
 import { darkTheme, lightTheme } from "styles/variables";
@@ -10,12 +11,14 @@ import GlobalStyle from "styles/global";
 import { Dashboard, StyledApp } from "./styles";
 import { useStore } from "state/useStore";
 import AddModal from "components/layout/modals/add-modal";
-import Background from "components/layout/modals/background";
 import AlertsModal from "components/layout/modals/alerts-modal";
+import { useState } from "react";
+import { Modal } from "data/types";
 
 const App = () => {
     const { theme, toggleTheme, isLoading } = useDarkMode();
     const { widgets } = useStore();
+    const [modalOpen, setModalOpen] = useState<Modal | null>(null);
 
     if (isLoading) return <></>;
 
@@ -30,11 +33,24 @@ const App = () => {
                     })}
                 </Dashboard>
 
-                <Background />
-                <AddModal />
-                <AlertsModal />
+                <ModalBackground
+                    isOpen={modalOpen !== null}
+                    onClick={() => setModalOpen(null)}
+                />
+                <AddModal
+                    isOpen={modalOpen === "add"}
+                    onClose={() => setModalOpen(null)}
+                />
+                <AlertsModal
+                    isOpen={modalOpen === "alerts"}
+                    onClose={() => setModalOpen(null)}
+                />
 
-                <Menu theme={theme} toggleTheme={toggleTheme} />
+                <Menu
+                    theme={theme}
+                    toggleTheme={toggleTheme}
+                    setModalOpen={setModalOpen}
+                />
             </StyledApp>
         </ThemeProvider>
     );
