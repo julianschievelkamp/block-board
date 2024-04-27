@@ -29,7 +29,7 @@ export const Window = styled.div<{ $isOpen: boolean }>`
     border-radius: ${borderRadius.edged};
     padding: 1rem;
     width: calc(100% - 2rem);
-    max-width: 500px;
+    max-width: 600px;
     background: ${({ theme }) => theme.primary};
     border: 1px solid ${({ theme }) => theme.border};
     transition: ${transition.fast};

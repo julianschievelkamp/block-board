@@ -12,15 +12,16 @@ export const StyledApp = styled.div`
 export const Dashboard = styled.div`
     display: grid;
     grid-auto-rows: 1fr;
-    padding: 0.5rem;
+    grid-gap: 1rem;
+    padding: 1rem;
 
     @media ${queries.md} {
         grid-template-columns: 1fr 1fr;
     }
 
     @media ${queries.lg} {
-        padding: 1rem;
-        padding-left: 19rem;
+        padding: 2rem;
+        padding-left: 20rem;
     }
 
     @media ${queries.xxl} {

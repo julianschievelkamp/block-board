@@ -1,9 +1,10 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { borderRadius, queries, shadow, transition } from "styles/variables";
 
 export const StyledCard = styled.div<{
     $isLoading: boolean;
 }>`
+    display: inline-block;
     position: relative;
     opacity: ${({ $isLoading }) => ($isLoading ? 0 : 1)};
     border-radius: ${borderRadius.edged};
@@ -11,8 +12,13 @@ export const StyledCard = styled.div<{
     background-color: ${({ theme }) => theme.secondary};
     transition: ${transition.fast}, opacity ${transition.slow};
     padding: 1rem;
-    margin: 0.5rem;
     overflow: hidden;
+
+    ${({ onClick }) =>
+        onClick &&
+        css`
+            cursor: pointer;
+        `}
 
     @media ${queries.hover} {
         &:hover {

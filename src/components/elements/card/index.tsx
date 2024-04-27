@@ -5,6 +5,7 @@ export interface CardProps {
     children: React.ReactNode;
     onMouseEnter?: () => void;
     onMouseLeave?: () => void;
+    onClick?: () => void;
     isLoading?: boolean;
     className?: string;
 }
@@ -14,6 +15,7 @@ const Card = ({
     isLoading = false,
     onMouseEnter,
     onMouseLeave,
+    onClick,
     className,
 }: CardProps) => {
     return (
@@ -21,6 +23,7 @@ const Card = ({
             $isLoading={isLoading}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
+            onClick={onClick}
             className={className}
         >
             {children}

@@ -16,9 +16,9 @@ import { useState } from "react";
 import { Modal } from "data/types";
 
 const App = () => {
+    const [modalOpen, setModalOpen] = useState<Modal | null>(null);
     const { theme, toggleTheme, isLoading } = useDarkMode();
     const { widgets } = useStore();
-    const [modalOpen, setModalOpen] = useState<Modal | null>(null);
 
     if (isLoading) return <></>;
 
