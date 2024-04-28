@@ -13,7 +13,7 @@ import { AssetKey, Currency } from "data/types";
 import { lang } from "data/constants";
 
 import Price from "./price";
-import { useStore } from "state/useStore";
+import { useStore } from "data/store";
 
 export interface TickerProps {
     assetKey: AssetKey;

@@ -4,7 +4,7 @@ import Modal from "components/elements/modal";
 import { assets, lang } from "data/constants";
 import { AssetKey } from "data/types";
 import { Grid, Select } from "./styles";
-import { useStore } from "state/useStore";
+import { useStore } from "data/store";
 
 export interface AddModalProps {
     onClose: () => void;

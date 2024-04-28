@@ -9,7 +9,7 @@ import { darkTheme, lightTheme } from "styles/variables";
 import GlobalStyle from "styles/global";
 
 import { Dashboard, StyledApp } from "./styles";
-import { useStore } from "state/useStore";
+import { useStore } from "data/store";
 import AddModal from "components/layout/modals/add-modal";
 import AlertsModal from "components/layout/modals/alerts-modal";
 import { useState } from "react";

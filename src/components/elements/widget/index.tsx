@@ -6,7 +6,7 @@ import Div from "components/elements/div";
 import Text from "components/elements/text";
 import Icon from "../icon";
 import { WidgetKey } from "data/types";
-import { useStore } from "state/useStore";
+import { useStore } from "data/store";
 
 export interface WidgetProps {
     title: string;

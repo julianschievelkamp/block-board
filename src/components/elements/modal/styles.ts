@@ -46,3 +46,9 @@ export const StyledIcon = styled(Icon)`
     right: 1rem;
     top: 1rem;
 `;
+
+export const StyledBackground = styled(ModalContainer)`
+    background: rgb(0, 0, 0, 0.25);
+    backdrop-filter: blur(4px);
+    pointer-events: ${({ $isOpen }) => ($isOpen ? "all" : "none")};
+`;
