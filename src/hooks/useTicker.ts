@@ -64,6 +64,7 @@ export const useTicker = (assetKey: AssetKey) => {
         currency,
         setCurrency,
         refreshRate,
+        setRefreshRate,
         isLoading,
         isFetching,
         setIsFetching,
