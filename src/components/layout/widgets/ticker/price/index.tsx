@@ -41,7 +41,7 @@ const Price = ({ value, currency, isError }: PriceProps) => {
             <Text
                 fontSize="3rem"
                 lineHeight="1"
-                margin="1rem 0"
+                margin="0 0 1rem 0"
                 data-animation={animation}
             >
                 {formatPrice(value && !isError ? value : 0, currency)}

@@ -13,7 +13,9 @@ import { useStore } from "state/useStore";
 import AddModal from "components/layout/modals/add-modal";
 import AlertsModal from "components/layout/modals/alerts-modal";
 import { useState } from "react";
-import { Modal } from "data/types";
+import { AssetKey, Modal, OtherKey } from "data/types";
+import { assets, other } from "data/constants";
+import Div from "components/elements/div";
 
 const App = () => {
     const [modalOpen, setModalOpen] = useState<Modal | null>(null);
@@ -28,8 +30,24 @@ const App = () => {
 
             <StyledApp>
                 <Dashboard>
-                    {widgets.map((assetKey) => {
-                        return <Ticker key={assetKey} assetKey={assetKey} />;
+                    {Object.keys(assets).map((key) => {
+                        const assetKey = key as AssetKey;
+
+                        return (
+                            widgets.includes(assetKey) && (
+                                <Ticker key={key} assetKey={assetKey} />
+                            )
+                        );
+                    })}
+
+                    {Object.keys(other).map((key) => {
+                        const otherKey = key as OtherKey;
+
+                        return (
+                            widgets.includes(otherKey) && (
+                                <Div key={key}>{other[otherKey].content}</Div>
+                            )
+                        );
                     })}
                 </Dashboard>
 

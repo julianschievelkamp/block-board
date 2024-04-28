@@ -1,20 +1,18 @@
 import Text from "components/elements/text";
 import Div from "components/elements/div";
-import Widget from "components/elements/card";
+import Widget from "components/elements/widget";
 import Switch from "components/elements/switch";
 import LineChart from "components/elements/line-chart";
 import RadialTimer from "components/elements/radial-timer";
 import Icon from "components/elements/icon";
 
-import { assets } from "data/assets";
+import { assets } from "data/constants";
 import { useTicker } from "hooks/useTicker";
 import { AssetKey, Currency } from "data/types";
 
 import { lang } from "data/constants";
 
 import Price from "./price";
-import { Controls, HoverControls } from "./styles";
-import { useState } from "react";
 import { useStore } from "state/useStore";
 
 export interface TickerProps {
@@ -22,8 +20,7 @@ export interface TickerProps {
 }
 
 const Ticker = ({ assetKey }: TickerProps) => {
-    const { primaryCurrency, secondaryCurrency, removeWidget } = useStore();
-    const [isHover, setIsHover] = useState(false);
+    const { primaryCurrency, secondaryCurrency } = useStore();
     const {
         realTimeData,
         currency,
@@ -40,35 +37,12 @@ const Ticker = ({ assetKey }: TickerProps) => {
 
     return (
         <Widget
+            widgetKey={assetKey}
+            title={`${asset.symbol} ${asset.label.toUpperCase()}`}
+            color={asset.color}
             isLoading={isLoading}
-            onMouseEnter={() => setIsHover(true)}
-            onMouseLeave={() => setIsHover(false)}
-        >
-            <Div
-                display="flex"
-                alignItems="center"
-                justifyContent="space-between"
-            >
-                <Text color={asset.color} fontSize="1rem" lineHeight="1" bold>
-                    {`${asset.symbol} ${asset.label.toUpperCase()}`}
-                </Text>
-
-                <Controls>
-                    <HoverControls $isHover={isHover}>
-                        <Icon
-                            onClick={() => removeWidget(asset.key)}
-                            name="delete"
-                            size="1rem"
-                            color={asset.color}
-                        />
-                        <Icon
-                            onClick={() => {}}
-                            name="notifications"
-                            size="1rem"
-                            color={asset.color}
-                        />
-                    </HoverControls>
-
+            controls={
+                <>
                     <Switch
                         options={[primaryCurrency, secondaryCurrency]}
                         currentOption={currency}
@@ -85,9 +59,17 @@ const Ticker = ({ assetKey }: TickerProps) => {
                         duration={refreshRate}
                         color={asset.color}
                     />
-                </Controls>
-            </Div>
-
+                </>
+            }
+            hoverControls={
+                <Icon
+                    onClick={() => {}}
+                    name="notifications"
+                    size="1rem"
+                    color={asset.color}
+                />
+            }
+        >
             <Price
                 value={realTimeData?.ask}
                 currency={currency}

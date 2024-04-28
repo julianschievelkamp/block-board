@@ -1,4 +1,7 @@
 export type AssetKey = "BTC" | "ETH" | "DOGE";
+export type OtherKey = "FearGreed";
+export type WidgetKey = AssetKey | OtherKey;
+
 export type Currency = "USD" | "EUR";
 export type Modal = "add" | "alerts";
 
@@ -7,6 +10,11 @@ export type Asset = {
     key: AssetKey;
     symbol: string;
     color: string;
+};
+
+export type Other = {
+    label: string;
+    content: React.ReactNode;
 };
 
 export type RealTimeData = {

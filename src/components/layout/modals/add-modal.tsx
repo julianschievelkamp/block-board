@@ -1,10 +1,9 @@
 import Text from "components/elements/text";
 import Modal from "components/elements/modal";
-import Card from "components/elements/card";
 
-import { assets } from "data/assets";
+import { assets, lang } from "data/constants";
 import { AssetKey } from "data/types";
-import { Grid, StyledCard } from "./styles";
+import { Grid, Select } from "./styles";
 import { useStore } from "state/useStore";
 
 export interface AddModalProps {
@@ -14,8 +13,9 @@ export interface AddModalProps {
 
 const AddModal = ({ isOpen, onClose }: AddModalProps) => {
     const { widgets, addWidget, removeWidget } = useStore();
+
     return (
-        <Modal title="Add Widget" isOpen={isOpen} onClose={onClose}>
+        <Modal title={lang.addWidget} isOpen={isOpen} onClose={onClose}>
             <Grid>
                 {Object.keys(assets).map((key) => {
                     const assetKey = key as AssetKey;
@@ -23,19 +23,22 @@ const AddModal = ({ isOpen, onClose }: AddModalProps) => {
                     const isActive = widgets.includes(assetKey);
 
                     return (
-                        <StyledCard
-                            color={isActive ? asset.color : undefined}
+                        <Select
                             key={key}
+                            color={isActive ? asset.color : undefined}
                             onClick={() =>
                                 isActive
                                     ? removeWidget(assetKey)
                                     : addWidget(assetKey)
                             }
                         >
-                            <Text color={isActive ? asset.color : undefined}>
+                            <Text
+                                color={isActive ? asset.color : undefined}
+                                textAlign="center"
+                            >
                                 {`${asset.symbol} ${asset.key.toUpperCase()}`}
                             </Text>
-                        </StyledCard>
+                        </Select>
                     );
                 })}
             </Grid>

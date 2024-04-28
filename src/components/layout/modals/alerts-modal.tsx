@@ -1,5 +1,6 @@
 import Text from "components/elements/text";
 import Modal from "components/elements/modal";
+import { lang } from "data/constants";
 
 export interface AlertsModalProps {
     onClose: () => void;
@@ -8,7 +9,7 @@ export interface AlertsModalProps {
 
 const AlertsModal = ({ isOpen, onClose }: AlertsModalProps) => {
     return (
-        <Modal title="Price Alerts" isOpen={isOpen} onClose={onClose}>
+        <Modal title={lang.priceAlerts} isOpen={isOpen} onClose={onClose}>
             <Text>Text</Text>
         </Modal>
     );

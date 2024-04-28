@@ -1,22 +1,22 @@
 import { create } from "zustand";
 
-import { AssetKey, Currency } from "data/types";
+import { Currency, WidgetKey } from "data/types";
 
 interface State {
     primaryCurrency: Currency;
     secondaryCurrency: Currency;
-    widgets: AssetKey[];
+    widgets: WidgetKey[];
 }
 
 interface Actions {
-    addWidget: (assetKey: AssetKey) => void;
-    removeWidget: (assetKey: AssetKey) => void;
+    addWidget: (widget: WidgetKey) => void;
+    removeWidget: (widget: WidgetKey) => void;
 }
 
 export const useStore = create<State & Actions>((set) => ({
     primaryCurrency: "USD",
     secondaryCurrency: "EUR",
-    widgets: ["BTC", "ETH"],
+    widgets: ["BTC", "ETH", "DOGE", "FearGreed"],
 
     addWidget: (widget) =>
         set((state) => ({
