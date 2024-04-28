@@ -14,6 +14,7 @@ export const Dashboard = styled.div`
     grid-auto-rows: 1fr;
     grid-gap: 1rem;
     padding: 1rem;
+    padding-bottom: 6.75rem;
 
     @media ${queries.md} {
         grid-template-columns: 1fr 1fr;
