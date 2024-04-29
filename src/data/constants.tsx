@@ -33,6 +33,18 @@ export const assets: { [key in AssetKey]: Asset } = {
         symbol: "Ɖ",
         color: "goldenrod",
     },
+    XRP: {
+        label: "Ripple",
+        key: "XRP",
+        symbol: "X",
+        color: "black",
+    },
+    SOL: {
+        label: "Solana",
+        key: "SOL",
+        symbol: "S",
+        color: "darkblue",
+    },
 };
 
 export const other: { [key in OtherKey]: Other } = {

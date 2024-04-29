@@ -1,4 +1,4 @@
-export type AssetKey = "BTC" | "ETH" | "DOGE";
+export type AssetKey = "BTC" | "ETH" | "DOGE" | "XRP" | "SOL";
 export type OtherKey = "FearGreed";
 export type WidgetKey = AssetKey | OtherKey;
 
