@@ -6,7 +6,7 @@ import { queries } from "styles/variables";
 
 import { ButtonContainer, LogoContainer, StyledMenu } from "./styles";
 
-import { lang } from "data/constants";
+import { lang } from "data/data";
 import Button from "components/elements/button";
 import { Modal } from "data/types";
 

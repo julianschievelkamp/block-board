@@ -14,7 +14,7 @@ import AddModal from "components/layout/modals/add-modal";
 import AlertsModal from "components/layout/modals/alerts-modal";
 import { useState } from "react";
 import { AssetKey, Modal, OtherKey } from "data/types";
-import { assets, other } from "data/constants";
+import { assets, other } from "data/data";
 import Div from "components/elements/div";
 
 const App = () => {

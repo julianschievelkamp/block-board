@@ -6,11 +6,11 @@ import LineChart from "components/elements/line-chart";
 import RadialTimer from "components/elements/radial-timer";
 import Icon from "components/elements/icon";
 
-import { assets } from "data/constants";
+import { assets } from "data/data";
 import { useTicker } from "hooks/useTicker";
 import { AssetKey, Currency } from "data/types";
 
-import { lang } from "data/constants";
+import { lang } from "data/data";
 
 import Price from "./price";
 import { useStore } from "data/store";
@@ -83,7 +83,7 @@ const Ticker = ({ assetKey }: TickerProps) => {
                     onClick={() => {}}
                     name="notifications"
                     size="1rem"
-                    color={asset.color}
+                    color="darkgrey"
                 />
             }
         >

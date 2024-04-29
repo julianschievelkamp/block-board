@@ -1,6 +1,6 @@
 import Text from "components/elements/text";
 import Widget from "components/elements/widget";
-import { lang } from "data/constants";
+import { lang } from "data/data";
 import { useFearGreed } from "hooks/useFearGreed";
 
 export interface FearGreedProps {}

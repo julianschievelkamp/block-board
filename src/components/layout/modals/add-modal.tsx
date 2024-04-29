@@ -1,7 +1,7 @@
 import Text from "components/elements/text";
 import Modal from "components/elements/modal";
 
-import { assets, lang } from "data/constants";
+import { assets, lang } from "data/data";
 import { AssetKey } from "data/types";
 import { Grid, Select } from "./styles";
 import { useStore } from "data/store";
