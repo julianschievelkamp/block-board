@@ -22,6 +22,7 @@ const Text = ({
     margin = "0",
     fontSize = "1rem",
     lineHeight = "1.5",
+    ...rest
 }: TextProps) => {
     return (
         <StyledText
@@ -32,6 +33,7 @@ const Text = ({
             $margin={margin}
             $fontSize={fontSize}
             $lineHeight={lineHeight}
+            {...rest}
         >
             {children}
         </StyledText>
