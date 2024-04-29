@@ -5,6 +5,7 @@ import { assets, lang } from "data/constants";
 import { AssetKey } from "data/types";
 import { Grid, Select } from "./styles";
 import { useStore } from "data/store";
+import Image from "components/elements/image";
 
 export interface AddModalProps {
     onClose: () => void;
@@ -25,6 +26,7 @@ const AddModal = ({ isOpen, onClose }: AddModalProps) => {
                     return (
                         <Select
                             key={key}
+                            opacity={isActive ? 1 : 0.5}
                             color={isActive ? asset.color : undefined}
                             onClick={() =>
                                 isActive
@@ -32,11 +34,14 @@ const AddModal = ({ isOpen, onClose }: AddModalProps) => {
                                     : addWidget(assetKey)
                             }
                         >
-                            <Text
-                                color={isActive ? asset.color : undefined}
-                                textAlign="center"
-                            >
-                                {`${asset.symbol} ${asset.key.toUpperCase()}`}
+                            <Image
+                                src={asset.img}
+                                alt={asset.symbol}
+                                height="1rem"
+                                width="1rem"
+                            />
+                            <Text textAlign="center" margin="0 0 0 0.25rem">
+                                {asset.key.toUpperCase()}
                             </Text>
                         </Select>
                     );

@@ -9,6 +9,7 @@ export type Asset = {
     label: string;
     key: AssetKey;
     symbol: string;
+    img: string;
     color: string;
 };
 

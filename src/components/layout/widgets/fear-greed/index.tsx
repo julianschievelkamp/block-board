@@ -13,8 +13,12 @@ const FearGreed = () => {
     return (
         <Widget
             widgetKey="FearGreed"
-            title={lang.fearGreed}
             isLoading={isLoading}
+            title={
+                <Text lineHeight="1" bold>
+                    {lang.fearGreed}
+                </Text>
+            }
         >
             <Text>Text</Text>
         </Widget>

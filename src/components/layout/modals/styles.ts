@@ -12,17 +12,21 @@ export const Grid = styled.div`
     }
 `;
 
-export const Select = styled.div`
+export const Select = styled.div<{ opacity: number }>`
+    display: flex;
+    align-items: center;
     border-radius: ${borderRadius.edged};
     padding: 1rem;
-    border: 1px solid ${({ color, theme }) => color ?? theme.border};
+    border: 2px solid ${({ color, theme }) => color ?? theme.border};
     transition: ${transition.fast};
     cursor: pointer;
+    opacity: ${({ opacity }) => opacity};
 
     @media ${queries.hover} {
         &:hover {
             transform: translateY(-3px);
             box-shadow: ${shadow.soft};
+            opacity: 1;
         }
     }
 `;

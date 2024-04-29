@@ -14,6 +14,7 @@ import { lang } from "data/constants";
 
 import Price from "./price";
 import { useStore } from "data/store";
+import Image from "components/elements/image";
 
 export interface TickerProps {
     assetKey: AssetKey;
@@ -38,9 +39,25 @@ const Ticker = ({ assetKey }: TickerProps) => {
     return (
         <Widget
             widgetKey={assetKey}
-            title={`${asset.symbol} ${asset.label.toUpperCase()}`}
-            color={asset.color}
             isLoading={isLoading}
+            title={
+                <Div display="flex" alignItems="center">
+                    <Image
+                        src={asset.img}
+                        alt={asset.symbol}
+                        height="1rem"
+                        width="1rem"
+                    />
+                    <Text
+                        color={asset.color}
+                        lineHeight="1"
+                        margin="0 0 0 0.25rem"
+                        bold
+                    >
+                        {asset.label.toUpperCase()}
+                    </Text>
+                </Div>
+            }
             controls={
                 <>
                     <Switch
