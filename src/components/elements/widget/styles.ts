@@ -3,12 +3,14 @@ import { borderRadius, queries, shadow, transition } from "styles/variables";
 
 export const StyledWidget = styled.div<{
     $isLoading: boolean;
+    $isActive: boolean;
 }>`
-    opacity: ${({ $isLoading }) => ($isLoading ? 0 : 1)};
+    opacity: ${({ $isLoading, $isActive }) =>
+        $isLoading ? 0 : $isActive ? 1 : 0.5};
     border-radius: ${borderRadius.edged};
     border: 1px solid ${({ theme }) => theme.border};
     background-color: ${({ theme }) => theme.secondary};
-    transition: ${transition.fast}, opacity ${transition.slow};
+    transition: ${transition.fast};
     padding: 1rem;
     overflow: hidden;
     height: 100%;

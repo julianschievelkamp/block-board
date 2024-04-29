@@ -40,6 +40,7 @@ const Ticker = ({ assetKey }: TickerProps) => {
         <Widget
             widgetKey={assetKey}
             isLoading={isLoading}
+            isActive={isFetching}
             title={
                 <Div display="flex" alignItems="center">
                     <Image
@@ -83,7 +84,7 @@ const Ticker = ({ assetKey }: TickerProps) => {
                     onClick={() => {}}
                     name="notifications"
                     size="1rem"
-                    color="darkgrey"
+                    color={asset.color}
                 />
             }
         >

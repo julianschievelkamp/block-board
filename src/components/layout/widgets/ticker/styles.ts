@@ -1,5 +1,10 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { queries, transition } from "styles/variables";
+
+const highlightColor = ($signalColor: string, baseColor: string) => keyframes`
+    0% { color: ${$signalColor} }
+    100% { color: ${baseColor} }
+`;
 
 export const Controls = styled.div`
     display: flex;
@@ -16,5 +21,14 @@ export const HoverControls = styled(Controls)<{ $isHover: boolean }>`
 
     @media ${queries.hover} {
         opacity: ${({ $isHover }) => ($isHover ? 1 : 0)};
+    }
+`;
+
+export const StyledPrice = styled.div<{ $signalColor: string }>`
+    p[data-animation="1"] {
+        animation-name: ${({ $signalColor, theme }) =>
+            highlightColor($signalColor, theme.text)};
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
     }
 `;

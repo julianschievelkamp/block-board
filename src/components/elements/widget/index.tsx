@@ -5,8 +5,9 @@ import { Controls, HoverControls, StyledWidget } from "./styles";
 import Div from "components/elements/div";
 import Icon from "components/elements/icon";
 
-import { WidgetKey } from "data/types";
+import { AssetKey, WidgetKey } from "data/types";
 import { useStore } from "data/store";
+import { assets } from "data/data";
 
 export interface WidgetProps {
     title: React.ReactNode;
@@ -15,6 +16,7 @@ export interface WidgetProps {
     controls?: React.ReactNode;
     hoverControls?: React.ReactNode;
     isLoading?: boolean;
+    isActive?: boolean;
     className?: string;
 }
 
@@ -25,6 +27,7 @@ const Widget = ({
     controls,
     hoverControls,
     isLoading = false,
+    isActive = true,
     className,
 }: WidgetProps) => {
     const [isHover, setIsHover] = useState(false);
@@ -33,6 +36,7 @@ const Widget = ({
     return (
         <StyledWidget
             $isLoading={isLoading}
+            $isActive={isActive}
             onMouseEnter={() => setIsHover(true)}
             onMouseLeave={() => setIsHover(false)}
             className={className}
@@ -52,7 +56,10 @@ const Widget = ({
                             onClick={() => removeWidget(widgetKey)}
                             name="delete"
                             size="1rem"
-                            color="darkgrey"
+                            color={
+                                assets[widgetKey as AssetKey]?.color ??
+                                "darkgrey"
+                            }
                         />
 
                         {hoverControls}

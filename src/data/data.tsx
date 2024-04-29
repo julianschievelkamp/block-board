@@ -33,7 +33,7 @@ export const assets: { [key in AssetKey]: Asset } = {
         key: "ETH",
         symbol: "Ξ",
         img: eth,
-        color: "silver",
+        color: "darkgrey",
     },
     DOGE: {
         label: "Doge",
