@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { StyledBackground } from "./styles";
 
 export interface BackgroundProps {
@@ -6,6 +7,14 @@ export interface BackgroundProps {
 }
 
 const Background = ({ onClick, isOpen }: BackgroundProps) => {
+    useEffect(() => {
+        if (isOpen) {
+            document.body.classList.add("no-scroll");
+        } else {
+            document.body.classList.remove("no-scroll");
+        }
+    }, [isOpen]);
+
     return <StyledBackground $isOpen={isOpen} onClick={onClick} />;
 };
 

@@ -24,6 +24,10 @@ export default createGlobalStyle`
     .no-transition * {
         transition: none !important;
     }
+
+    .no-scroll {
+        overflow: hidden !important;
+    }
 `;
 
 let resizeTimer: ReturnType<typeof setTimeout>;
