@@ -1,4 +1,5 @@
 import Barometer from "components/elements/barometer";
+import Icon from "components/elements/icon";
 import Text from "components/elements/text";
 import Widget from "components/elements/widget";
 import { lang } from "data/data";
@@ -9,8 +10,6 @@ export interface FearGreedProps {}
 const FearGreed = () => {
     const { isLoading, data } = useFearGreed();
 
-    console.log(data);
-
     return (
         <Widget
             widgetKey="FearGreed"
@@ -20,8 +19,16 @@ const FearGreed = () => {
                     {lang.fearGreed}
                 </Text>
             }
+            controls={
+                <Icon
+                    onClick={() => {}}
+                    name="info"
+                    size="1rem"
+                    color="darkgrey"
+                />
+            }
         >
-            <Barometer />
+            <Barometer value={data?.value} note={data?.value_classification} />
         </Widget>
     );
 };

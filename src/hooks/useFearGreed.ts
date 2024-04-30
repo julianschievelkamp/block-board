@@ -8,13 +8,12 @@ export const useFearGreed = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const isoDate = new Date(Date.now()).toISOString().slice(0, 10);
-            const endpoint = `https://production.dataviz.cnn.io/index/fearandgreed/graphdata/${isoDate}`;
+            const endpoint = `https://api.alternative.me/fng/`;
 
             await axios
                 .get(endpoint)
                 .then((res) => {
-                    setData(res.data);
+                    setData(res.data.data[0]);
                 })
                 .catch(() => {
                     setIsError(true);

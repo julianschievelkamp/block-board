@@ -30,22 +30,22 @@ const App = () => {
 
             <StyledApp>
                 <Dashboard>
-                    {Object.keys(assets).map((key) => {
-                        const assetKey = key as AssetKey;
-
-                        return (
-                            widgets.includes(assetKey) && (
-                                <Ticker key={key} assetKey={assetKey} />
-                            )
-                        );
-                    })}
-
                     {Object.keys(other).map((key) => {
                         const otherKey = key as OtherKey;
 
                         return (
                             widgets.includes(otherKey) && (
                                 <Div key={key}>{other[otherKey].content}</Div>
+                            )
+                        );
+                    })}
+
+                    {Object.keys(assets).map((key) => {
+                        const assetKey = key as AssetKey;
+
+                        return (
+                            widgets.includes(assetKey) && (
+                                <Ticker key={key} assetKey={assetKey} />
                             )
                         );
                     })}
