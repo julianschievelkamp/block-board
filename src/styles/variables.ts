@@ -42,7 +42,7 @@ export const borderRadius = {
 
 export const transition = {
     fast: "300ms ease-out",
-    slow: "800ms ease-in-out",
+    slow: "600ms ease-out",
 };
 
 export const shadow = {

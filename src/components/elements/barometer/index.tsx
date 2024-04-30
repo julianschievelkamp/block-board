@@ -20,9 +20,9 @@ const Barometer = ({
     const stepLength = 50 / steps.length - 2.5;
     const stepOffset = -stepLength - 2.375;
 
-    const indicatorWidth = 3;
+    const indicatorWidth = 2;
     const indicatorOffset = -(
-        mapNumber(value, 0, 100, indicatorWidth, 100 - indicatorWidth) / 2 -
+        mapNumber(value, 0, 100, indicatorWidth, 100 - indicatorWidth * 2) / 2 -
         indicatorWidth / 2
     );
 
@@ -74,7 +74,7 @@ const Barometer = ({
             </StyledSvg>
 
             <Div position="absolute" top="50%">
-                <Text textAlign="center" lineHeight="1" fontSize="2rem">
+                <Text textAlign="center" lineHeight="1" fontSize="2rem" bold>
                     {value}
                 </Text>
                 {note && (
@@ -84,7 +84,7 @@ const Barometer = ({
                         fontSize="0.75rem"
                         color="darkgrey"
                     >
-                        {note}
+                        {note.toUpperCase()}
                     </Text>
                 )}
             </Div>

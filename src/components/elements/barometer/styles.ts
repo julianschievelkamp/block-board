@@ -11,10 +11,10 @@ export const StyledSvg = styled.svg<{
 
 export const IndicatorBorder = styled.path`
     stroke: ${({ theme }) => theme.secondary};
-    transition: ${transition.fast};
+    transition: ${transition.slow}, stroke ${transition.fast};
 `;
 
 export const Indicator = styled.path`
     stroke: ${({ theme }) => theme.icon};
-    transition: ${transition.fast};
+    transition: ${transition.slow}, stroke ${transition.fast};
 `;
