@@ -1,6 +1,6 @@
 import Text from "components/elements/text";
 import Modal from "components/elements/modal";
-import { lang } from "data/data";
+import { lang } from "data/lang";
 
 export interface AlertsModalProps {
     onClose: () => void;

@@ -18,6 +18,12 @@ export type Other = {
     content: React.ReactNode;
 };
 
+export type FearGreedData = {
+    value: number;
+    value_classification: string;
+    timestamp: number;
+};
+
 export type RealTimeData = {
     ask: number;
     bid: number;

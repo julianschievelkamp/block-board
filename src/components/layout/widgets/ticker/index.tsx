@@ -10,7 +10,7 @@ import { assets } from "data/data";
 import { useTicker } from "hooks/useTicker";
 import { AssetKey, Currency } from "data/types";
 
-import { lang } from "data/data";
+import { lang } from "data/lang";
 
 import Price from "./price";
 import { useStore } from "data/store";

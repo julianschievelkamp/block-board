@@ -3,11 +3,12 @@ import Div from "components/elements/div";
 import Icon from "components/elements/icon";
 import Text from "components/elements/text";
 import Widget from "components/elements/widget";
-import { lang } from "data/data";
+import { lang } from "data/lang";
 import { useFearGreed } from "hooks/useFearGreed";
 
 const FearGreed = () => {
     const { isLoading, data } = useFearGreed();
+    console.log(data);
 
     return (
         <Widget
@@ -36,7 +37,7 @@ const FearGreed = () => {
                 </Div>
 
                 <Div>
-                    {data?.map((item: any, index: number) => {
+                    {data?.map((item, index) => {
                         return (
                             <Text
                                 key={item.timestamp}

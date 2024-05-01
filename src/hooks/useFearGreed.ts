@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { FearGreedData } from "data/types";
 
 export const useFearGreed = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [isError, setIsError] = useState(false);
-    const [data, setData] = useState<any>(null);
+    const [data, setData] = useState<FearGreedData[] | undefined>();
 
     useEffect(() => {
         const fetchData = async () => {
