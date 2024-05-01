@@ -6,8 +6,6 @@ import Widget from "components/elements/widget";
 import { lang } from "data/data";
 import { useFearGreed } from "hooks/useFearGreed";
 
-export interface FearGreedProps {}
-
 const FearGreed = () => {
     const { isLoading, data } = useFearGreed();
 
@@ -32,16 +30,25 @@ const FearGreed = () => {
             <Div display="flex" justifyContent="center" alignItems="center">
                 <Div maxWidth="75%" margin="0 1rem 0 0">
                     <Barometer
-                        value={data?.value}
-                        note={data?.value_classification}
+                        value={data && data[0].value}
+                        note={data && data[0].value_classification}
                     />
                 </Div>
 
                 <Div>
-                    <Text fontSize="0.5rem">Today: NEUTRAL</Text>
-                    <Text fontSize="0.5rem">Yesterday: GREED</Text>
-                    <Text fontSize="0.5rem">29.04.2024: GREED</Text>
-                    <Text fontSize="0.5rem">28.04.2024: GREED</Text>
+                    {data?.map((item: any, index: number) => {
+                        return (
+                            <Text
+                                key={item.timestamp}
+                                fontSize="0.5rem"
+                                bold={index === 0}
+                            >
+                                {`${new Date(
+                                    item.timestamp * 1000
+                                ).toLocaleDateString()}: ${item.value_classification.toUpperCase()}`}
+                            </Text>
+                        );
+                    })}
                 </Div>
             </Div>
         </Widget>

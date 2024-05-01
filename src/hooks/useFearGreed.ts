@@ -8,12 +8,12 @@ export const useFearGreed = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const endpoint = `https://api.alternative.me/fng/`;
+            const endpoint = `https://api.alternative.me/fng/?limit=5`;
 
             await axios
                 .get(endpoint)
                 .then((res) => {
-                    setData(res.data.data[0]);
+                    setData(res.data.data);
                 })
                 .catch(() => {
                     setIsError(true);

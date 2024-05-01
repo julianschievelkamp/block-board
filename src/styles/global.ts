@@ -12,7 +12,7 @@ export default createGlobalStyle`
         margin: 0;
         padding: 0;
         font-size: 100%;
-        height: 100vh;
+        min-height: 100vh;
 
         @media ${queries.xl} {
             font-size: 125%;
