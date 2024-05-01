@@ -1,15 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 
-import Div from "components/elements/div";
 import Text from "components/elements/text";
 
 import { Vertex } from "data/types";
-import {
-    clampNumber,
-    formatChange,
-    getMaxValue,
-    getMinValue,
-} from "utils/helpers";
+import { formatChange, getMaxValue, getMinValue } from "utils/helpers";
 
 import { Canvas, Container } from "./styles";
 
