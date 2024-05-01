@@ -4,6 +4,7 @@ export const StyledDiv = styled.div<{
     width?: string;
     height?: string;
     onClick?: () => void;
+    $maxWidth?: string;
     $position?: string;
     $display?: string;
     $flexDirection?: string;
@@ -26,12 +27,12 @@ export const StyledDiv = styled.div<{
     margin: ${({ $margin }) => $margin};
     padding: ${({ $padding }) => $padding};
     width: ${({ width }) => width};
+    max-width: ${({ $maxWidth }) => $maxWidth ?? "100%"};
     height: ${({ height }) => height};
     top: ${({ $top }) => $top};
     left: ${({ $left }) => $left};
     right: ${({ $right }) => $right};
     bottom: ${({ $bottom }) => $bottom};
-    max-width: 100%;
 
     ${({ onClick }) =>
         onClick &&

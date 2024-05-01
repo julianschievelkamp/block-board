@@ -74,13 +74,12 @@ const Barometer = ({
             </StyledSvg>
 
             <Div position="absolute" top="50%">
-                <Text textAlign="center" lineHeight="1" fontSize="2rem" bold>
+                <Text textAlign="center" lineHeight="1" fontSize="1.5rem" bold>
                     {value}
                 </Text>
                 {note && (
                     <Text
                         textAlign="center"
-                        lineHeight="1"
                         fontSize="0.75rem"
                         color="darkgrey"
                     >

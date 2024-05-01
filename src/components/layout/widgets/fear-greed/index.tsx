@@ -1,4 +1,5 @@
 import Barometer from "components/elements/barometer";
+import Div from "components/elements/div";
 import Icon from "components/elements/icon";
 import Text from "components/elements/text";
 import Widget from "components/elements/widget";
@@ -28,7 +29,21 @@ const FearGreed = () => {
                 />
             }
         >
-            <Barometer value={data?.value} note={data?.value_classification} />
+            <Div display="flex" justifyContent="center" alignItems="center">
+                <Div maxWidth="75%" margin="0 1rem 0 0">
+                    <Barometer
+                        value={data?.value}
+                        note={data?.value_classification}
+                    />
+                </Div>
+
+                <Div>
+                    <Text fontSize="0.5rem">Today: NEUTRAL</Text>
+                    <Text fontSize="0.5rem">Yesterday: GREED</Text>
+                    <Text fontSize="0.5rem">29.04.2024: GREED</Text>
+                    <Text fontSize="0.5rem">28.04.2024: GREED</Text>
+                </Div>
+            </Div>
         </Widget>
     );
 };

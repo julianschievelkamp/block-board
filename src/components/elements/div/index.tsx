@@ -5,6 +5,7 @@ import { StyledDiv } from "./styles";
 export interface DivProps {
     children?: React.ReactNode;
     width?: string;
+    maxWidth?: string;
     height?: string;
     onClick?: () => void;
     className?: string;
@@ -25,6 +26,7 @@ export interface DivProps {
 const Div = ({
     children,
     width,
+    maxWidth,
     height,
     onClick,
     className,
@@ -47,6 +49,7 @@ const Div = ({
             height={height}
             onClick={onClick}
             className={className}
+            $maxWidth={maxWidth}
             $position={position}
             $display={display}
             $flexDirection={flexDirection}
