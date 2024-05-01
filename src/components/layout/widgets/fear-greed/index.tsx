@@ -42,6 +42,7 @@ const FearGreed = () => {
                                 key={item.timestamp}
                                 fontSize="0.5rem"
                                 bold={index === 0}
+                                color={index !== 0 ? "darkgrey" : undefined}
                             >
                                 {`${new Date(
                                     item.timestamp * 1000
