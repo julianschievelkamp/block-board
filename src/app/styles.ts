@@ -28,4 +28,8 @@ export const Dashboard = styled.div`
     @media ${queries.xxl} {
         grid-template-columns: 1fr 1fr 1fr;
     }
+
+    @media ${queries.xxxl} {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
 `;

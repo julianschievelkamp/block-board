@@ -32,6 +32,7 @@ export const queries = {
     lg: "screen and (min-width: 992px)",
     xl: "screen and (min-width: 1200px)",
     xxl: "screen and (min-width: 1600px)",
+    xxxl: "screen and (min-width: 2000px)",
     hover: "(hover: hover)",
 };
 
