@@ -10,6 +10,7 @@ export const formatChange = (value: number): string => {
         style: "decimal",
         minimumFractionDigits: 2,
         maximumFractionDigits: 2,
+        signDisplay: "exceptZero",
     }).format(value);
 };
 

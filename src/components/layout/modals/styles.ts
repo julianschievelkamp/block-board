@@ -15,6 +15,7 @@ export const Grid = styled.div`
 export const Select = styled.div<{ opacity: number }>`
     display: flex;
     align-items: center;
+    justify-content: center;
     border-radius: ${borderRadius.edged};
     padding: 1rem;
     border: 2px solid ${({ color, theme }) => color ?? theme.border};

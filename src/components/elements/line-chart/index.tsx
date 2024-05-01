@@ -47,6 +47,17 @@ const LineChart = ({ data, isError }: LineChartProps) => {
             return vertices;
         };
 
+        const getColor = (firstValue: number, lastValue: number) => {
+            let color = "darkgrey";
+
+            if (firstValue < lastValue) {
+                color = "green";
+            } else if (firstValue > lastValue) {
+                color = "red";
+            }
+            return color;
+        };
+
         const drawLine = (
             ctx: CanvasRenderingContext2D,
             vertices: Vertex[],
@@ -55,14 +66,15 @@ const LineChart = ({ data, isError }: LineChartProps) => {
             ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
             ctx.lineWidth = 8;
+            ctx.lineJoin = "round";
             ctx.strokeStyle = color;
 
+            ctx.beginPath();
+            ctx.moveTo(vertices[0].x, vertices[0].y);
             for (let i = 1; i < vertices.length; i++) {
-                ctx.beginPath();
-                ctx.moveTo(vertices[i - 1].x, vertices[i - 1].y);
                 ctx.lineTo(vertices[i].x, vertices[i].y);
-                ctx.stroke();
             }
+            ctx.stroke();
         };
 
         if (data) {
@@ -70,7 +82,7 @@ const LineChart = ({ data, isError }: LineChartProps) => {
             const ctx: CanvasRenderingContext2D = canvas.getContext("2d")!;
 
             const vertices = getVertices(ctx, data);
-            const color = data[0] < data[data.length - 1] ? "green" : "red";
+            const color = getColor(data[0], data[data.length - 1]);
 
             setChange(((data[data.length - 1] - data[0]) / data[0]) * 100);
             setColor(color);

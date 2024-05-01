@@ -20,10 +20,10 @@ const Barometer = ({
     const stepLength = 50 / steps.length - 2.5;
     const stepOffset = -stepLength - 2.375;
 
-    const indicatorWidth = 2;
+    const strokeWidth = 2;
     const indicatorOffset = -(
-        mapNumber(value, 0, 100, indicatorWidth, 100 - indicatorWidth * 2) / 2 -
-        indicatorWidth / 2
+        mapNumber(value, 0, 100, strokeWidth, 100 - strokeWidth * 2) / 2 -
+        strokeWidth / 2
     );
 
     return (
@@ -46,7 +46,7 @@ const Barometer = ({
                             strokeLinecap="round"
                             strokeDasharray={`${stepLength}, 100`}
                             strokeDashoffset={stepOffset * index}
-                            strokeWidth={2}
+                            strokeWidth={strokeWidth}
                         />
                     );
                 })}
@@ -59,7 +59,7 @@ const Barometer = ({
                     strokeLinecap="round"
                     strokeDasharray="0, 100"
                     strokeDashoffset={indicatorOffset}
-                    strokeWidth={indicatorWidth + 1}
+                    strokeWidth={strokeWidth + 1}
                 />
                 <Indicator
                     d="M18 3
@@ -69,7 +69,7 @@ const Barometer = ({
                     strokeLinecap="round"
                     strokeDasharray="0, 100"
                     strokeDashoffset={indicatorOffset}
-                    strokeWidth={indicatorWidth}
+                    strokeWidth={strokeWidth}
                 />
             </StyledSvg>
 
