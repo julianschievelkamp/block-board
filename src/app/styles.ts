@@ -11,8 +11,8 @@ export const StyledApp = styled.div`
 
 export const ScrollContainer = styled.div`
     width: 100%;
-    height: calc(100% - 5.75rem);
-    background: blue;
+    height: 100vh;
+    padding-bottom: 5.75rem;
 
     ${scrollStyles}
 `;
