@@ -28,7 +28,7 @@ const App = () => {
         <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
             <GlobalStyle />
 
-            <StyledApp>
+            <StyledApp className="scroll-container">
                 <Dashboard>
                     {Object.keys(other).map((key) => {
                         const otherKey = key as OtherKey;

@@ -12,20 +12,19 @@ export default createGlobalStyle`
         margin: 0;
         padding: 0;
         font-size: 100%;
+        width: 100vw;
         height: 100vh;
 
         @media ${queries.xl} {
             font-size: 125%;
         }
-
-        ${scrollStyles}
     }
 
     .no-transition * {
         transition: none !important;
     }
 
-    .no-scroll {
+    .no-scroll .scroll-container {
         overflow-y: hidden !important;
     }
 `;
