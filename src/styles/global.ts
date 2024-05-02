@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { queries, scrollStyles } from "./variables";
+import { queries, scrollStyles, transition } from "./variables";
 
 export default createGlobalStyle`
     * {
@@ -19,6 +19,8 @@ export default createGlobalStyle`
         width: 100vw;
         height: var(--real100vh);
         overflow: hidden;
+        background: ${({ theme }) => theme.body};
+        transition: background ${transition.fast};
 
         @media ${queries.xl} {
             font-size: 125%;
