@@ -6,6 +6,11 @@ export const StyledApp = styled.div`
     height: 100vh;
     background: ${({ theme }) => theme.body};
     transition: ${transition.fast};
+`;
+
+export const ScrollContainer = styled.div`
+    width: 100%;
+    height: 100%;
 
     ${scrollStyles}
 `;
