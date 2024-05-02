@@ -44,15 +44,7 @@ export const set100vh = () => {
 
     // if window size is iPad or smaller
     if (window.innerWidth && window.innerWidth <= 1024) {
-        // if landscape, switch vh with vw
-        if (
-            window.innerWidth > window.innerHeight &&
-            window.innerWidth < 1024
-        ) {
-            value = `${window.innerWidth}px`;
-        } else {
-            value = `${window.innerHeight}px`;
-        }
+        value = `${window.innerHeight}px`;
     }
 
     document.documentElement.style.setProperty("--real100vh", value);
@@ -69,5 +61,7 @@ window.addEventListener("resize", () => {
 
     resizeTimer = setTimeout(() => {
         document.body.classList.remove("no-transition");
+
+        set100vh();
     }, 400);
 });
