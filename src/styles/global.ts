@@ -9,7 +9,7 @@ export default createGlobalStyle`
     }
 
     :root {
-        --real100vh: 100vh;
+        --100vh: 100vh;
     }
 
     html, body {
@@ -17,7 +17,7 @@ export default createGlobalStyle`
         padding: 0;
         font-size: 100%;
         width: 100vw;
-        height: var(--real100vh);
+        height: var(--100vh);
         overflow: hidden;
         background: ${({ theme }) => theme.body};
         transition: background ${transition.fast};
@@ -49,7 +49,7 @@ export const set100vh = () => {
         value = `${window.innerHeight}px`;
     }
 
-    document.documentElement.style.setProperty("--real100vh", value);
+    document.documentElement.style.setProperty("--100vh", value);
 };
 
 set100vh();

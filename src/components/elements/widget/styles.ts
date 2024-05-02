@@ -4,6 +4,9 @@ import { borderRadius, queries, shadow, transition } from "styles/variables";
 export const StyledWidget = styled.div<{
     $isLoading: boolean;
 }>`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     opacity: ${({ $isLoading }) => ($isLoading ? 0 : 1)};
     border-radius: ${borderRadius.edged};
     border: 1px solid ${({ theme }) => theme.border};

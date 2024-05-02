@@ -8,7 +8,7 @@ export const ModalContainer = styled.div<{ $isOpen: boolean }>`
     top: 0;
     left: 0;
     width: 100vw;
-    height: var(--real100vh);
+    height: var(--100vh);
     transition: ${transition.fast};
     opacity: ${({ $isOpen }) => ($isOpen ? "1" : "0")};
     visibility: ${({ $isOpen }) => ($isOpen ? "visible" : "hidden")};

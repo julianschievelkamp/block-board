@@ -28,7 +28,7 @@ const FearGreed = () => {
             }
         >
             <Div display="flex" justifyContent="center" alignItems="center">
-                <Div maxWidth="75%" margin="0 0.75rem 0 0">
+                <Div maxWidth="75%" margin="0 0.75rem 0.75rem 0">
                     <Barometer
                         value={data && data[0].value}
                         note={data && data[0].value_classification}

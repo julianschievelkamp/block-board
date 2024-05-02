@@ -3,7 +3,7 @@ import { queries } from "styles/variables";
 
 export const StyledApp = styled.div`
     width: 100vw;
-    min-height: var(--real100vh);
+    min-height: var(--100vh);
     overflow: hidden;
 `;
 
