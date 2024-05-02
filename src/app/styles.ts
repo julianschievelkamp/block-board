@@ -14,6 +14,10 @@ export const ScrollContainer = styled.div`
     height: 100vh;
     padding-bottom: 5.75rem;
 
+    @media ${queries.lg} {
+        padding-bottom: 0;
+    }
+
     ${scrollStyles}
 `;
 
