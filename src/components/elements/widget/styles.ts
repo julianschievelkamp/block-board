@@ -3,10 +3,8 @@ import { borderRadius, queries, shadow, transition } from "styles/variables";
 
 export const StyledWidget = styled.div<{
     $isLoading: boolean;
-    $isActive: boolean;
 }>`
-    opacity: ${({ $isLoading, $isActive }) =>
-        $isLoading ? 0 : $isActive ? 1 : 0.5};
+    opacity: ${({ $isLoading }) => ($isLoading ? 0 : 1)};
     border-radius: ${borderRadius.edged};
     border: 1px solid ${({ theme }) => theme.border};
     background-color: ${({ theme }) => theme.secondary};
@@ -39,4 +37,9 @@ export const HoverControls = styled(Controls)<{ $isHover: boolean }>`
     @media ${queries.hover} {
         opacity: ${({ $isHover }) => ($isHover ? 1 : 0)};
     }
+`;
+
+export const Content = styled.div<{ $isActive: boolean }>`
+    opacity: ${({ $isActive }) => ($isActive ? 1 : 0.25)};
+    transition: ${transition.fast};
 `;

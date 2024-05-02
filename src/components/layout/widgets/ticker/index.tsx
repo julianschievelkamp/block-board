@@ -40,7 +40,7 @@ const Ticker = ({ assetKey }: TickerProps) => {
         <Widget
             widgetKey={assetKey}
             isLoading={isLoading}
-            isActive={!(!isFetching && !isError)}
+            isActive={isFetching}
             title={
                 <Div display="flex" alignItems="center">
                     <Image

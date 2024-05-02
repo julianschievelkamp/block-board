@@ -8,7 +8,6 @@ import { useFearGreed } from "hooks/useFearGreed";
 
 const FearGreed = () => {
     const { isLoading, data } = useFearGreed();
-    console.log(data);
 
     return (
         <Widget
@@ -29,14 +28,14 @@ const FearGreed = () => {
             }
         >
             <Div display="flex" justifyContent="center" alignItems="center">
-                <Div maxWidth="75%" margin="0 1rem 0 0">
+                <Div maxWidth="75%" margin="0 0.75rem 0 0">
                     <Barometer
                         value={data && data[0].value}
                         note={data && data[0].value_classification}
                     />
                 </Div>
 
-                <Div>
+                <Div padding="0.5rem 0 0 0">
                     {data?.map((item, index) => {
                         return (
                             <Text

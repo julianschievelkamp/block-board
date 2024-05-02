@@ -12,7 +12,7 @@ export default createGlobalStyle`
         margin: 0;
         padding: 0;
         font-size: 100%;
-        min-height: 100vh;
+        height: 100vh;
 
         @media ${queries.xl} {
             font-size: 125%;
@@ -26,7 +26,7 @@ export default createGlobalStyle`
     }
 
     .no-scroll {
-        overflow: hidden !important;
+        overflow-y: hidden !important;
     }
 `;
 

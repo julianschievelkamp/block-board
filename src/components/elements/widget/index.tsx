@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Controls, HoverControls, StyledWidget } from "./styles";
+import { Content, Controls, HoverControls, StyledWidget } from "./styles";
 
 import Div from "components/elements/div";
 import Icon from "components/elements/icon";
@@ -36,7 +36,6 @@ const Widget = ({
     return (
         <StyledWidget
             $isLoading={isLoading}
-            $isActive={isActive}
             onMouseEnter={() => setIsHover(true)}
             onMouseLeave={() => setIsHover(false)}
             className={className}
@@ -48,7 +47,7 @@ const Widget = ({
                 margin="0 0 1rem 0"
                 height="1.5rem"
             >
-                {title}
+                <Content $isActive={isActive}>{title}</Content>
 
                 <Controls>
                     <HoverControls $isHover={isHover}>
@@ -69,7 +68,7 @@ const Widget = ({
                 </Controls>
             </Div>
 
-            {children}
+            <Content $isActive={isActive}>{children}</Content>
         </StyledWidget>
     );
 };
