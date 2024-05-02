@@ -23,7 +23,9 @@ export default createGlobalStyle`
         @media ${queries.xl} {
             font-size: 125%;
         }
+    }
 
+    body {
         ${scrollStyles};
     }
 
