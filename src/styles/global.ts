@@ -8,12 +8,16 @@ export default createGlobalStyle`
         -webkit-tap-highlight-color: transparent;
     }
 
+    :root {
+        --real100vh: 100vh;
+    }
+
     html, body {
         margin: 0;
         padding: 0;
         font-size: 100%;
         width: 100vw;
-        height: 100vh;
+        height: var(--real100vh);
         overflow: hidden;
 
         @media ${queries.xl} {
@@ -34,6 +38,28 @@ export default createGlobalStyle`
     }
 `;
 
+/* see https://stackoverflow.com/questions/58886797/how-to-access-the-real-100vh-on-ios-in-css */
+export const set100vh = () => {
+    // If less than most tablets, set CSS var to window height.
+    let value = "100vh";
+    // If window size is iPad or smaller, then use JS to set screen height.
+    if (window.innerWidth && window.innerWidth <= 1024) {
+        // if landscape, switch vh with vw
+        if (
+            window.innerWidth > window.innerHeight &&
+            window.innerWidth < 1024
+        ) {
+            value = `${window.innerWidth}px`;
+        } else {
+            value = `${window.innerHeight}px`;
+        }
+    }
+
+    document.documentElement.style.setProperty("--real100vh", value);
+};
+
+set100vh();
+
 let resizeTimer: ReturnType<typeof setTimeout>;
 
 window.addEventListener("resize", () => {
@@ -42,6 +68,7 @@ window.addEventListener("resize", () => {
     clearTimeout(resizeTimer);
 
     resizeTimer = setTimeout(() => {
+        set100vh();
         document.body.classList.remove("no-transition");
     }, 400);
 });
