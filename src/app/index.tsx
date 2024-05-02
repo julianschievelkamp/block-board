@@ -8,7 +8,7 @@ import { useDarkMode } from "hooks/general/useDarkMode";
 import { darkTheme, lightTheme } from "styles/variables";
 import GlobalStyle from "styles/global";
 
-import { Dashboard, ScrollContainer, StyledApp } from "./styles";
+import { Dashboard, StyledApp } from "./styles";
 import { useStore } from "data/store";
 import AddModal from "components/layout/modals/add-modal";
 import AlertsModal from "components/layout/modals/alerts-modal";
@@ -29,31 +29,27 @@ const App = () => {
             <GlobalStyle />
 
             <StyledApp>
-                <ScrollContainer className="scroll-container">
-                    <Dashboard>
-                        {Object.keys(other).map((key) => {
-                            const otherKey = key as OtherKey;
+                <Dashboard>
+                    {Object.keys(other).map((key) => {
+                        const otherKey = key as OtherKey;
 
-                            return (
-                                widgets.includes(otherKey) && (
-                                    <Div key={key}>
-                                        {other[otherKey].content}
-                                    </Div>
-                                )
-                            );
-                        })}
+                        return (
+                            widgets.includes(otherKey) && (
+                                <Div key={key}>{other[otherKey].content}</Div>
+                            )
+                        );
+                    })}
 
-                        {Object.keys(assets).map((key) => {
-                            const assetKey = key as AssetKey;
+                    {Object.keys(assets).map((key) => {
+                        const assetKey = key as AssetKey;
 
-                            return (
-                                widgets.includes(assetKey) && (
-                                    <Ticker key={key} assetKey={assetKey} />
-                                )
-                            );
-                        })}
-                    </Dashboard>
-                </ScrollContainer>
+                        return (
+                            widgets.includes(assetKey) && (
+                                <Ticker key={key} assetKey={assetKey} />
+                            )
+                        );
+                    })}
+                </Dashboard>
 
                 <ModalBackground
                     isOpen={modalOpen !== null}
