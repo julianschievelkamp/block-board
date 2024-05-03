@@ -5,10 +5,6 @@ import { Content, Controls, HoverControls, StyledWidget } from "./styles";
 import Div from "components/elements/div";
 import Icon from "components/elements/icon";
 
-import { AssetKey, WidgetKey } from "data/types";
-import { useStore } from "data/store";
-import { assets } from "data/data";
-
 export interface WidgetProps {
     title: React.ReactNode;
     children: React.ReactNode;
