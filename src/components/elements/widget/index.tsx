@@ -31,7 +31,7 @@ const Widget = ({
     const [isHover, setIsHover] = useState(false);
 
     return (
-        <Div>
+        <Div height="100%">
             <SpinnerContainer $isLoading={isLoading}>
                 <LoadingSpinner />
             </SpinnerContainer>
