@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { queries, scrollStyles, transition } from "./variables";
+import { queries, scrollStyles } from "./variables";
 
 export default createGlobalStyle`
     * {
