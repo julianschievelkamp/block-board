@@ -11,9 +11,6 @@ export const useFearGreed = (limit: number = 4) => {
         const fetchData = async () => {
             const endpoint = `https://api.alternative.me/fng/?limit=${limit}`;
 
-            // debug: remove
-            await new Promise((res) => setTimeout(res, 2000));
-
             await axios
                 .get(endpoint)
                 .then((res) => {
