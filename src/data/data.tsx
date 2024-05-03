@@ -36,14 +36,12 @@ export const assets: { [key in AssetKey]: Asset } = {
         key: "XRP",
         symbol: "X",
         img: xrp,
-        color: "darkgrey",
     },
     SOL: {
         label: "Solana",
         key: "SOL",
         symbol: "S",
         img: sol,
-        color: "mediumorchid",
     },
 };
 

@@ -1,6 +1,7 @@
 import styled, { keyframes } from "styled-components";
 
 import Icon from "components/elements/icon";
+import { transition } from "styles/variables";
 
 const timer = keyframes`
     0% { stroke-dasharray: 100, 100 }
@@ -22,6 +23,11 @@ export const StyledSvg = styled.svg<{
         animation-timing-function: linear;
         animation-fill-mode: forwards;
     }
+`;
+
+export const StyledPath = styled.path`
+    stroke: ${({ color, theme }) => color ?? theme.icon};
+    transition: ${transition.fast};
 `;
 
 export const StyledIcon = styled(Icon)`

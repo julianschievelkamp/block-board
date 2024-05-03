@@ -10,7 +10,7 @@ export type Asset = {
     key: AssetKey;
     symbol: string;
     img: string;
-    color: string;
+    color?: string;
 };
 
 export type Other = {

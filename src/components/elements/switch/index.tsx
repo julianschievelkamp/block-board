@@ -1,12 +1,10 @@
-import React from "react";
-import { Indicator, Option, StyledSwitch } from "./styles";
-import Text from "../text";
+import { Indicator, Option, StyledSwitch, StyledText } from "./styles";
 
 export interface SwitchProps {
     options: [string, string];
     currentOption: string;
     setCurrentOption: (option: string) => void;
-    color: string;
+    color?: string;
     disabled?: boolean;
 }
 
@@ -35,12 +33,13 @@ const Switch = ({
             {options.map((option, index) => {
                 return (
                     <Option key={option}>
-                        <Text
-                            color={index === currentIndex ? "white" : color}
+                        <StyledText
+                            $isActive={index === currentIndex}
+                            color={color}
                             fontSize="0.5rem"
                         >
                             {option}
-                        </Text>
+                        </StyledText>
                     </Option>
                 );
             })}

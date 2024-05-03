@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import { borderRadius, transition } from "styles/variables";
+import Text from "../text";
 
 export const StyledSwitch = styled.div<{ disabled: boolean }>`
     position: relative;
     display: flex;
     align-items: center;
     border-radius: ${borderRadius.round};
-    border: 1px solid ${({ color }) => color};
+    border: 1px solid ${({ color, theme }) => color ?? theme.icon};
     height: 1.25rem;
     opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
     cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
@@ -18,9 +19,20 @@ export const Option = styled.div`
     padding: 0 0.5rem;
 `;
 
+export const StyledText = styled(Text)<{ $isActive: boolean }>`
+    color: ${({ color, theme, $isActive }) =>
+        color
+            ? $isActive
+                ? "white"
+                : color
+            : $isActive
+            ? theme.primary
+            : theme.icon};
+`;
+
 export const Indicator = styled.div<{ $offset: number; width: number }>`
     position: absolute;
-    background-color: ${({ color }) => color};
+    background-color: ${({ color, theme }) => color ?? theme.icon};
     left: ${({ $offset }) => `${$offset}%`};
     width: ${({ width }) => `${width}%`};
     height: 100%;

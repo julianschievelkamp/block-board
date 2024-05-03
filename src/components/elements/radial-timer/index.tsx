@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { StyledIcon, StyledSvg } from "./styles";
+import { StyledIcon, StyledPath, StyledSvg } from "./styles";
 
 import Div from "components/elements/div";
 
@@ -19,7 +19,7 @@ const RadialTimer = ({
     isActive,
     setIsActive,
     duration = 5000,
-    color = "white",
+    color,
     size = "1.5rem",
     className,
 }: RadialTimerProps) => {
@@ -50,12 +50,12 @@ const RadialTimer = ({
                 $duration={duration}
                 $animationDelay={animationDelay}
             >
-                <path
+                <StyledPath
                     d="M18 3
         a 15 15 0 0 1 0 30
         a 15 15 0 0 1 0 -30"
                     fill="none"
-                    stroke={color}
+                    color={color}
                     strokeDasharray="100, 100"
                     strokeWidth={1}
                     data-animation={animation}
