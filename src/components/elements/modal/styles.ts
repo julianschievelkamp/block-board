@@ -17,6 +17,8 @@ export const ModalContainer = styled.div<{ $isOpen: boolean }>`
 `;
 
 export const Window = styled.div<{ $isOpen: boolean }>`
+    display: flex;
+    flex-direction: column;
     position: absolute;
     top: calc(50% - 2.875rem);
     left: 50%;
@@ -25,6 +27,7 @@ export const Window = styled.div<{ $isOpen: boolean }>`
     padding: 1rem;
     width: calc(100% - 2rem);
     max-width: 600px;
+    max-height: calc(var(--100vh) - 5.75rem - 4rem);
     background: ${({ theme }) => theme.primary};
     border: 1px solid ${({ theme }) => theme.border};
     transition: ${transition.fast};
@@ -34,7 +37,13 @@ export const Window = styled.div<{ $isOpen: boolean }>`
     @media ${queries.lg} {
         top: 50%;
         left: calc(50% + 9rem);
+        max-height: calc(var(--100vh) - 4rem);
     }
+`;
+
+export const ScrollContainer = styled.div`
+    overflow-y: scroll;
+    width: 100%;
 `;
 
 export const StyledIcon = styled(Icon)`

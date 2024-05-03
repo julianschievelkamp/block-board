@@ -1,9 +1,8 @@
 import React from "react";
 
 import Text from "components/elements/text";
-import Div from "components/elements/div";
 
-import { ModalContainer, Window, StyledIcon } from "./styles";
+import { ModalContainer, Window, StyledIcon, ScrollContainer } from "./styles";
 
 export interface ModalProps {
     title: string;
@@ -19,8 +18,9 @@ const Modal = ({ title, children, isOpen, onClose }: ModalProps) => {
                 <Text bold margin="0 0 1rem 0">
                     {title}
                 </Text>
+
                 <StyledIcon name="close" size="1.5rem" onClick={onClose} />
-                <Div>{children}</Div>
+                <ScrollContainer>{children}</ScrollContainer>
             </Window>
         </ModalContainer>
     );
