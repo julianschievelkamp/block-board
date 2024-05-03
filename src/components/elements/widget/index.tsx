@@ -11,8 +11,8 @@ import { assets } from "data/data";
 
 export interface WidgetProps {
     title: React.ReactNode;
-    widgetKey: WidgetKey;
     children: React.ReactNode;
+    removeWidget: () => void;
     controls?: React.ReactNode;
     hoverControls?: React.ReactNode;
     isLoading?: boolean;
@@ -22,8 +22,8 @@ export interface WidgetProps {
 
 const Widget = ({
     title,
-    widgetKey,
     children,
+    removeWidget,
     controls,
     hoverControls,
     isLoading = false,
@@ -31,7 +31,6 @@ const Widget = ({
     className,
 }: WidgetProps) => {
     const [isHover, setIsHover] = useState(false);
-    const { removeWidget } = useStore();
 
     return (
         <StyledWidget
@@ -52,13 +51,10 @@ const Widget = ({
                 <Controls>
                     <HoverControls $isHover={isHover}>
                         <Icon
-                            onClick={() => removeWidget(widgetKey)}
+                            onClick={removeWidget}
                             name="delete"
                             size="1rem"
-                            color={
-                                assets[widgetKey as AssetKey]?.color ??
-                                "darkgrey"
-                            }
+                            color="darkgrey"
                         />
 
                         {hoverControls}

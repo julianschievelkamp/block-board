@@ -12,13 +12,11 @@ import { Dashboard, StyledApp } from "./styles";
 import { useStore } from "data/store";
 import AddModal from "components/layout/modals/add-modal";
 import AlertsModal from "components/layout/modals/alerts-modal";
-import { useState } from "react";
-import { AssetKey, Modal, OtherKey } from "data/types";
+import { AssetKey, OtherKey } from "data/types";
 import { assets, other } from "data/data";
 import Div from "components/elements/div";
 
 const App = () => {
-    const [modalOpen, setModalOpen] = useState<Modal | null>(null);
     const { theme, toggleTheme, isLoading } = useDarkMode();
     const { widgets } = useStore();
 
@@ -51,24 +49,11 @@ const App = () => {
                     })}
                 </Dashboard>
 
-                <ModalBackground
-                    isOpen={modalOpen !== null}
-                    onClick={() => setModalOpen(null)}
-                />
-                <AddModal
-                    isOpen={modalOpen === "add"}
-                    onClose={() => setModalOpen(null)}
-                />
-                <AlertsModal
-                    isOpen={modalOpen === "alerts"}
-                    onClose={() => setModalOpen(null)}
-                />
+                <ModalBackground />
+                <AddModal />
+                <AlertsModal />
 
-                <Menu
-                    theme={theme}
-                    toggleTheme={toggleTheme}
-                    setModalOpen={setModalOpen}
-                />
+                <Menu theme={theme} toggleTheme={toggleTheme} />
             </StyledApp>
         </ThemeProvider>
     );

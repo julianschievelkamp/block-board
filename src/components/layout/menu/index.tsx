@@ -1,5 +1,6 @@
 import Text from "components/elements/text";
 import Icon from "components/elements/icon";
+import Button from "components/elements/button";
 
 import { useMediaQuery } from "hooks/general/useMediaQuery";
 import { queries } from "styles/variables";
@@ -7,16 +8,16 @@ import { queries } from "styles/variables";
 import { ButtonContainer, LogoContainer, StyledMenu } from "./styles";
 
 import { lang } from "data/lang";
-import Button from "components/elements/button";
-import { Modal } from "data/types";
+import { useStore } from "data/store";
 
 export interface MenuProps {
     theme: string;
     toggleTheme: () => void;
-    setModalOpen: (modal: Modal | null) => void;
 }
 
-const Menu = ({ theme, toggleTheme, setModalOpen }: MenuProps) => {
+const Menu = ({ theme, toggleTheme }: MenuProps) => {
+    const { setModalOpen } = useStore();
+
     const isXs = useMediaQuery(queries.xs);
     const isMd = useMediaQuery(queries.md);
     const isLg = useMediaQuery(queries.lg);

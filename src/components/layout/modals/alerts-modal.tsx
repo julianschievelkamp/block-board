@@ -1,15 +1,17 @@
 import Text from "components/elements/text";
 import Modal from "components/elements/modal";
 import { lang } from "data/lang";
+import { useStore } from "data/store";
 
-export interface AlertsModalProps {
-    onClose: () => void;
-    isOpen: boolean;
-}
+const AlertsModal = () => {
+    const { modalOpen, setModalOpen } = useStore();
 
-const AlertsModal = ({ isOpen, onClose }: AlertsModalProps) => {
     return (
-        <Modal title={lang.priceAlerts} isOpen={isOpen} onClose={onClose}>
+        <Modal
+            title={lang.priceAlerts}
+            isOpen={modalOpen === "alerts"}
+            onClose={() => setModalOpen(null)}
+        >
             <Text>Text</Text>
         </Modal>
     );

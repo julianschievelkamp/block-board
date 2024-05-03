@@ -21,7 +21,8 @@ export interface TickerProps {
 }
 
 const Ticker = ({ assetKey }: TickerProps) => {
-    const { primaryCurrency, secondaryCurrency } = useStore();
+    const { primaryCurrency, secondaryCurrency, setModalOpen, removeWidget } =
+        useStore();
     const {
         realTimeData,
         currency,
@@ -38,7 +39,7 @@ const Ticker = ({ assetKey }: TickerProps) => {
 
     return (
         <Widget
-            widgetKey={assetKey}
+            removeWidget={() => removeWidget(assetKey)}
             isLoading={isLoading}
             isActive={!(!isFetching && !isError)}
             title={
@@ -81,7 +82,7 @@ const Ticker = ({ assetKey }: TickerProps) => {
             }
             hoverControls={
                 <Icon
-                    onClick={() => {}}
+                    onClick={() => setModalOpen("alerts")}
                     name="notifications"
                     size="1rem"
                     color={asset.color}

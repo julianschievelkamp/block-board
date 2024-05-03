@@ -4,14 +4,16 @@ import Icon from "components/elements/icon";
 import Text from "components/elements/text";
 import Widget from "components/elements/widget";
 import { lang } from "data/lang";
+import { useStore } from "data/store";
 import { useFearGreed } from "hooks/useFearGreed";
 
 const FearGreed = () => {
     const { isLoading, data } = useFearGreed();
+    const { removeWidget } = useStore();
 
     return (
         <Widget
-            widgetKey="FearGreed"
+            removeWidget={() => removeWidget("FearGreed")}
             isLoading={isLoading}
             title={
                 <Text lineHeight="1" bold>
@@ -35,7 +37,7 @@ const FearGreed = () => {
                     />
                 </Div>
 
-                <Div padding="0.5rem 0 0 0">
+                <Div>
                     {data?.map((item, index) => {
                         return (
                             <Text

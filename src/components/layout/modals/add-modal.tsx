@@ -1,23 +1,23 @@
 import Text from "components/elements/text";
 import Modal from "components/elements/modal";
+import Image from "components/elements/image";
 
 import { assets } from "data/data";
 import { lang } from "data/lang";
 import { AssetKey } from "data/types";
 import { Grid, Select } from "./styles";
 import { useStore } from "data/store";
-import Image from "components/elements/image";
 
-export interface AddModalProps {
-    onClose: () => void;
-    isOpen: boolean;
-}
-
-const AddModal = ({ isOpen, onClose }: AddModalProps) => {
-    const { widgets, addWidget, removeWidget } = useStore();
+const AddModal = () => {
+    const { widgets, addWidget, removeWidget, modalOpen, setModalOpen } =
+        useStore();
 
     return (
-        <Modal title={lang.addWidget} isOpen={isOpen} onClose={onClose}>
+        <Modal
+            title={lang.addWidget}
+            isOpen={modalOpen === "add"}
+            onClose={() => setModalOpen(null)}
+        >
             <Grid>
                 {Object.keys(assets).map((key) => {
                     const assetKey = key as AssetKey;

@@ -1,12 +1,15 @@
 import Background from "components/elements/modal/background";
+import { useStore } from "data/store";
 
-export interface ModalBackgroundProps {
-    onClick: () => void;
-    isOpen: boolean;
-}
+const ModalBackground = () => {
+    const { modalOpen, setModalOpen } = useStore();
 
-const ModalBackground = ({ isOpen, onClick }: ModalBackgroundProps) => {
-    return <Background onClick={onClick} isOpen={isOpen} />;
+    return (
+        <Background
+            onClick={() => setModalOpen(null)}
+            isOpen={modalOpen !== null}
+        />
+    );
 };
 
 export default ModalBackground;
