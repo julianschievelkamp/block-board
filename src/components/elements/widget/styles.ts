@@ -24,6 +24,24 @@ export const StyledWidget = styled.div<{
     }
 `;
 
+export const SpinnerContainer = styled.div<{
+    $isLoading: boolean;
+}>`
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: ${({ $isLoading }) => ($isLoading ? 1 : 0)};
+    border-radius: ${borderRadius.edged};
+    border: 1px solid ${({ theme }) => theme.border};
+    background-color: ${({ theme }) => theme.body};
+    transition: ${transition.fast};
+    padding: 1rem;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+`;
+
 export const Controls = styled.div`
     display: flex;
     align-items: center;

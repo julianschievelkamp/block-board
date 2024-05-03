@@ -4,10 +4,12 @@ import {
     ContentOpacity,
     Controls,
     HoverControls,
+    SpinnerContainer,
     StyledWidget,
 } from "./styles";
 
 import Div from "components/elements/div";
+import LoadingSpinner from "../loading-spinner";
 
 export interface WidgetProps {
     title: React.ReactNode;
@@ -16,7 +18,6 @@ export interface WidgetProps {
     hoverControls?: React.ReactNode;
     isLoading?: boolean;
     isActive?: boolean;
-    className?: string;
 }
 
 const Widget = ({
@@ -26,37 +27,42 @@ const Widget = ({
     hoverControls,
     isLoading = false,
     isActive = true,
-    className,
 }: WidgetProps) => {
     const [isHover, setIsHover] = useState(false);
 
     return (
-        <StyledWidget
-            $isLoading={isLoading}
-            onMouseEnter={() => setIsHover(true)}
-            onMouseLeave={() => setIsHover(false)}
-            className={className}
-        >
-            <Div
-                display="flex"
-                alignItems="center"
-                justifyContent="space-between"
-                margin="0 0 1rem 0"
-                height="1.5rem"
+        <Div>
+            <SpinnerContainer $isLoading={isLoading}>
+                <LoadingSpinner />
+            </SpinnerContainer>
+            <StyledWidget
+                $isLoading={isLoading}
+                onMouseEnter={() => setIsHover(true)}
+                onMouseLeave={() => setIsHover(false)}
             >
-                <ContentOpacity $isActive={isActive}>{title}</ContentOpacity>
+                <Div
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="space-between"
+                    margin="0 0 1rem 0"
+                    height="1.5rem"
+                >
+                    <ContentOpacity $isActive={isActive}>
+                        {title}
+                    </ContentOpacity>
 
-                <Controls>
-                    <HoverControls $isHover={isHover}>
-                        {hoverControls}
-                    </HoverControls>
+                    <Controls>
+                        <HoverControls $isHover={isHover}>
+                            {hoverControls}
+                        </HoverControls>
 
-                    {controls}
-                </Controls>
-            </Div>
+                        {controls}
+                    </Controls>
+                </Div>
 
-            <ContentOpacity $isActive={isActive}>{children}</ContentOpacity>
-        </StyledWidget>
+                <ContentOpacity $isActive={isActive}>{children}</ContentOpacity>
+            </StyledWidget>
+        </Div>
     );
 };
 
