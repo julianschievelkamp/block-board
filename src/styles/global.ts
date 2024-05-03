@@ -19,6 +19,7 @@ export default createGlobalStyle`
         width: 100vw;
         height: var(--100vh);
         overflow: hidden;
+        background: ${({ theme }) => theme.body};
 
         @media ${queries.xl} {
             font-size: 125%;
