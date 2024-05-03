@@ -5,16 +5,15 @@ import Switch from "components/elements/switch";
 import LineChart from "components/elements/line-chart";
 import RadialTimer from "components/elements/radial-timer";
 import Icon from "components/elements/icon";
+import Image from "components/elements/image";
 
 import { assets } from "data/data";
 import { useTicker } from "hooks/useTicker";
 import { AssetKey, Currency } from "data/types";
-
+import { useStore } from "data/store";
 import { lang } from "data/lang";
 
 import Price from "./price";
-import { useStore } from "data/store";
-import Image from "components/elements/image";
 
 export interface TickerProps {
     assetKey: AssetKey;
@@ -39,7 +38,6 @@ const Ticker = ({ assetKey }: TickerProps) => {
 
     return (
         <Widget
-            removeWidget={() => removeWidget(assetKey)}
             isLoading={isLoading}
             isActive={!(!isFetching && !isError)}
             title={
@@ -81,12 +79,20 @@ const Ticker = ({ assetKey }: TickerProps) => {
                 </>
             }
             hoverControls={
-                <Icon
-                    onClick={() => setModalOpen("alerts")}
-                    name="notifications"
-                    size="1rem"
-                    color={asset.color}
-                />
+                <>
+                    <Icon
+                        onClick={() => removeWidget(assetKey)}
+                        name="delete"
+                        size="1rem"
+                        color={asset.color}
+                    />
+                    <Icon
+                        onClick={() => setModalOpen("alerts")}
+                        name="notifications"
+                        size="1rem"
+                        color={asset.color}
+                    />
+                </>
             }
         >
             <Price

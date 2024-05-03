@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 
-import { Content, Controls, HoverControls, StyledWidget } from "./styles";
+import {
+    ContentOpacity,
+    Controls,
+    HoverControls,
+    StyledWidget,
+} from "./styles";
 
 import Div from "components/elements/div";
-import Icon from "components/elements/icon";
 
 export interface WidgetProps {
     title: React.ReactNode;
     children: React.ReactNode;
-    removeWidget: () => void;
     controls?: React.ReactNode;
     hoverControls?: React.ReactNode;
     isLoading?: boolean;
@@ -19,7 +22,6 @@ export interface WidgetProps {
 const Widget = ({
     title,
     children,
-    removeWidget,
     controls,
     hoverControls,
     isLoading = false,
@@ -42,17 +44,10 @@ const Widget = ({
                 margin="0 0 1rem 0"
                 height="1.5rem"
             >
-                <Content $isActive={isActive}>{title}</Content>
+                <ContentOpacity $isActive={isActive}>{title}</ContentOpacity>
 
                 <Controls>
                     <HoverControls $isHover={isHover}>
-                        <Icon
-                            onClick={removeWidget}
-                            name="delete"
-                            size="1rem"
-                            color="darkgrey"
-                        />
-
                         {hoverControls}
                     </HoverControls>
 
@@ -60,7 +55,7 @@ const Widget = ({
                 </Controls>
             </Div>
 
-            <Content $isActive={isActive}>{children}</Content>
+            <ContentOpacity $isActive={isActive}>{children}</ContentOpacity>
         </StyledWidget>
     );
 };

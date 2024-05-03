@@ -42,7 +42,7 @@ export const HoverControls = styled(Controls)<{ $isHover: boolean }>`
     }
 `;
 
-export const Content = styled.div<{ $isActive: boolean }>`
+export const ContentOpacity = styled.div<{ $isActive: boolean }>`
     opacity: ${({ $isActive }) => ($isActive ? 1 : 0.25)};
     transition: ${transition.fast};
 `;
