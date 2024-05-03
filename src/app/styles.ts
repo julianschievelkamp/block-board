@@ -1,10 +1,12 @@
 import styled from "styled-components";
-import { queries } from "styles/variables";
+import { queries, transition } from "styles/variables";
 
 export const StyledApp = styled.div`
     width: 100vw;
     min-height: var(--100vh);
     overflow: hidden;
+    background: ${({ theme }) => theme.body};
+    transition: ${transition.fast};
 `;
 
 export const Dashboard = styled.div`

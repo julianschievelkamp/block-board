@@ -20,7 +20,6 @@ export default createGlobalStyle`
         height: var(--100vh);
         overflow: hidden;
         background: ${({ theme }) => theme.body};
-        transition: background ${transition.fast};
 
         @media ${queries.xl} {
             font-size: 125%;
