@@ -1,8 +1,9 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { borderRadius, queries, shadow, transition } from "styles/variables";
 
 export const StyledWidget = styled.div<{
     $isLoading: boolean;
+    $isHover: boolean;
 }>`
     display: flex;
     flex-direction: column;
@@ -17,10 +18,12 @@ export const StyledWidget = styled.div<{
     height: 100%;
 
     @media ${queries.hover} {
-        &:hover {
-            transform: translateY(-3px);
-            box-shadow: ${shadow.soft};
-        }
+        ${({ $isHover }) =>
+            $isHover &&
+            css`
+                transform: translateY(-3px);
+                box-shadow: ${shadow.soft};
+            `}
     }
 `;
 

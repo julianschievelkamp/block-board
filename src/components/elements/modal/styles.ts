@@ -44,6 +44,7 @@ export const Window = styled.div<{ $isOpen: boolean }>`
 export const ScrollContainer = styled.div`
     overflow-y: scroll;
     width: 100%;
+    padding: 0.5rem 0 0 0;
 `;
 
 export const StyledIcon = styled(Icon)`

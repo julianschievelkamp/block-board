@@ -9,7 +9,7 @@ import {
 } from "./styles";
 
 import Div from "components/elements/div";
-import LoadingSpinner from "../loading-spinner";
+import LoadingSpinner from "components/elements/loading-spinner";
 
 export interface WidgetProps {
     title: React.ReactNode;
@@ -31,15 +31,15 @@ const Widget = ({
     const [isHover, setIsHover] = useState(false);
 
     return (
-        <Div height="100%">
+        <Div
+            height="100%"
+            onMouseEnter={() => setIsHover(true)}
+            onMouseLeave={() => setIsHover(false)}
+        >
             <SpinnerContainer $isLoading={isLoading}>
                 <LoadingSpinner />
             </SpinnerContainer>
-            <StyledWidget
-                $isLoading={isLoading}
-                onMouseEnter={() => setIsHover(true)}
-                onMouseLeave={() => setIsHover(false)}
-            >
+            <StyledWidget $isLoading={isLoading} $isHover={isHover}>
                 <Div
                     display="flex"
                     alignItems="center"

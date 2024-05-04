@@ -8,6 +8,8 @@ export interface DivProps {
     maxWidth?: string;
     height?: string;
     onClick?: () => void;
+    onMouseEnter?: () => void;
+    onMouseLeave?: () => void;
     className?: string;
     position?: string;
     display?: string;
@@ -29,6 +31,8 @@ const Div = ({
     maxWidth,
     height,
     onClick,
+    onMouseEnter,
+    onMouseLeave,
     className,
     position,
     display,
@@ -48,6 +52,8 @@ const Div = ({
             width={width}
             height={height}
             onClick={onClick}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
             className={className}
             $maxWidth={maxWidth}
             $position={position}

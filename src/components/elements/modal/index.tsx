@@ -15,7 +15,7 @@ const Modal = ({ title, children, isOpen, onClose }: ModalProps) => {
     return (
         <ModalContainer $isOpen={isOpen}>
             <Window $isOpen={isOpen}>
-                <Text bold margin="0 0 1rem 0">
+                <Text bold margin="0 0 0.5rem 0">
                     {title}
                 </Text>
 
