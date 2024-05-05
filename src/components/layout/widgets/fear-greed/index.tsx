@@ -8,7 +8,7 @@ import { lang } from "data/lang";
 import { useFearGreed } from "hooks/useFearGreed";
 
 const FearGreed = () => {
-    const { isLoading, data } = useFearGreed();
+    const { isLoading, data, isError } = useFearGreed();
 
     return (
         <Widget
@@ -31,7 +31,10 @@ const FearGreed = () => {
                 <Div maxWidth="75%" margin="0 0.75rem 0.75rem 0">
                     <Barometer
                         value={data && data[0].value}
-                        note={data && data[0].value_classification}
+                        note={
+                            data && data[0].value_classification.toUpperCase()
+                        }
+                        isError={isError}
                     />
                 </Div>
 

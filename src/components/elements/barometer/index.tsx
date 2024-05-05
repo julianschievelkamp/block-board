@@ -2,12 +2,14 @@ import { Indicator, IndicatorBorder, StyledSvg } from "./styles";
 
 import Div from "components/elements/div";
 import Text from "components/elements/text";
+import { lang } from "data/lang";
 import { mapNumber } from "utils/helpers";
 
 export interface BarometerProps {
     value?: number;
     steps?: string[];
     note?: string;
+    isError?: boolean;
     size?: string;
 }
 
@@ -15,6 +17,7 @@ const Barometer = ({
     value = 0,
     steps = ["red", "orange", "yellow", "yellowgreen", "green"],
     note,
+    isError,
     size = "10rem",
 }: BarometerProps) => {
     const stepLength = 50 / steps.length - 2.5;
@@ -74,17 +77,30 @@ const Barometer = ({
             </StyledSvg>
 
             <Div position="absolute" top="50%">
-                <Text textAlign="center" lineHeight="1" fontSize="1.5rem" bold>
-                    {value}
-                </Text>
-                {note && (
-                    <Text
-                        textAlign="center"
-                        fontSize="0.75rem"
-                        color="darkgrey"
-                    >
-                        {note.toUpperCase()}
-                    </Text>
+                {!isError ? (
+                    <>
+                        <Text
+                            textAlign="center"
+                            lineHeight="1"
+                            fontSize="1.5rem"
+                            bold
+                        >
+                            {value}
+                        </Text>
+                        <Text
+                            textAlign="center"
+                            fontSize="0.75rem"
+                            color="darkgrey"
+                        >
+                            {note}
+                        </Text>
+                    </>
+                ) : (
+                    <Div margin="0 1.75rem">
+                        <Text textAlign="center" fontSize="0.75rem" color="red">
+                            {lang.error}
+                        </Text>
+                    </Div>
                 )}
             </Div>
         </Div>
