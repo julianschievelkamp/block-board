@@ -23,6 +23,7 @@ export interface DivProps {
     left?: string;
     right?: string;
     bottom?: string;
+    opacity?: number;
 }
 
 const Div = ({
@@ -46,6 +47,7 @@ const Div = ({
     left,
     right,
     bottom,
+    opacity,
 }: DivProps) => {
     return (
         <StyledDiv
@@ -68,6 +70,7 @@ const Div = ({
             $left={left}
             $right={right}
             $bottom={bottom}
+            $opacity={opacity}
         >
             {children}
         </StyledDiv>

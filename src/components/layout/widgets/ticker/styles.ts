@@ -1,28 +1,8 @@
-import Div from "components/elements/div";
 import styled, { keyframes } from "styled-components";
-import { queries, transition } from "styles/variables";
 
 const highlightColor = ($signalColor: string, baseColor: string) => keyframes`
     0% { color: ${$signalColor} }
     100% { color: ${baseColor} }
-`;
-
-export const Controls = styled.div`
-    display: flex;
-    align-items: center;
-
-    & > * {
-        margin-left: 0.25rem;
-    }
-`;
-
-export const HoverControls = styled(Controls)<{ $isHover: boolean }>`
-    transition: ${transition.fast};
-    margin-right: 0.25rem;
-
-    @media ${queries.hover} {
-        opacity: ${({ $isHover }) => ($isHover ? 1 : 0)};
-    }
 `;
 
 export const StyledPrice = styled.div<{ $signalColor: string }>`
@@ -32,9 +12,4 @@ export const StyledPrice = styled.div<{ $signalColor: string }>`
         animation-duration: 1s;
         animation-fill-mode: forwards;
     }
-`;
-
-export const LineChartContainer = styled(Div)<{ opacity: number }>`
-    opacity: ${({ opacity }) => opacity};
-    transition: ${transition.fast};
 `;

@@ -14,7 +14,6 @@ import { useStore } from "data/store";
 import { lang } from "data/lang";
 
 import Price from "./price";
-import { LineChartContainer } from "./styles";
 import { formatChange, getChangeColor } from "utils/helpers";
 
 export interface TickerProps {
@@ -99,18 +98,14 @@ const Ticker = ({ assetKey }: TickerProps) => {
                 </>
             }
         >
-            <Price
-                value={realTimeData?.ask}
-                currency={currency}
-                isError={isError}
-            />
+            <Price value={realTimeData?.ask} currency={currency} />
 
             <Div
                 display="flex"
                 justifyContent="space-between"
                 alignItems="flex-end"
             >
-                <LineChartContainer
+                <Div
                     display="flex"
                     alignItems="center"
                     opacity={isError ? 0 : 1}
@@ -126,7 +121,7 @@ const Ticker = ({ assetKey }: TickerProps) => {
                     >
                         {`${formatChange(change)} %`}
                     </Text>
-                </LineChartContainer>
+                </Div>
 
                 <Div>
                     <Text textAlign="right" fontSize="0.5rem" color="darkgrey">

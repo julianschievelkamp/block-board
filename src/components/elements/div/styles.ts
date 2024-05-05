@@ -17,6 +17,7 @@ export const StyledDiv = styled.div<{
     $left?: string;
     $right?: string;
     $bottom?: string;
+    $opacity?: number;
 }>`
     position: ${({ $position }) => $position ?? "relative"};
     display: ${({ $display }) => $display};
@@ -33,6 +34,7 @@ export const StyledDiv = styled.div<{
     left: ${({ $left }) => $left};
     right: ${({ $right }) => $right};
     bottom: ${({ $bottom }) => $bottom};
+    opacity: ${({ $opacity }) => $opacity};
 
     ${({ onClick }) =>
         onClick &&

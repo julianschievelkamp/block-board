@@ -43,9 +43,13 @@ export const useTicker = (assetKey: AssetKey) => {
                                     changes[0]) *
                                     100
                             );
+
                             setIsError(false);
                         })
                         .catch(() => {
+                            setRealTimeData(undefined);
+                            setChange(0);
+
                             setIsError(true);
                             setIsFetching(false);
                         });

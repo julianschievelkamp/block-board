@@ -10,10 +10,9 @@ import { StyledPrice } from "./styles";
 export interface PriceProps {
     value: number | undefined;
     currency: Currency;
-    isError: boolean;
 }
 
-const Price = ({ value, currency, isError }: PriceProps) => {
+const Price = ({ value, currency }: PriceProps) => {
     const [animation, setAnimation] = useState(0);
     const [lastPrice, setLastPrice] = useState(0);
     const [signalColor, setSignalColor] = useState("");
@@ -44,7 +43,7 @@ const Price = ({ value, currency, isError }: PriceProps) => {
                 margin="0 0 1rem 0"
                 data-animation={animation}
             >
-                {formatPrice(value && !isError ? value : 0, currency)}
+                {formatPrice(value ?? 0, currency)}
             </Text>
         </StyledPrice>
     );
