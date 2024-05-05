@@ -14,6 +14,8 @@ import { useStore } from "data/store";
 import { lang } from "data/lang";
 
 import Price from "./price";
+import { LineChartContainer } from "./styles";
+import { formatChange, getChangeColor } from "utils/helpers";
 
 export interface TickerProps {
     assetKey: AssetKey;
@@ -32,9 +34,11 @@ const Ticker = ({ assetKey }: TickerProps) => {
         setIsFetching,
         isError,
         lastUpdate,
+        change,
     } = useTicker(assetKey);
 
     const asset = assets[assetKey];
+    const changeColor = getChangeColor(change);
 
     return (
         <Widget
@@ -106,10 +110,23 @@ const Ticker = ({ assetKey }: TickerProps) => {
                 justifyContent="space-between"
                 alignItems="flex-end"
             >
-                <LineChart
-                    data={realTimeData?.changes.reverse()}
-                    isError={isError}
-                />
+                <LineChartContainer
+                    display="flex"
+                    alignItems="center"
+                    opacity={isError ? 0 : 1}
+                >
+                    <LineChart
+                        data={realTimeData?.changes.reverse()}
+                        color={changeColor}
+                    />
+                    <Text
+                        color={changeColor}
+                        fontSize="0.75rem"
+                        margin="0 0 0 0.5rem"
+                    >
+                        {`${formatChange(change)} %`}
+                    </Text>
+                </LineChartContainer>
 
                 <Div>
                     <Text textAlign="right" fontSize="0.5rem" color="darkgrey">

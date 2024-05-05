@@ -1,3 +1,4 @@
+import Div from "components/elements/div";
 import styled, { keyframes } from "styled-components";
 import { queries, transition } from "styles/variables";
 
@@ -31,4 +32,9 @@ export const StyledPrice = styled.div<{ $signalColor: string }>`
         animation-duration: 1s;
         animation-fill-mode: forwards;
     }
+`;
+
+export const LineChartContainer = styled(Div)<{ opacity: number }>`
+    opacity: ${({ opacity }) => opacity};
+    transition: ${transition.fast};
 `;

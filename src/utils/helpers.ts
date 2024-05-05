@@ -14,6 +14,18 @@ export const formatChange = (value: number): string => {
     }).format(value);
 };
 
+export const getChangeColor = (value: number): string => {
+    let color = "darkgrey";
+
+    if (value > 0) {
+        color = "green";
+    } else if (value < 0) {
+        color = "red";
+    }
+
+    return color;
+};
+
 export const getRandomInteger = (min: number, max: number) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 };

@@ -1,21 +1,16 @@
-import { useEffect, useRef, useState } from "react";
-
-import Text from "components/elements/text";
+import { useEffect, useRef } from "react";
 
 import { Vertex } from "data/types";
-import { formatChange, getMaxValue, getMinValue } from "utils/helpers";
+import { getMaxValue, getMinValue } from "utils/helpers";
 
-import { Canvas, Container } from "./styles";
+import { Canvas } from "./styles";
 
 export interface LineChartProps {
     data: number[] | undefined;
-    isError: boolean;
+    color?: string;
 }
 
-const LineChart = ({ data, isError }: LineChartProps) => {
-    const [change, setChange] = useState(0);
-    const [color, setColor] = useState("");
-
+const LineChart = ({ data, color = "darkgrey" }: LineChartProps) => {
     const ref = useRef(null);
 
     useEffect(() => {
@@ -41,17 +36,6 @@ const LineChart = ({ data, isError }: LineChartProps) => {
             return vertices;
         };
 
-        const getColor = (firstValue: number, lastValue: number) => {
-            let color = "darkgrey";
-
-            if (firstValue < lastValue) {
-                color = "green";
-            } else if (firstValue > lastValue) {
-                color = "red";
-            }
-            return color;
-        };
-
         const drawLine = (
             ctx: CanvasRenderingContext2D,
             vertices: Vertex[],
@@ -75,23 +59,12 @@ const LineChart = ({ data, isError }: LineChartProps) => {
             const canvas: HTMLCanvasElement = ref.current!;
             const ctx: CanvasRenderingContext2D = canvas.getContext("2d")!;
 
-            const vertices = getVertices(ctx, data);
-            const color = getColor(data[0], data[data.length - 1]);
-
-            setChange(((data[data.length - 1] - data[0]) / data[0]) * 100);
-            setColor(color);
-            drawLine(ctx, vertices, color);
+            drawLine(ctx, getVertices(ctx, data), color);
         }
+        // eslint-disable-next-line
     }, [data]);
 
-    return (
-        <Container display="flex" alignItems="center" opacity={isError ? 0 : 1}>
-            <Canvas height="128" width="512" ref={ref} />
-            <Text color={color} fontSize="0.75rem" margin="0 0 0 0.5rem">
-                {`${formatChange(change)} %`}
-            </Text>
-        </Container>
-    );
+    return <Canvas height="128" width="512" ref={ref} />;
 };
 
 export default LineChart;

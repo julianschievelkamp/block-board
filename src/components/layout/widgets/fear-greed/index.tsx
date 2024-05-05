@@ -29,13 +29,40 @@ const FearGreed = () => {
         >
             <Div display="flex" justifyContent="center" alignItems="center">
                 <Div maxWidth="75%" margin="0 0.75rem 0.75rem 0">
-                    <Barometer
-                        value={data && data[0].value}
-                        note={
-                            data && data[0].value_classification.toUpperCase()
-                        }
-                        isError={isError}
-                    />
+                    <Barometer value={data && data[0].value} />
+
+                    <Div position="absolute" top="50%" width="100%">
+                        {isError ? (
+                            <Div margin="0 1.75rem">
+                                <Text
+                                    textAlign="center"
+                                    fontSize="0.75rem"
+                                    color="red"
+                                >
+                                    {lang.error}
+                                </Text>
+                            </Div>
+                        ) : (
+                            <>
+                                <Text
+                                    textAlign="center"
+                                    lineHeight="1"
+                                    fontSize="1.5rem"
+                                    bold
+                                >
+                                    {data && data[0].value}
+                                </Text>
+                                <Text
+                                    textAlign="center"
+                                    fontSize="0.75rem"
+                                    color="darkgrey"
+                                >
+                                    {data &&
+                                        data[0].value_classification.toUpperCase()}
+                                </Text>
+                            </>
+                        )}
+                    </Div>
                 </Div>
 
                 <Div>
