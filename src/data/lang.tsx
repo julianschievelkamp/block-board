@@ -1,6 +1,6 @@
 export const lang = {
     title: "Block Board",
-    intro: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+    intro: "Block Board displays current crypto currency market data in real time. Use the widgets to track your favorite parameters and set up alerts for price movements.",
     darkTheme: "Dark Theme",
     lightTheme: "Light Theme",
     priceAlerts: "Price Alerts",
