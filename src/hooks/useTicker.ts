@@ -19,7 +19,6 @@ export const useTicker = (assetKey: AssetKey) => {
         RealTimeData | undefined
     >();
     const [lastUpdate, setLastUpdate] = useState(Date.now());
-    const [change, setChange] = useState(0);
 
     useEffect(() => {
         let isMounted = true;
@@ -35,21 +34,12 @@ export const useTicker = (assetKey: AssetKey) => {
                         .get(endpoint)
                         .then((res) => {
                             const data = res.data;
-                            const changes = data.changes;
 
                             setRealTimeData(data);
-                            setChange(
-                                ((changes[0] - changes[changes.length - 1]) /
-                                    changes[0]) *
-                                    100
-                            );
-
                             setIsError(false);
                         })
                         .catch(() => {
                             setRealTimeData(undefined);
-                            setChange(0);
-
                             setIsError(true);
                             setIsFetching(false);
                         });
@@ -83,7 +73,5 @@ export const useTicker = (assetKey: AssetKey) => {
         setIsFetching,
         isError,
         lastUpdate,
-        change,
-        setChange,
     };
 };

@@ -14,7 +14,8 @@ import { useStore } from "data/store";
 import { lang } from "data/lang";
 
 import Price from "./price";
-import { formatChange, getChangeColor } from "utils/helpers";
+import { calcChange, formatChange, getChangeColor } from "utils/helpers";
+import { useMemo } from "react";
 
 export interface TickerProps {
     assetKey: AssetKey;
@@ -33,11 +34,14 @@ const Ticker = ({ assetKey }: TickerProps) => {
         setIsFetching,
         isError,
         lastUpdate,
-        change,
     } = useTicker(assetKey);
 
     const asset = assets[assetKey];
-    const changeColor = getChangeColor(change);
+    const change = useMemo(
+        () => calcChange(realTimeData?.changes),
+        [realTimeData]
+    );
+    const changeColor = useMemo(() => getChangeColor(change), [change]);
 
     return (
         <Widget

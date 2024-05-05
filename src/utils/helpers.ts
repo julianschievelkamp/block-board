@@ -14,6 +14,12 @@ export const formatChange = (value: number): string => {
     }).format(value);
 };
 
+export const calcChange = (values?: number[]): number => {
+    return values
+        ? ((values[0] - values[values.length - 1]) / values[0]) * 100
+        : 0;
+};
+
 export const getChangeColor = (value: number): string => {
     let color = "darkgrey";
 
