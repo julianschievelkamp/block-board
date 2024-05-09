@@ -1,4 +1,6 @@
 import FearGreed from "components/layout/widgets/fear-greed";
+import MarketData from "components/layout/widgets/market-data";
+
 import { Asset, AssetKey, Other, OtherKey } from "./types";
 
 import { lang } from "./lang";
@@ -49,5 +51,9 @@ export const other: { [key in OtherKey]: Other } = {
     FearGreed: {
         label: lang.fearGreed,
         content: <FearGreed />,
+    },
+    MarketData: {
+        label: lang.marketData,
+        content: <MarketData />,
     },
 };

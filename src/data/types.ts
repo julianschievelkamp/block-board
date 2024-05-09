@@ -1,5 +1,5 @@
 export type AssetKey = "BTC" | "ETH" | "DOGE" | "XRP" | "SOL";
-export type OtherKey = "FearGreed";
+export type OtherKey = "FearGreed" | "MarketData";
 export type WidgetKey = AssetKey | OtherKey;
 
 export type Currency = "USD" | "EUR";
@@ -16,6 +16,13 @@ export type Asset = {
 export type Other = {
     label: string;
     content: React.ReactNode;
+};
+
+export type PriceAlert = {
+    assetKey: AssetKey;
+    target: number;
+    recurring: boolean;
+    reached_at: string;
 };
 
 export type FearGreedData = {

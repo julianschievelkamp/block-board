@@ -9,4 +9,5 @@ export const lang = {
     error: "Service unavailable",
     api: "Source: api.gemini.com",
     fearGreed: "Fear & Greed Index",
+    marketData: "Market Data",
 };
