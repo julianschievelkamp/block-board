@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { borderRadius, queries, shadow, transition } from "styles/variables";
+import { borderRadius, queries, transition } from "styles/variables";
 
 export const Grid = styled.div`
     display: grid;
