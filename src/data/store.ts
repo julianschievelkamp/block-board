@@ -21,8 +21,27 @@ interface Actions {
 export const useStore = create<State & Actions>((set) => ({
     primaryCurrency: "USD",
     secondaryCurrency: "EUR",
+    // DEBUG: add market data
     widgets: ["FearGreed", "BTC", "ETH", "DOGE"],
-    priceAlerts: [],
+    // DEBUG: remove alert
+    priceAlerts: [
+        {
+            assetKey: "BTC",
+            base: 70000,
+            target: 65000,
+            currency: "USD",
+            created_at: Date.now(),
+            reached_at: 0,
+        },
+        {
+            assetKey: "BTC",
+            base: 70000,
+            target: 75000,
+            currency: "USD",
+            created_at: Date.now() + 1,
+            reached_at: 0,
+        },
+    ],
     modalOpen: null,
 
     addWidget: (widget) =>

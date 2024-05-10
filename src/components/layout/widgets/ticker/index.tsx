@@ -15,13 +15,15 @@ import { lang } from "data/lang";
 
 import Price from "./price";
 import { calcChange, formatChange, getChangeColor } from "utils/helpers";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
+import { usePriceAlerts } from "hooks/usePriceAlerts";
 
 export interface TickerProps {
     assetKey: AssetKey;
 }
 
 const Ticker = ({ assetKey }: TickerProps) => {
+    const { checkAlert } = usePriceAlerts();
     const { primaryCurrency, secondaryCurrency, setModalOpen, removeWidget } =
         useStore();
     const {
@@ -42,6 +44,12 @@ const Ticker = ({ assetKey }: TickerProps) => {
         [realTimeData]
     );
     const changeColor = useMemo(() => getChangeColor(change), [change]);
+
+    useEffect(() => {
+        if (realTimeData) {
+            checkAlert(assetKey, realTimeData.ask, currency);
+        }
+    }, [realTimeData, assetKey, currency, checkAlert]);
 
     return (
         <Widget

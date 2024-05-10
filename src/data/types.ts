@@ -20,9 +20,11 @@ export type Other = {
 
 export type PriceAlert = {
     assetKey: AssetKey;
+    base: number;
     target: number;
-    recurring: boolean;
-    reached_at: string;
+    currency: Currency;
+    created_at: number;
+    reached_at: number;
 };
 
 export type FearGreedData = {

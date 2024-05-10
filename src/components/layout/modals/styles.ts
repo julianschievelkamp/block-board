@@ -17,17 +17,28 @@ export const Select = styled.div<{ opacity: number }>`
     align-items: center;
     justify-content: center;
     border-radius: ${borderRadius.edged};
+    background-color: ${({ theme }) => theme.secondary};
     padding: 1rem;
-    border: 2px solid ${({ color, theme }) => color ?? theme.border};
+    border: 1px solid ${({ color, theme }) => color ?? theme.border};
     transition: ${transition.fast};
     cursor: pointer;
     opacity: ${({ opacity }) => opacity};
 
     @media ${queries.hover} {
         &:hover {
-            transform: translateY(-3px);
-            box-shadow: ${shadow.soft};
             opacity: 1;
         }
     }
+`;
+
+export const ListElement = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid ${({ theme }) => theme.border};
+    background-color: ${({ theme }) => theme.secondary};
+    border-radius: ${borderRadius.edged};
+    transition: ${transition.fast};
 `;

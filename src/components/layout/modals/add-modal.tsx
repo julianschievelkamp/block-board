@@ -41,7 +41,12 @@ const AddModal = () => {
                                 height="1rem"
                                 width="1rem"
                             />
-                            <Text textAlign="center" margin="0 0 0 0.25rem">
+                            <Text
+                                textAlign="center"
+                                margin="0 0 0 0.25rem"
+                                fontSize="0.75rem"
+                                bold
+                            >
                                 {asset.key.toUpperCase()}
                             </Text>
                         </Select>
