@@ -14,14 +14,7 @@ const MarketData = () => {
                     {lang.marketData}
                 </Text>
             }
-            controls={
-                <Icon
-                    onClick={() => {}}
-                    name="info"
-                    size="1rem"
-                    color="darkgrey"
-                />
-            }
+            controls={<Icon onClick={() => {}} name="info" color="darkgrey" />}
         >
             <Div
                 display="flex"

@@ -17,7 +17,7 @@ const Icon = ({
     color,
     onClick,
     className,
-    size = "2rem",
+    size = "1rem",
     margin,
 }: IconProps) => {
     const Icon = icons[name];

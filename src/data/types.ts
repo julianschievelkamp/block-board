@@ -7,7 +7,7 @@ export type Modal = "add" | "alerts";
 
 export type Asset = {
     label: string;
-    key: AssetKey;
+    assetKey: AssetKey;
     symbol: string;
     img: string;
     color?: string;

@@ -30,15 +30,3 @@ export const Select = styled.div<{ opacity: number }>`
         }
     }
 `;
-
-export const ListElement = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    margin-bottom: 0.5rem;
-    border: 1px solid ${({ theme }) => theme.border};
-    background-color: ${({ theme }) => theme.secondary};
-    border-radius: ${borderRadius.edged};
-    transition: ${transition.fast};
-`;

@@ -47,7 +47,7 @@ const AddModal = () => {
                                 fontSize="0.75rem"
                                 bold
                             >
-                                {asset.key.toUpperCase()}
+                                {asset.assetKey.toUpperCase()}
                             </Text>
                         </Select>
                     );

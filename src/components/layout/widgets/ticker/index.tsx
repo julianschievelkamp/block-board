@@ -98,13 +98,11 @@ const Ticker = ({ assetKey }: TickerProps) => {
                     <Icon
                         onClick={() => removeWidget(assetKey)}
                         name="delete"
-                        size="1rem"
                         color={asset.color}
                     />
                     <Icon
                         onClick={() => setModalOpen("alerts")}
                         name="notifications"
-                        size="1rem"
                         color={asset.color}
                     />
                 </>

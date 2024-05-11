@@ -18,14 +18,7 @@ const FearGreed = () => {
                     {lang.fearGreed}
                 </Text>
             }
-            controls={
-                <Icon
-                    onClick={() => {}}
-                    name="info"
-                    size="1rem"
-                    color="darkgrey"
-                />
-            }
+            controls={<Icon onClick={() => {}} name="info" color="darkgrey" />}
         >
             <Div display="flex" justifyContent="center" alignItems="center">
                 <Div maxWidth="75%" margin="0 0.75rem 0.75rem 0">

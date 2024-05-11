@@ -23,7 +23,7 @@ export const useStore = create<State & Actions>((set) => ({
     secondaryCurrency: "EUR",
     // DEBUG: add market data
     widgets: ["FearGreed", "BTC", "ETH", "DOGE"],
-    // DEBUG: remove alert
+    // DEBUG: remove alerts
     priceAlerts: [
         {
             assetKey: "BTC",
@@ -39,6 +39,14 @@ export const useStore = create<State & Actions>((set) => ({
             target: 75000,
             currency: "USD",
             created_at: Date.now() + 1,
+            reached_at: 0,
+        },
+        {
+            assetKey: "ETH",
+            base: 2000,
+            target: 3000,
+            currency: "USD",
+            created_at: Date.now(),
             reached_at: 0,
         },
     ],

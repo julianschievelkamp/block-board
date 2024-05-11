@@ -20,7 +20,6 @@ import { ReactComponent as Pause } from "assets/icons/pause.svg";
 import { ReactComponent as Stop } from "assets/icons/stop.svg";
 import { ReactComponent as Notifications } from "assets/icons/notifications.svg";
 import { ReactComponent as NotificationsFilled } from "assets/icons/notifications-filled.svg";
-import { ReactComponent as AddAlert } from "assets/icons/add-alert.svg";
 
 export const icons = {
     chart: Chart,
@@ -45,5 +44,4 @@ export const icons = {
     stop: Stop,
     notifications: Notifications,
     notificationsFilled: NotificationsFilled,
-    addAlert: AddAlert,
 };
