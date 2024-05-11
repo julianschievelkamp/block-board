@@ -28,7 +28,9 @@ const AlertsModal = () => {
                             key={key}
                             alerts={alerts}
                             isOpen={index === listOpen}
-                            setIsOpen={() => setListOpen(index)}
+                            setIsOpen={() =>
+                                setListOpen(index === listOpen ? -1 : index)
+                            }
                         />
                     )
                 );

@@ -3,8 +3,10 @@ export const lang = {
     intro: "Block Board displays current crypto currency market data in real time. Use the widgets to track your favorite parameters and set up alerts for price movements.",
     darkTheme: "Dark Theme",
     lightTheme: "Light Theme",
-    priceAlerts: "Price Alerts",
     addWidget: "Add Widget",
+    priceAlerts: "Price Alerts",
+    alertCount: (count: number) =>
+        `${count} Price Alert${count > 1 ? "s" : ""}`,
     lastUpdate: (time: string) => `Last Update: ${time}`,
     error: "Service unavailable",
     api: "Source: api.gemini.com",
