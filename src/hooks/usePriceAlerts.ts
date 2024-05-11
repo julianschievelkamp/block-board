@@ -16,14 +16,14 @@ export const usePriceAlerts = () => {
             (alert) =>
                 alert.assetKey === assetKey &&
                 alert.currency === currency &&
-                alert.reached_at === 0 &&
+                alert.timestamp_reached === 0 &&
                 ((alert.base > alert.target && price < alert.target) ||
                     (alert.base < alert.target && price > alert.target))
         );
 
         matches.forEach((match) => {
             removePriceAlert(match);
-            addPriceAlert({ ...match, reached_at: Date.now() });
+            addPriceAlert({ ...match, timestamp_reached: Date.now() });
 
             console.log("alert");
 

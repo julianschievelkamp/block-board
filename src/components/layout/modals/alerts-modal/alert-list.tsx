@@ -45,11 +45,13 @@ const AlertList = ({ alerts, isOpen, setIsOpen }: AlertListProps) => {
 
             {alerts.map((alert) => {
                 return (
-                    <AlertChild key={alert.created_at}>
+                    <AlertChild key={alert.timestamp_created}>
                         <Div display="flex" alignItems="center">
                             <Icon name="info" />
                             <Text fontSize="0.5rem" margin="0 0 0 0.25rem">
-                                {new Date(alert.reached_at).toLocaleString()}
+                                {new Date(
+                                    alert.timestamp_reached
+                                ).toLocaleString()}
                             </Text>
                         </Div>
 

@@ -23,8 +23,8 @@ export type PriceAlert = {
     base: number;
     target: number;
     currency: Currency;
-    created_at: number;
-    reached_at: number;
+    timestamp_created: number;
+    timestamp_reached: number;
 };
 
 export type FearGreedData = {
