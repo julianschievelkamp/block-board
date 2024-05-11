@@ -26,6 +26,7 @@ export interface AlertListProps {
 
 const AlertList = ({ alerts, isOpen, setIsOpen }: AlertListProps) => {
     const asset = assets[alerts[0].assetKey as AssetKey];
+    const isXs = useMediaQuery(queries.xs);
     const isSm = useMediaQuery(queries.sm);
 
     return (
@@ -55,8 +56,11 @@ const AlertList = ({ alerts, isOpen, setIsOpen }: AlertListProps) => {
 
             <HiddenList $isOpen={isOpen}>
                 {alerts.map((alert) => {
+                    const dateReached = new Date(alert.timestamp_reached);
+
                     return (
                         <Div
+                            key={alert.timestamp_created}
                             display="flex"
                             alignItems="center"
                             margin="0.5rem 0 0 0"
@@ -65,28 +69,33 @@ const AlertList = ({ alerts, isOpen, setIsOpen }: AlertListProps) => {
                                 <LineContainer />
                                 <Circle />
                             </Div>
-                            <AlertChild key={alert.timestamp_created}>
-                                {isSm && (
-                                    <Text
-                                        fontSize="0.75rem"
-                                        margin="0 0 0 0.25rem"
-                                        color="darkgrey"
-                                    >
-                                        {new Date(
-                                            alert.timestamp_reached
-                                        ).toLocaleString()}
+                            <AlertChild>
+                                <Div width="50%">
+                                    {isXs && alert.timestamp_reached > 0 && (
+                                        <Text
+                                            fontSize="0.75rem"
+                                            margin="0 0 0 0.25rem"
+                                            color="darkgrey"
+                                        >
+                                            {isSm
+                                                ? dateReached.toLocaleString()
+                                                : dateReached.toLocaleDateString()}
+                                        </Text>
+                                    )}
+                                </Div>
+                                <Div
+                                    display="flex"
+                                    alignItems="center"
+                                    width="50%"
+                                    justifyContent="flex-end"
+                                >
+                                    <Text fontSize="0.75rem">
+                                        {formatPrice(
+                                            alert.target,
+                                            alert.currency
+                                        )}
                                     </Text>
-                                )}
-
-                                <Text fontSize="0.75rem">
-                                    {formatPrice(alert.target, alert.currency)}
-                                </Text>
-
-                                <Div display="flex" alignItems="center">
-                                    <Icon
-                                        name="delete"
-                                        margin="0 0 0 0.25rem"
-                                    />
+                                    <Icon name="delete" margin="0 0 0 1rem" />
                                     <Icon
                                         name="restart"
                                         margin="0 0 0 0.25rem"

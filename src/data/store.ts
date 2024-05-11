@@ -46,7 +46,7 @@ export const useStore = create<State & Actions>((set) => ({
             base: 2000,
             target: 3000,
             currency: "USD",
-            timestamp_created: Date.now(),
+            timestamp_created: Date.now() + 2,
             timestamp_reached: 0,
         },
     ],
