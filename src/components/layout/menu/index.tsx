@@ -19,7 +19,6 @@ const Menu = ({ theme, toggleTheme }: MenuProps) => {
     const { setModalOpen } = useStore();
 
     const isXs = useMediaQuery(queries.xs);
-    const isMd = useMediaQuery(queries.md);
     const isLg = useMediaQuery(queries.lg);
     const isLightTheme = theme === "light";
 
@@ -42,19 +41,22 @@ const Menu = ({ theme, toggleTheme }: MenuProps) => {
 
             <ButtonContainer>
                 <Button onClick={() => setModalOpen("add")} iconName="add">
-                    {isMd && lang.addWidget}
+                    {isLg && lang.addWidget}
                 </Button>
                 <Button
                     onClick={() => setModalOpen("alerts")}
                     iconName="notifications"
                 >
-                    {isMd && lang.priceAlerts}
+                    {isLg && lang.priceAlerts}
+                </Button>
+                <Button onClick={() => {}} iconName="restart">
+                    {isLg && "Clear Storage"}
                 </Button>
                 <Button
                     onClick={() => toggleTheme()}
                     iconName={isLightTheme ? "dark" : "light"}
                 >
-                    {isMd && (isLightTheme ? lang.darkTheme : lang.lightTheme)}
+                    {isLg && (isLightTheme ? lang.darkTheme : lang.lightTheme)}
                 </Button>
             </ButtonContainer>
         </StyledMenu>
