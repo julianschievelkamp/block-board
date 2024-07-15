@@ -49,9 +49,6 @@ const Menu = ({ theme, toggleTheme }: MenuProps) => {
                 >
                     {isLg && lang.priceAlerts}
                 </Button>
-                <Button onClick={() => {}} iconName="restart">
-                    {isLg && "Clear Storage"}
-                </Button>
                 <Button
                     onClick={() => toggleTheme()}
                     iconName={isLightTheme ? "dark" : "light"}

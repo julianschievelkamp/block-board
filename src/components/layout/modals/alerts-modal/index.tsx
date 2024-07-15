@@ -8,8 +8,14 @@ import AlertList from "components/layout/modals/alerts-modal/alert-list";
 import { useState } from "react";
 
 const AlertsModal = () => {
-    const { priceAlerts, modalOpen, setModalOpen } = useStore();
     const [listOpen, setListOpen] = useState(0);
+    const {
+        priceAlerts,
+        removePriceAlert,
+        addPriceAlert,
+        modalOpen,
+        setModalOpen,
+    } = useStore();
 
     return (
         <Modal
@@ -31,6 +37,15 @@ const AlertsModal = () => {
                             setIsOpen={() =>
                                 setListOpen(index === listOpen ? -1 : index)
                             }
+                            onAlertDelete={(alert) => removePriceAlert(alert)}
+                            onAlertReset={(alert) => {
+                                removePriceAlert(alert);
+                                addPriceAlert({
+                                    ...alert,
+                                    // DEBUG: add base: price
+                                    timestamp_reached: 0,
+                                });
+                            }}
                         />
                     )
                 );

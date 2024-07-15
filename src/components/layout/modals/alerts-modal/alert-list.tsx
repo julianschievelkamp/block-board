@@ -22,9 +22,17 @@ export interface AlertListProps {
     alerts: PriceAlert[];
     isOpen: boolean;
     setIsOpen: () => void;
+    onAlertDelete: (alert: PriceAlert) => void;
+    onAlertReset: (alert: PriceAlert) => void;
 }
 
-const AlertList = ({ alerts, isOpen, setIsOpen }: AlertListProps) => {
+const AlertList = ({
+    alerts,
+    isOpen,
+    setIsOpen,
+    onAlertDelete,
+    onAlertReset,
+}: AlertListProps) => {
     const asset = assets[alerts[0].assetKey as AssetKey];
     const isXs = useMediaQuery(queries.xs);
     const isSm = useMediaQuery(queries.sm);
@@ -95,10 +103,15 @@ const AlertList = ({ alerts, isOpen, setIsOpen }: AlertListProps) => {
                                             alert.currency
                                         )}
                                     </Text>
-                                    <Icon name="delete" margin="0 0 0 1rem" />
+                                    <Icon
+                                        name="delete"
+                                        margin="0 0 0 1rem"
+                                        onClick={() => onAlertDelete(alert)}
+                                    />
                                     <Icon
                                         name="restart"
                                         margin="0 0 0 0.25rem"
+                                        onClick={() => onAlertReset(alert)}
                                     />
                                 </Div>
                             </AlertChild>

@@ -64,7 +64,9 @@ export const useStore = create<State & Actions>((set) => ({
 
     addPriceAlert: (alert) =>
         set((state) => ({
-            priceAlerts: [...state.priceAlerts, alert],
+            priceAlerts: [...state.priceAlerts, alert].sort(
+                ({ target: a }, { target: b }) => a - b
+            ),
         })),
 
     removePriceAlert: (alert) =>
