@@ -25,7 +25,7 @@ export const usePriceAlerts = () => {
             removePriceAlert(match);
             addPriceAlert({ ...match, timestamp_reached: Date.now() });
 
-            console.log("alert");
+            // console.log("alert");
             // notifyUser("");
         });
     };
