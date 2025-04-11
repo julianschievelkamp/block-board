@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { borderRadius, transition } from "styles/variables";
 import Text from "../text";
+import { Theme } from "data/types";
 
-export const StyledSwitch = styled.div<{ disabled: boolean }>`
+export const StyledSwitch = styled.div<{ disabled: boolean; theme: Theme }>`
     position: relative;
     display: flex;
     align-items: center;
@@ -19,7 +20,7 @@ export const Option = styled.div`
     padding: 0 0.5rem;
 `;
 
-export const StyledText = styled(Text)<{ $isActive: boolean }>`
+export const StyledText = styled(Text)<{ $isActive: boolean; theme: Theme }>`
     color: ${({ color, theme, $isActive }) =>
         color
             ? $isActive
@@ -30,7 +31,11 @@ export const StyledText = styled(Text)<{ $isActive: boolean }>`
             : theme.icon};
 `;
 
-export const Indicator = styled.div<{ $offset: number; width: number }>`
+export const Indicator = styled.div<{
+    $offset: number;
+    width: number;
+    theme: Theme;
+}>`
     position: absolute;
     background-color: ${({ color, theme }) => color ?? theme.icon};
     left: ${({ $offset }) => `${$offset}%`};

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { borderRadius, queries, shadow, transition } from "styles/variables";
 
 import Icon from "components/elements/icon";
+import { Theme } from "data/types";
 
 export const ModalContainer = styled.div<{ $isOpen: boolean }>`
     position: fixed;
@@ -17,7 +18,7 @@ export const ModalContainer = styled.div<{ $isOpen: boolean }>`
     pointer-events: none;
 `;
 
-export const Window = styled.div<{ $isOpen: boolean }>`
+export const Window = styled.div<{ $isOpen: boolean; theme: Theme }>`
     display: flex;
     flex-direction: column;
     position: absolute;

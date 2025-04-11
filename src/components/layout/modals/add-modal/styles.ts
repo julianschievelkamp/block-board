@@ -1,3 +1,4 @@
+import { Theme } from "data/types";
 import styled from "styled-components";
 import { borderRadius, queries, transition } from "styles/variables";
 
@@ -12,7 +13,7 @@ export const Grid = styled.div`
     }
 `;
 
-export const Select = styled.div<{ opacity: number }>`
+export const Select = styled.div<{ opacity: number; theme: Theme }>`
     display: flex;
     align-items: center;
     justify-content: center;

@@ -1,4 +1,5 @@
 import Icon from "components/elements/icon";
+import { Theme } from "data/types";
 import styled, { css } from "styled-components";
 import { borderRadius, transition } from "styles/variables";
 
@@ -7,8 +8,6 @@ const listEntryStyles = css`
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    border: 1px solid ${({ theme }) => theme.border};
-    background-color: ${({ theme }) => theme.secondary};
     border-radius: ${borderRadius.edged};
     transition: ${transition.fast}, opacity 0ms;
     width: 100%;
@@ -22,15 +21,20 @@ export const Container = styled.div`
     }
 `;
 
-export const AlertCard = styled.div<{ $isOpen: boolean }>`
+export const AlertCard = styled.div<{ $isOpen: boolean; theme: Theme }>`
     ${listEntryStyles};
 
+    border: 1px solid ${({ theme }) => theme.border};
+    background-color: ${({ theme }) => theme.secondary};
     opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0.5)};
     cursor: pointer;
 `;
 
-export const AlertChild = styled.div`
+export const AlertChild = styled.div<{ theme: Theme }>`
     ${listEntryStyles};
+
+    border: 1px solid ${({ theme }) => theme.border};
+    background-color: ${({ theme }) => theme.secondary};
     z-index: 1;
 `;
 
@@ -74,7 +78,7 @@ export const LineContainer = styled.div`
     }
 `;
 
-export const Circle = styled.div`
+export const Circle = styled.div<{ theme: Theme }>`
     position: absolute;
     top: 50%;
     left: 1rem;

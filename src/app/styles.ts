@@ -1,7 +1,8 @@
+import { Theme } from "data/types";
 import styled from "styled-components";
 import { queries, transition } from "styles/variables";
 
-export const StyledApp = styled.div`
+export const StyledApp = styled.div<{ theme: Theme }>`
     width: 100vw;
     min-height: var(--100vh);
     overflow: hidden;

@@ -8,6 +8,7 @@ export const StyledIcon = styled.div<{
     $margin?: string;
     $themeColor?: keyof Theme;
     onClick?: () => void | undefined;
+    theme: Theme;
 }>`
     display: flex;
     align-items: center;

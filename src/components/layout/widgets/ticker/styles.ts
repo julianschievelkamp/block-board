@@ -1,3 +1,4 @@
+import { Theme } from "data/types";
 import styled, { keyframes } from "styled-components";
 
 const highlightColor = ($signalColor: string, baseColor: string) => keyframes`
@@ -5,7 +6,7 @@ const highlightColor = ($signalColor: string, baseColor: string) => keyframes`
     100% { color: ${baseColor} }
 `;
 
-export const StyledPrice = styled.div<{ $signalColor: string }>`
+export const StyledPrice = styled.div<{ $signalColor: string; theme: Theme }>`
     p[data-animation="1"] {
         animation-name: ${({ $signalColor, theme }) =>
             highlightColor($signalColor, theme.text)};

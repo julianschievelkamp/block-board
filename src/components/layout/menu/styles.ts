@@ -1,7 +1,8 @@
+import { Theme } from "data/types";
 import styled from "styled-components";
 import { queries, scrollStyles, transition } from "styles/variables";
 
-export const StyledMenu = styled.div`
+export const StyledMenu = styled.div<{ theme: Theme }>`
     border-top: ${({ theme }) => `1px solid ${theme.border}`};
     background: ${({ theme }) => theme.menu};
     transition: ${transition.fast};

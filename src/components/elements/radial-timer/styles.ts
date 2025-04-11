@@ -2,6 +2,7 @@ import styled, { keyframes } from "styled-components";
 
 import Icon from "components/elements/icon";
 import { transition } from "styles/variables";
+import { Theme } from "data/types";
 
 const timer = keyframes`
     0% { stroke-dasharray: 100, 100 }
@@ -25,7 +26,7 @@ export const StyledSvg = styled.svg<{
     }
 `;
 
-export const StyledPath = styled.path`
+export const StyledPath = styled.path<{ theme: Theme }>`
     stroke: ${({ color, theme }) => color ?? theme.icon};
     transition: ${transition.fast};
 `;

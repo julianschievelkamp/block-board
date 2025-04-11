@@ -1,9 +1,11 @@
+import { Theme } from "data/types";
 import styled, { css } from "styled-components";
 import { borderRadius, queries, shadow, transition } from "styles/variables";
 
 export const StyledWidget = styled.div<{
     $isLoading: boolean;
     $isHover: boolean;
+    theme: Theme;
 }>`
     display: flex;
     flex-direction: column;
@@ -29,6 +31,7 @@ export const StyledWidget = styled.div<{
 
 export const SpinnerContainer = styled.div<{
     $isLoading: boolean;
+    theme: Theme;
 }>`
     position: absolute;
     display: flex;

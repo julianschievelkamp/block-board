@@ -30,7 +30,7 @@ export const usePriceAlerts = () => {
         });
     };
 
-    const notifyUser = (message: string) => {
+    /* const notifyUser = (message: string) => {
         if (Notification.permission === "granted") {
             const notification = new Notification(message);
         } else if (Notification.permission !== "denied") {
@@ -40,7 +40,7 @@ export const usePriceAlerts = () => {
                 }
             });
         }
-    };
+    }; */
 
     return { isSupported, checkAlert };
 };

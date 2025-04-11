@@ -2,9 +2,11 @@ import styled, { css } from "styled-components";
 
 import { shadow, borderRadius, transition, queries } from "styles/variables";
 import { icons } from "../icon/icons";
+import { Theme } from "data/types";
 
 export const StyledButton = styled.button<{
     $iconName?: keyof typeof icons;
+    theme: Theme;
 }>`
     background: ${({ theme }) => theme.secondary};
     color: ${({ theme }) => theme.text};

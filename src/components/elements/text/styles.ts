@@ -1,3 +1,4 @@
+import { Theme } from "data/types";
 import styled from "styled-components";
 import { transition } from "styles/variables";
 
@@ -8,6 +9,7 @@ export const StyledText = styled.p<{
     $margin?: string;
     $fontSize?: string;
     $lineHeight?: string;
+    theme: Theme;
 }>`
     text-align: ${({ $textAlign }) => $textAlign};
     font-weight: ${({ $bold }) => ($bold ? "bold" : "normal")};
