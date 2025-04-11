@@ -1,25 +1,26 @@
-import { ReactComponent as Chart } from "assets/icons/chart.svg";
-import { ReactComponent as Dark } from "assets/icons/darkmode.svg";
-import { ReactComponent as Light } from "assets/icons/lightmode.svg";
-import { ReactComponent as Expand } from "assets/icons/expand.svg";
-import { ReactComponent as Restart } from "assets/icons/restart.svg";
-import { ReactComponent as BarChart } from "assets/icons/barchart.svg";
-import { ReactComponent as Add } from "assets/icons/add.svg";
-import { ReactComponent as Edit } from "assets/icons/edit.svg";
-import { ReactComponent as Save } from "assets/icons/save.svg";
-import { ReactComponent as Info } from "assets/icons/info.svg";
-import { ReactComponent as Profit } from "assets/icons/profit.svg";
-import { ReactComponent as Loss } from "assets/icons/loss.svg";
-import { ReactComponent as Delete } from "assets/icons/delete.svg";
-import { ReactComponent as Close } from "assets/icons/close.svg";
-import { ReactComponent as Data } from "assets/icons/data.svg";
-import { ReactComponent as ArrowRight } from "assets/icons/arrow-right.svg";
-import { ReactComponent as Graph } from "assets/icons/graph.svg";
-import { ReactComponent as Play } from "assets/icons/play.svg";
-import { ReactComponent as Pause } from "assets/icons/pause.svg";
-import { ReactComponent as Stop } from "assets/icons/stop.svg";
-import { ReactComponent as Notifications } from "assets/icons/notifications.svg";
-import { ReactComponent as NotificationsFilled } from "assets/icons/notifications-filled.svg";
+/// <reference types="vite-plugin-svgr/client" />
+import Chart from "assets/icons/chart.svg?react";
+import Dark from "assets/icons/darkmode.svg?react";
+import Light from "assets/icons/lightmode.svg?react";
+import Expand from "assets/icons/expand.svg?react";
+import Restart from "assets/icons/restart.svg?react";
+import BarChart from "assets/icons/barchart.svg?react";
+import Add from "assets/icons/add.svg?react";
+import Edit from "assets/icons/edit.svg?react";
+import Save from "assets/icons/save.svg?react";
+import Info from "assets/icons/info.svg?react";
+import Profit from "assets/icons/profit.svg?react";
+import Loss from "assets/icons/loss.svg?react";
+import Delete from "assets/icons/delete.svg?react";
+import Close from "assets/icons/close.svg?react";
+import Data from "assets/icons/data.svg?react";
+import ArrowRight from "assets/icons/arrow-right.svg?react";
+import Graph from "assets/icons/graph.svg?react";
+import Play from "assets/icons/play.svg?react";
+import Pause from "assets/icons/pause.svg?react";
+import Stop from "assets/icons/stop.svg?react";
+import Notifications from "assets/icons/notifications.svg?react";
+import NotificationsFilled from "assets/icons/notifications-filled.svg?react";
 
 export const icons = {
     chart: Chart,
