@@ -22,10 +22,6 @@ export default createGlobalStyle<{ theme?: Theme }>`
         -webkit-tap-highlight-color: transparent;
     }
 
-    :root {
-        --100vh: 100vh;
-    }
-
     html, body {
         margin: 0;
         padding: 0;
