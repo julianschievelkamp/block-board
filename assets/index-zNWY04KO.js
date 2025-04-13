@@ -317,7 +317,7 @@ Error generating stack: `+n.message+`
     top: 0;
     left: 0;
     width: 100vw;
-    min-height: 100vh;
+    min-height: var(--100vh);
     height: var(--100vh);
     transition: ${_t.fast};
     opacity: ${({$isOpen:a})=>a?"1":"0"};
@@ -389,10 +389,6 @@ Error generating stack: `+n.message+`
         box-sizing: border-box;
         font-family: "Poppins", sans-serif;
         -webkit-tap-highlight-color: transparent;
-    }
-
-    :root {
-        --100vh: 100vh;
     }
 
     html, body {
