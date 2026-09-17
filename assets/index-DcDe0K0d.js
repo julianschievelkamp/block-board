@@ -380,13 +380,13 @@ Error generating stack: `+e.message+`
     .no-scroll {
         overflow: hidden !important;
     }
-`,gc;window.addEventListener(`resize`,()=>{document.body.classList.add(`no-transition`),clearTimeout(gc),gc=setTimeout(()=>{document.body.classList.remove(`no-transition`)},400)});var _c=I.div`
+`,gc=I.div`
     width: 100vw;
     min-height: var(--100vh);
     overflow: hidden;
     background: ${({theme:e})=>e.body};
     transition: ${$n.fast};
-`,vc=I.div`
+`,_c=I.div`
     display: grid;
     grid-auto-rows: 1fr;
     grid-gap: 1rem;
@@ -409,7 +409,7 @@ Error generating stack: `+e.message+`
     @media ${Zn.xxxl} {
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
-`,yc=({title:e,children:t,isOpen:n,onClose:r})=>(0,L.jsx)(sc,{$isOpen:n,children:(0,L.jsxs)(cc,{$isOpen:n,children:[(0,L.jsx)(ir,{bold:!0,margin:`0 0 1rem 0`,children:e}),(0,L.jsx)(uc,{name:`close`,size:`1.5rem`,onClick:r}),(0,L.jsx)(lc,{children:t})]})}),bc=I.div`
+`,vc=({title:e,children:t,isOpen:n,onClose:r})=>(0,L.jsx)(sc,{$isOpen:n,children:(0,L.jsxs)(cc,{$isOpen:n,children:[(0,L.jsx)(ir,{bold:!0,margin:`0 0 1rem 0`,children:e}),(0,L.jsx)(uc,{name:`close`,size:`1.5rem`,onClick:r}),(0,L.jsx)(lc,{children:t})]})}),yc=I.div`
     display: grid;
     grid-auto-rows: 1fr;
     grid-template-columns: 1fr 1fr;
@@ -418,7 +418,7 @@ Error generating stack: `+e.message+`
     @media ${Zn.sm} {
         grid-template-columns: 1fr 1fr 1fr;
     }
-`,xc=I.div`
+`,bc=I.div`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -435,7 +435,7 @@ Error generating stack: `+e.message+`
             opacity: 1;
         }
     }
-`,Sc=()=>{let{widgets:e,addWidget:t,removeWidget:n,modalOpen:r,setModalOpen:i}=xr();return(0,L.jsx)(yc,{title:hr.addWidget,isOpen:r===`add`,onClose:()=>i(null),children:(0,L.jsx)(bc,{children:Object.keys($s).map(r=>{let i=r,a=$s[i],o=e.includes(i);return(0,L.jsxs)(xc,{opacity:o?1:.5,color:o?a.color:void 0,onClick:()=>o?n(i):t(i),children:[(0,L.jsx)($r,{src:a.img,alt:a.symbol,height:`1rem`,width:`1rem`}),(0,L.jsx)(ir,{textAlign:`center`,margin:`0 0 0 0.25rem`,fontSize:`0.75rem`,bold:!0,children:a.assetKey.toUpperCase()})]},r)})})})},Cc=F`
+`,xc=()=>{let{widgets:e,addWidget:t,removeWidget:n,modalOpen:r,setModalOpen:i}=xr();return(0,L.jsx)(vc,{title:hr.addWidget,isOpen:r===`add`,onClose:()=>i(null),children:(0,L.jsx)(yc,{children:Object.keys($s).map(r=>{let i=r,a=$s[i],o=e.includes(i);return(0,L.jsxs)(bc,{opacity:o?1:.5,color:o?a.color:void 0,onClick:()=>o?n(i):t(i),children:[(0,L.jsx)($r,{src:a.img,alt:a.symbol,height:`1rem`,width:`1rem`}),(0,L.jsx)(ir,{textAlign:`center`,margin:`0 0 0 0.25rem`,fontSize:`0.75rem`,bold:!0,children:a.assetKey.toUpperCase()})]},r)})})})},Sc=F`
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -443,31 +443,31 @@ Error generating stack: `+e.message+`
     border-radius: ${Qn.edged};
     transition: ${$n.fast}, opacity 0ms;
     width: 100%;
-`,wc=I.div`
+`,Cc=I.div`
     margin-top: 0.5rem;
 
     &:first-child {
         margin-top: 0;
     }
-`,Tc=I.div`
-    ${Cc};
+`,wc=I.div`
+    ${Sc};
 
     border: 1px solid ${({theme:e})=>e.border};
     background-color: ${({theme:e})=>e.secondary};
     opacity: ${({$isOpen:e})=>e?1:.5};
     cursor: pointer;
-`,Ec=I.div`
-    ${Cc};
+`,Tc=I.div`
+    ${Sc};
 
     border: 1px solid ${({theme:e})=>e.border};
     background-color: ${({theme:e})=>e.secondary};
     z-index: 1;
-`,Dc=I.div`
+`,Ec=I.div`
     height: ${({$isOpen:e})=>e?`auto`:`0`};
     overflow: hidden;
-`,Oc=I(sr)`
+`,Dc=I(sr)`
     transform: ${({$isOpen:e})=>`rotate(${e?`180deg`:`0`})`};
-`,kc=I.div`
+`,Oc=I.div`
     position: absolute;
     top: 50%;
     left: 1rem;
@@ -496,7 +496,7 @@ Error generating stack: `+e.message+`
         height: 3rem;
         background-color: darkgrey;
     }
-`,Ac=I.div`
+`,kc=I.div`
     position: absolute;
     top: 50%;
     left: 1rem;
@@ -508,4 +508,4 @@ Error generating stack: `+e.message+`
     background: ${({theme:e})=>e.secondary};
     transition: ${$n.fast};
     z-index: 1;
-`,jc=({alerts:e,isOpen:t,setIsOpen:n,onAlertDelete:r,onAlertReset:i})=>{let a=$s[e[0].assetKey],o=dr(Zn.xs),s=dr(Zn.sm);return(0,L.jsxs)(wc,{children:[(0,L.jsxs)(Tc,{onClick:n,$isOpen:t,children:[(0,L.jsxs)(wr,{display:`flex`,alignItems:`center`,children:[(0,L.jsx)($r,{src:a.img,alt:a.symbol,height:`1rem`,width:`1rem`}),(0,L.jsx)(ir,{fontSize:`0.75rem`,margin:`0 0 0 0.25rem`,bold:!0,color:a.color,children:a.assetKey})]}),(0,L.jsx)(ir,{fontSize:`0.75rem`,children:hr.alertCount(e.length)}),(0,L.jsx)(Oc,{name:`expand`,$isOpen:t})]}),(0,L.jsx)(Dc,{$isOpen:t,children:e.map(e=>{let t=new Date(e.timestamp_reached);return(0,L.jsxs)(wr,{display:`flex`,alignItems:`center`,margin:`0.5rem 0 0 0`,children:[(0,L.jsxs)(wr,{width:`4rem`,height:`100%`,children:[(0,L.jsx)(kc,{}),(0,L.jsx)(Ac,{})]}),(0,L.jsxs)(Ec,{children:[(0,L.jsx)(wr,{width:`50%`,children:o&&e.timestamp_reached>0&&(0,L.jsx)(ir,{fontSize:`0.75rem`,margin:`0 0 0 0.25rem`,color:`darkgrey`,children:s?t.toLocaleString():t.toLocaleDateString()})}),(0,L.jsxs)(wr,{display:`flex`,alignItems:`center`,width:`50%`,justifyContent:`flex-end`,children:[(0,L.jsx)(ir,{fontSize:`0.75rem`,children:Lr(e.target,e.currency)}),(0,L.jsx)(sr,{name:`delete`,margin:`0 0 0 1rem`,onClick:()=>r(e)}),(0,L.jsx)(sr,{name:`restart`,margin:`0 0 0 0.25rem`,onClick:()=>i(e)})]})]})]},e.timestamp_created)})})]})},Mc=()=>{let[e,t]=(0,N.useState)(0),{priceAlerts:n,removePriceAlert:r,addPriceAlert:i,modalOpen:a,setModalOpen:o}=xr();return(0,L.jsxs)(yc,{title:hr.priceAlerts,isOpen:a===`alerts`,onClose:()=>o(null),children:[Object.keys($s).map((a,o)=>{let s=n.filter(e=>e.assetKey===a);return s.length!==0&&(0,L.jsx)(jc,{alerts:s,isOpen:o===e,setIsOpen:()=>t(o===e?-1:o),onAlertDelete:e=>r(e),onAlertReset:e=>{r(e),i({...e,timestamp_reached:0})}},a)}),(0,L.jsx)(wr,{margin:`1rem 0 0 0`,display:`flex`,justifyContent:`flex-end`,children:(0,L.jsx)(lr,{iconName:`add`,onClick:()=>{}})})]})};(0,Ge.createRoot)(document.getElementById(`root`)).render((0,L.jsx)(N.StrictMode,{children:(0,L.jsx)(()=>{let{theme:e,toggleTheme:t,isLoading:n}=mc(),{widgets:r}=xr();return n?(0,L.jsx)(L.Fragment,{}):(0,L.jsxs)(Pn,{theme:e===`light`?Yn:Xn,children:[(0,L.jsx)(hc,{}),(0,L.jsxs)(_c,{children:[(0,L.jsxs)(vc,{children:[Object.keys(ec).map(e=>{let t=e;return r.includes(t)&&(0,L.jsx)(wr,{children:ec[t].content},e)}),Object.keys($s).map(e=>{let t=e;return r.includes(t)&&(0,L.jsx)(oc,{assetKey:t},e)})]}),(0,L.jsx)(pc,{}),(0,L.jsx)(Sc,{}),(0,L.jsx)(Mc,{}),(0,L.jsx)(Sr,{theme:e,toggleTheme:t})]})]})},{})}));
+`,Ac=({alerts:e,isOpen:t,setIsOpen:n,onAlertDelete:r,onAlertReset:i})=>{let a=$s[e[0].assetKey],o=dr(Zn.xs),s=dr(Zn.sm);return(0,L.jsxs)(Cc,{children:[(0,L.jsxs)(wc,{onClick:n,$isOpen:t,children:[(0,L.jsxs)(wr,{display:`flex`,alignItems:`center`,children:[(0,L.jsx)($r,{src:a.img,alt:a.symbol,height:`1rem`,width:`1rem`}),(0,L.jsx)(ir,{fontSize:`0.75rem`,margin:`0 0 0 0.25rem`,bold:!0,color:a.color,children:a.assetKey})]}),(0,L.jsx)(ir,{fontSize:`0.75rem`,children:hr.alertCount(e.length)}),(0,L.jsx)(Dc,{name:`expand`,$isOpen:t})]}),(0,L.jsx)(Ec,{$isOpen:t,children:e.map(e=>{let t=new Date(e.timestamp_reached);return(0,L.jsxs)(wr,{display:`flex`,alignItems:`center`,margin:`0.5rem 0 0 0`,children:[(0,L.jsxs)(wr,{width:`4rem`,height:`100%`,children:[(0,L.jsx)(Oc,{}),(0,L.jsx)(kc,{})]}),(0,L.jsxs)(Tc,{children:[(0,L.jsx)(wr,{width:`50%`,children:o&&e.timestamp_reached>0&&(0,L.jsx)(ir,{fontSize:`0.75rem`,margin:`0 0 0 0.25rem`,color:`darkgrey`,children:s?t.toLocaleString():t.toLocaleDateString()})}),(0,L.jsxs)(wr,{display:`flex`,alignItems:`center`,width:`50%`,justifyContent:`flex-end`,children:[(0,L.jsx)(ir,{fontSize:`0.75rem`,children:Lr(e.target,e.currency)}),(0,L.jsx)(sr,{name:`delete`,margin:`0 0 0 1rem`,onClick:()=>r(e)}),(0,L.jsx)(sr,{name:`restart`,margin:`0 0 0 0.25rem`,onClick:()=>i(e)})]})]})]},e.timestamp_created)})})]})},jc=()=>{let[e,t]=(0,N.useState)(0),{priceAlerts:n,removePriceAlert:r,addPriceAlert:i,modalOpen:a,setModalOpen:o}=xr();return(0,L.jsxs)(vc,{title:hr.priceAlerts,isOpen:a===`alerts`,onClose:()=>o(null),children:[Object.keys($s).map((a,o)=>{let s=n.filter(e=>e.assetKey===a);return s.length!==0&&(0,L.jsx)(Ac,{alerts:s,isOpen:o===e,setIsOpen:()=>t(o===e?-1:o),onAlertDelete:e=>r(e),onAlertReset:e=>{r(e),i({...e,timestamp_reached:0})}},a)}),(0,L.jsx)(wr,{margin:`1rem 0 0 0`,display:`flex`,justifyContent:`flex-end`,children:(0,L.jsx)(lr,{iconName:`add`,onClick:()=>{}})})]})};(0,Ge.createRoot)(document.getElementById(`root`)).render((0,L.jsx)(N.StrictMode,{children:(0,L.jsx)(()=>{let{theme:e,toggleTheme:t,isLoading:n}=mc(),{widgets:r}=xr();return(0,N.useEffect)(()=>{let e,t=()=>{document.body.classList.contains(`no-transition`)||document.body.classList.add(`no-transition`),clearTimeout(e),e=setTimeout(()=>{document.body.classList.remove(`no-transition`)},400)};return window.addEventListener(`resize`,t),()=>window.removeEventListener(`resize`,t)},[]),n?(0,L.jsx)(L.Fragment,{}):(0,L.jsxs)(Pn,{theme:e===`light`?Yn:Xn,children:[(0,L.jsx)(hc,{}),(0,L.jsxs)(gc,{children:[(0,L.jsxs)(_c,{children:[Object.keys(ec).map(e=>{let t=e;return r.includes(t)&&(0,L.jsx)(wr,{children:ec[t].content},e)}),Object.keys($s).map(e=>{let t=e;return r.includes(t)&&(0,L.jsx)(oc,{assetKey:t},e)})]}),(0,L.jsx)(pc,{}),(0,L.jsx)(xc,{}),(0,L.jsx)(jc,{}),(0,L.jsx)(Sr,{theme:e,toggleTheme:t})]})]})},{})}));
