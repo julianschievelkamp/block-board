@@ -48,15 +48,3 @@ export default createGlobalStyle<{ theme?: Theme }>`
         overflow: hidden !important;
     }
 `;
-
-let resizeTimer: ReturnType<typeof setTimeout>;
-
-window.addEventListener("resize", () => {
-    document.body.classList.add("no-transition");
-
-    clearTimeout(resizeTimer);
-
-    resizeTimer = setTimeout(() => {
-        document.body.classList.remove("no-transition");
-    }, 400);
-});

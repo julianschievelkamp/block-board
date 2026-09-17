@@ -15,10 +15,31 @@ import AlertsModal from "components/layout/modals/alerts-modal";
 import { AssetKey, OtherKey } from "data/types";
 import { assets, other } from "data/data";
 import Div from "components/elements/div";
+import { useEffect } from "react";
 
 const App = () => {
     const { theme, toggleTheme, isLoading } = useDarkMode();
     const { widgets } = useStore();
+
+    useEffect(() => {
+        let resizeTimer: ReturnType<typeof setTimeout>;
+
+        const handleResize = () => {
+            if (!document.body.classList.contains("no-transition")) {
+                document.body.classList.add("no-transition");
+            }
+
+            clearTimeout(resizeTimer);
+
+            resizeTimer = setTimeout(() => {
+                document.body.classList.remove("no-transition");
+            }, 400);
+        };
+
+        window.addEventListener("resize", handleResize);
+
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     if (isLoading) return <></>;
 
