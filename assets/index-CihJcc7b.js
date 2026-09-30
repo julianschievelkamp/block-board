@@ -328,14 +328,14 @@ Error generating stack: `+e.message+`
     @font-face {
         font-family: "Poppins";
         font-style: normal;
-        src: url(${`/block-board/assets/Poppins-Light-DT6-CsId.ttf`}) format("truetype");
+        src: url(${`/block-board/assets/Poppins-Light-BBOoPhLm.woff2`}) format("woff2");
     }
 
     @font-face {
         font-family: "Poppins";
         font-style: normal;
         font-weight: bold;
-        src: url(${`/block-board/assets/Poppins-Bold-qTAUjFF7.ttf`}) format("truetype");
+        src: url(${`/block-board/assets/Poppins-Bold--aKA7T72.woff2`}) format("woff2");
     }
 `}
 
