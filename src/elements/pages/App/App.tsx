@@ -9,7 +9,7 @@ const App = () => (
         <GlobalStyle />
 
         <Main>
-            <Headline>BlockBoard</Headline>
+            <Headline>Block Board</Headline>
             <Text>Coming soon</Text>
         </Main>
     </>
