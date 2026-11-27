@@ -84,4 +84,4 @@ Error generating stack: `+e.message+`
     line-height: 1.5;
     transition: color ${$n.default};
     font-family: "Poppins", sans-serif;
-`,nr=({children:e,className:t})=>(0,Xn.jsx)(tr,{className:t,children:e});(0,We.createRoot)(document.getElementById(`root`)).render((0,Xn.jsx)(Ge.StrictMode,{children:(0,Xn.jsx)(()=>(0,Xn.jsxs)(Xn.Fragment,{children:[(0,Xn.jsx)(qn,{}),(0,Xn.jsxs)(er,{children:[(0,Xn.jsx)(Zn,{children:`BlockBoard`}),(0,Xn.jsx)(nr,{children:`Coming soon`})]})]}),{})}));
+`,nr=({children:e,className:t})=>(0,Xn.jsx)(tr,{className:t,children:e});(0,We.createRoot)(document.getElementById(`root`)).render((0,Xn.jsx)(Ge.StrictMode,{children:(0,Xn.jsx)(()=>(0,Xn.jsxs)(Xn.Fragment,{children:[(0,Xn.jsx)(qn,{}),(0,Xn.jsxs)(er,{children:[(0,Xn.jsx)(Zn,{children:`Block Board`}),(0,Xn.jsx)(nr,{children:`Coming soon`})]})]}),{})}));
