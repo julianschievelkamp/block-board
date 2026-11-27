@@ -6,6 +6,7 @@ export const transition = {
 };
 
 export const colors = {
+    highlight: "rgba(255, 192, 0, 1)",
     secondary: "rgba(0, 0, 0, 0.6)",
 };
 

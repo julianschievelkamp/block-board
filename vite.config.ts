@@ -8,5 +8,5 @@ export default defineConfig({
     resolve: {
         tsconfigPaths: true,
     },
-    base: "/",
+    base: "/block-board/",
 });
